@@ -6,5 +6,5 @@ module smurfcat.enLearn {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
 
-    exports smurfcat.enLearn;
+    exports smurfcat.enlearn;
 }

@@ -1,4 +1,4 @@
-package smurfcat.enLearn.core;
+package smurfcat.enlearn.core;
 
 class Word {
     String word_target;

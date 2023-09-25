@@ -1,4 +1,4 @@
-package smurfcat.enLearn.graphics.appwindow;
+package smurfcat.enlearn.graphics.appwindow;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
