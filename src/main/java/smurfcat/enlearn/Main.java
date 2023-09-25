@@ -1,6 +1,6 @@
-package smurfcat.enLearn;
+package smurfcat.enlearn;
 
-import smurfcat.enLearn.graphics.appwindow.AppWindow;
+import smurfcat.enlearn.graphics.appwindow.AppWindow;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

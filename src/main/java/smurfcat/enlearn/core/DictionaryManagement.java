@@ -1,4 +1,4 @@
-package smurfcat.enLearn.core;
+package smurfcat.enlearn.core;
 
 import java.util.List;
 import java.util.Scanner;
