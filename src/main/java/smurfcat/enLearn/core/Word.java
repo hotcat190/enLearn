@@ -1,4 +1,6 @@
-public class Word {
+package smurfcat.enLearn.core;
+
+class Word {
     String word_target;
     String word_explain;
 

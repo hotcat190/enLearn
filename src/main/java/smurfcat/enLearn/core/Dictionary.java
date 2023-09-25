@@ -1,18 +1,20 @@
+package smurfcat.enLearn.core;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dictionary {
+class Dictionary {
     private final List<Word> listOfWords;
 
-    public Dictionary() {
+    Dictionary() {
         this.listOfWords = new ArrayList<>();
     }
 
-    public void add(Word word) {
+    void add(Word word) {
         this.listOfWords.add(word);
     }
 
-    public List<Word> getListOfWords() {
+    List<Word> getListOfWords() {
         return this.listOfWords;
     }
 }
