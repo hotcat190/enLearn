@@ -1,4 +1,4 @@
 .idea
 .mvn
 target
-.xml
+*.iml

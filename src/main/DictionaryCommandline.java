@@ -1,14 +1,16 @@
+package smurfcat.enLearn.core;
+
 import java.util.List;
 
-public class DictionaryCommandline {
-    private final Dictionary dictionary;
+class DictionaryCommandline {
+    private final DictionaryManagement dictionaryManagement;
 
-    public DictionaryCommandline(Dictionary dictionary) {
-        this.dictionary = dictionary;
+    DictionaryCommandline() {
+        this.dictionaryManagement = new DictionaryManagement();
     }
 
-    public void showAllWords() {
-        List<Word> listOfWords = this.dictionary.getListOfWords();
+    void showAllWords() {
+        List<Word> listOfWords = this.dictionaryManagement.getListOfWords();
 
         final int MAX_INDEX_DIGITS = 3; // Format up to 3 digits
         final int MAX_LEN_WORD = 45; // Longest English word length in a major dictionary = 45
@@ -27,5 +29,15 @@ public class DictionaryCommandline {
             System.out.print(" | ");
             System.out.println(word.word_explain);
         }
+    }
+
+    void dictionaryBasic() {
+        this.dictionaryManagement.insertFromCommandline();
+        this.showAllWords();
+    }
+
+    public static void main(String[] args) {
+        DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
+        dictionaryCommandline.dictionaryBasic();
     }
 }

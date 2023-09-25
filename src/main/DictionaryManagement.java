@@ -1,16 +1,16 @@
+package smurfcat.enLearn.core;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryManagement {
     private final Dictionary dictionary;
-    private final DictionaryCommandline dictionaryCommandline;
 
-    public DictionaryManagement() {
+    DictionaryManagement() {
         this.dictionary = new Dictionary();
-        this.dictionaryCommandline = new DictionaryCommandline(dictionary);
     }
 
-    public void insertFromCommandline() {
+    void insertFromCommandline() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Number of inserts: ");
@@ -28,13 +28,7 @@ public class DictionaryManagement {
         }
     }
 
-    public void dictionaryBasic() {
-        insertFromCommandline();
-        this.dictionaryCommandline.showAllWords();
-    }
-
-    public static void main(String[] args) {
-        DictionaryManagement dictionaryManagement = new DictionaryManagement();
-        dictionaryManagement.dictionaryBasic();
+    List<Word> getListOfWords() {
+        return this.dictionary.getListOfWords();
     }
 }
