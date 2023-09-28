@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/IdeaProjects/DSA2023.iml" filepath="$USER_HOME$/IdeaProjects/DSA2023.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DSA2023/DSA20231.iml" filepath="$PROJECT_DIR$/../../DSA2023/DSA20231.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DSA2023/src/main/main.iml" filepath="$PROJECT_DIR$/../../DSA2023/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../DSA2023/src/main/week2/week2.iml" filepath="$PROJECT_DIR$/../../DSA2023/src/main/week2/week2.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,35 @@
+#paneForBackground {
+    -fx-background-image: url('../image/GUI.png');
+    -fx-background-color: transparent;
+    -fx-background-size: 95%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, rgba(21, 21, 21, 0.1), 30, 0, 0, 0);
+}
+
+#textForDay {
+    -fx-font-family: sans-serif;
+    -fx-text-fill: yellow;
+}
+
+#labelForDay, #labelForDate {
+    -fx-font-family: "Source Code Pro";
+    -fx-text-fill: #1F2F3F;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+#labelForTime {
+    -fx-font-family: "Corbel";
+    -fx-text-fill: #1F2F3F;
+    -fx-font-size: 13;
+    -fx-font-weight: 700;
+}
+
+#labelForMonth {
+    -fx-font-family: "Calibri";
+    -fx-text-fill: #1F2F3F;
+    -fx-font-size: 10;
+    -fx-font-weight: lighter;
+}
+

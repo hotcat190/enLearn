@@ -1,4 +1,4 @@
-module graphics {
+module apppackage {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -7,4 +7,5 @@ module graphics {
     requires org.kordamp.bootstrapfx.core;
 
     exports graphics.main;
+    exports utility.calendar;
 }

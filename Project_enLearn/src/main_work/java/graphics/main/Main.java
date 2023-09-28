@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         AppWindow appWindow = new AppWindow(stage);
-        appWindow.stage.show();
+        appWindow.show();
     }
 
     public static void main(String[] args) {
