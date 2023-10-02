@@ -1,44 +1,26 @@
-package graphics.appwindow;
+package graphics.app;
 
 import javafx.animation.*;
-import javafx.application.Platform;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.FutureTask;
-import java.util.function.Predicate;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Objects;
 
-/**
- * This is package for graphics.
- *
- * @author Hoang Duc Bach
- * @since 24/09/2023
- */
-
-class ScreenLaptop {
-    /**
-     * Get current width and height of laptop to align.
-     */
-    final static double SCREEN_HEIGHT = Screen.getPrimary().getBounds().getHeight();
-    final static double SCREEN_WIDTH = Screen.getPrimary().getBounds().getWidth();
-}
-
-public class AppWindow {
+public class AppStartPage extends AppWindow {
     /**
      * Information about app like version, blockquote, author,...
      */
@@ -46,38 +28,22 @@ public class AppWindow {
     private final Text versionBlockquote = new Text("enLearn is an application that makes learning English easier,\n" +
             "this is the first gui version of the developer team.");
     private final VBox vBoxVersionInfo = new VBox(version, versionBlockquote);
-    /**
-     * App Window is equal 85% Laptop Window
-     */
-    private final double SCALE = 0.85;
-    private final double APP_HEIGHT = ScreenLaptop.SCREEN_HEIGHT * SCALE;
-    private final double APP_WIDTH = ScreenLaptop.SCREEN_WIDTH * SCALE;
-    private final double DELTA_Y = (APP_HEIGHT - APP_HEIGHT * 0.95) / 2;
-    private final double DELTA_X = (APP_WIDTH - APP_WIDTH * 0.95) / 2;
-
-    /**
-     * Real size, not calculate drop shadow
-     */
-    private final double REAL_APP_WIDTH = APP_WIDTH - 2 * DELTA_X;
-    private final double REAL_APP_HEIGHT = APP_HEIGHT - 2 * DELTA_Y;
 
     /**
      * Set background
      */
-    private final Pane paneForBackground = new Pane();
+//    private final Pane paneWindow = new Pane();
 
     /**
      * Main components of app window, edit recently so public.
      */
     public Stage stage;
-    public Pane group = new Pane();
-    public Scene scene = new Scene(paneForBackground);
+    public Scene scenePage = new Scene(paneWindow);
 
     /**
      * Button Learn to start
      */
     Text textForLearnButton = new Text("LEARN");
-    private boolean isPressed;
     private final ImageView arrowLearnButton = new ImageView(Objects.requireNonNull(getClass().getResource("/image/arrow_icon_learnbutton_app.png")).toExternalForm());
     private final ImageView arrowLineLearnButton = new ImageView(Objects.requireNonNull(getClass().getResource("/image/arrowline_icon_learnbutton_app.png")).toExternalForm());
     private final Rectangle circleLearnButton = new Rectangle();
@@ -90,22 +56,13 @@ public class AppWindow {
     private final Text labelForTime = new Text();
     private final Text labelForMonth = new Text();
     private final Text labelForDate = new Text();
+
     /**
      * VBox for vertical layout of stack pane for date & label for date & label for time
      */
     private final VBox vBoxForTime = new VBox();
     private final StackPane stackPaneForDate = new StackPane();
     private final ImageView themeGradientDay = new ImageView(Objects.requireNonNull(getClass().getResource("/image/theme_gradient_day_app.png")).toExternalForm());
-
-    /**
-     * Control of app.
-     */
-    Button exitButton = new Button();
-    Button minimizeButton = new Button();
-    /**
-     * HBox for horizontal layout of exit button & minimize button
-     */
-    HBox controlHBox = new HBox(minimizeButton, exitButton);
 
     /**
      * State day.
@@ -122,17 +79,14 @@ public class AppWindow {
     /**
      * Constructor for AppWindow class
      */
-    public AppWindow(Stage stageInit) {
+    public AppStartPage(Stage stageInit) {
         stage = stageInit;
-        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/icon_for_app.png"))));
-
+        setAppWindow(stageInit);
         try {
-            paneForBackground.getChildren().add(group);
-            paneForBackground.getChildren().add(vBoxForTime);
-            paneForBackground.getChildren().add(controlHBox);
-            paneForBackground.getChildren().add(paneLearnButton);
-            paneForBackground.getChildren().add(vBoxVersionInfo);
-            paneForBackground.getChildren().add(hBoxStateDay);
+            paneWindow.getChildren().add(vBoxForTime);
+            paneWindow.getChildren().add(paneLearnButton);
+            paneWindow.getChildren().add(vBoxVersionInfo);
+            paneWindow.getChildren().add(hBoxStateDay);
 
             stackPaneForDate.getChildren().add(themeGradientDay);
             stackPaneForDate.getChildren().add(labelForDate);
@@ -143,7 +97,7 @@ public class AppWindow {
             vBoxForTime.getChildren().add(labelForTime);
 
         } catch (Exception e) {
-            System.out.println("Error at graphics.appwindow.AppWindow:");
+            System.out.println("Error at graphics.app.AppStartPage and at constructor AppStartPage");
             System.out.println("Error when try add children!");
             System.out.println("Error: " + e.toString());
 
@@ -152,9 +106,9 @@ public class AppWindow {
         Set attribute for all node.
          */
         try {
-            setIdForAll();
-            setCSSForAll();
-            scene.setFill(Color.TRANSPARENT);
+            setIdPage();
+            setCSSPage();
+            scenePage.setFill(Color.TRANSPARENT);
 
             vBoxVersionInfo.setLayoutX(40);
             vBoxVersionInfo.setLayoutY(670);
@@ -162,10 +116,6 @@ public class AppWindow {
             labelForDate.setTranslateX(2);
             labelForMonth.setTranslateX(2);
             labelForMonth.setTranslateY(-13);
-
-            controlHBox.layout();
-            controlHBox.setLayoutY(DELTA_Y);
-            controlHBox.setLayoutX(DELTA_X + REAL_APP_WIDTH - controlHBox.getBoundsInLocal().getWidth());
 
             vBoxForTime.layout();
             vBoxForTime.setLayoutY(DELTA_Y + 20);
@@ -178,21 +128,15 @@ public class AppWindow {
             themeGradientDay.setFitHeight(themeGradientDay.getImage().getHeight() * 0.25);
             themeGradientDay.setTranslateX(-3);
 
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.setTitle("enLearn");
-            stage.setX((ScreenLaptop.SCREEN_WIDTH - APP_WIDTH) / 2);
-            stage.setY((ScreenLaptop.SCREEN_HEIGHT - APP_HEIGHT) / 2);
-            stage.setWidth(APP_WIDTH);
-            stage.setHeight(APP_HEIGHT);
-            stage.setScene(scene);
+            stage.setScene(scenePage);
         } catch (Exception e) {
-            System.out.println("Error at graphics.appwindow.AppWindow:");
+            System.out.println("Error at graphics.app.AppStartPage and at constructor AppStartPage");
             System.out.println("Error when try set for children!");
-            System.out.println("Error: " + e.toString());
+            System.out.println("Error: " + e);
         }
     }
 
-    private void setIdForAll() {
+    private void setIdPage() {
         labelForTime.setId("labelForTime");
         labelForDay.setId("labelForDay");
         labelForDate.setId("labelForDate");
@@ -200,7 +144,7 @@ public class AppWindow {
         textForLearnButton.setId("textForLearnButton");
         exitButton.setId("exitButton");
         controlHBox.setId("controlHBox");
-        paneForBackground.setId("paneForBackground");
+        paneWindow.setId("paneForBackground");
         vBoxForTime.setId("vBoxForTime");
         minimizeButton.setId("minimizeButton");
         circleLearnButton.setId("circleLearnButton");
@@ -209,10 +153,9 @@ public class AppWindow {
         stateDay.setId("stateDay");
     }
 
-    private void setCSSForAll() {
+    private void setCSSPage() {
         vBoxForTime.getStylesheets().add(linkToCSS);
-        paneForBackground.getStylesheets().add(linkToCSS);
-        controlHBox.getStylesheets().add(linkToCSS);
+        paneWindow.getStylesheets().add(linkToCSS);
         hBoxStateDay.getStylesheets().add(linkToCSS);
 
         labelForMonth.applyCss();
@@ -220,10 +163,10 @@ public class AppWindow {
         labelForDate.applyCss();
         labelForTime.applyCss();
         vBoxForTime.applyCss();
-        exitButton.applyCss();
-        minimizeButton.applyCss();
+        
         textForLearnButton.applyCss();
         circleLearnButton.applyCss();
+        
         version.applyCss();
         versionBlockquote.applyCss();
         stateDay.applyCss();
@@ -250,7 +193,7 @@ public class AppWindow {
 
     }
 
-    private void setAnimation() {
+    private void setAnimationPage() {
         TranslateTransition hBoxTranslateTransition = new TranslateTransition(Duration.seconds(1), hBoxStateDay);
         hBoxTranslateTransition.setToY(10);
         hBoxTranslateTransition.setToY(-10);
@@ -423,20 +366,17 @@ public class AppWindow {
      * Set event for button.
      */
     private void setEventAndRunForButton() {
-        exitButton.setOnMouseClicked((l) -> {
-            Platform.exit();
-        });
-        minimizeButton.setOnMouseClicked((l) -> {
-            stage.setIconified(true);
-        });
+        applyEventAppWindow();
         setLearnButton();
-
     }
 
-    public void show() {
+    public Scene getScenePage() {
+        return scenePage;
+    }
+    public void showPage() {
         setEventAndRunForButton();
         showCalendar();
-        setAnimation();
+        setAnimationPage();
         stage.show();
     }
 }

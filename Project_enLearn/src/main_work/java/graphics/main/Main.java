@@ -1,6 +1,6 @@
 package graphics.main;
 
-import graphics.appwindow.*;
+import graphics.app.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -9,8 +9,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        AppWindow appWindow = new AppWindow(stage);
-        appWindow.show();
+        AppStartPage appStartPage = new AppStartPage(stage);
+        appStartPage.showPage();
     }
 
     public static void main(String[] args) {
