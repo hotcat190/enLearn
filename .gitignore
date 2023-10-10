@@ -1,5 +1,4 @@
-Project_enLearn/.idea
-Project_enLearn/.mvn
-Project_enLearn/target
+/.idea
+/.mvn
+/target
 .xml
-design/
