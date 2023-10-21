@@ -1,14 +1,11 @@
-package dictionary;
+package graphics.engine;
 
+import dictionary.Translate;
 import graphics.control.Dialog;
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Task;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -16,43 +13,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-class TranslateAPI {
-    public static String translate(StringBuffer langFrom, StringBuffer langTo, StringBuffer text) throws IOException {
-        StringBuffer urlScript = new StringBuffer("https://script.google.com/macros/s/AKfycbw1qSfs1Hvfnoi3FzGuoDWijwQW69eGcMM_iGDF7p5vu1oN_CaFqIDFmCGzBuuGCk_N/exec" +
-                "?q=" + URLEncoder.encode(text.toString(), "UTF-8") +
-                "&target=" + langTo +
-                "&source=" + langFrom);
-        URL url = new URL(urlScript.toString());
-        StringBuffer response = new StringBuffer();
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
-        }
-        in.close();
-        return response.toString();
-    }
-
-}
 
 /**
  * Class Translator to translate text, using google API.
@@ -128,6 +94,7 @@ public class TranslateEngine {
             textInput.setMaxWidth(390);
             textInput.setMaxHeight(170);
             textInput.setTranslateY(-20);
+
             inputBox.setAlignment(Pos.CENTER_LEFT);
             inputBox.getChildren().add(inputBoxImage);
             inputBox.getChildren().add(textInput);
@@ -268,10 +235,10 @@ public class TranslateEngine {
          */
         textInput.setOnKeyTyped(e -> {
             String inputText = textInput.getText();
-            textOutput.setText(stringOutput+". . .");
+            textOutput.setText(stringOutput + ". . .");
             new Thread(() -> {
                 try {
-                    stringOutput = new StringBuffer(TranslateAPI.translate(new StringBuffer(tagLangFrom.getText()), new StringBuffer(tagLangTo.getText()), new StringBuffer(inputText)));
+                    stringOutput = new StringBuffer(Translate.translate(new StringBuffer(tagLangFrom.getText()), new StringBuffer(tagLangTo.getText()), new StringBuffer(inputText)));
                     if (stringOutput.toString().startsWith("<!DOCTYPE html>")) {
                         stringOutput = new StringBuffer("Service Google Translate is unavailable");
                     }

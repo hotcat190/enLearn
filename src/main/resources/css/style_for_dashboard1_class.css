@@ -1,4 +1,4 @@
-
+/* MAIN LAYOUT */
 #pane {
     /* || Structure Block*/
     -fx-background-image: url('../image/user_interface_app.png');
@@ -11,7 +11,7 @@
     -fx-effect: dropshadow(three-pass-box, rgba(10, 10, 10, 0.15), 30, 0, -2, 2);
 }
 
-/* SEARCH ENGINE*/
+/* SEARCH ENGINE */
 #searchShape {
     all: none;
     /* || Structure Block*/
@@ -25,11 +25,64 @@
 }
 
 #searchEngine {
+    /* || Structure Block*/
     -fx-background-color: transparent;
+
+    /* || Typography block*/
     -fx-font-family: "Myriad Pro";
     -fx-font-size: 12;
     -fx-text-fill: rgb(192, 187, 170);
+}
 
+/* SEARCH SEARCH ENGINE SCROLL BAR*/
+#listView .scroll-bar > .increment-button, .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}
+
+#listView .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+#listView .scroll-bar > .thumb {
+    -fx-background-color: rgb(53, 35, 229);
+    -fx-background-radius: 20px;
+}
+
+#listView .scroll-bar > .thumb:hover {
+    -fx-background-color: rgb(87, 69, 252);
+}
+
+#listView .scroll-bar > .track {
+    -fx-background-color: transparent;
+}
+
+#textInput .scroll-bar > .corner {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px;
+}
+
+/* SEARCH ENGINE LIST VIEW */
+#listView {
+    -fx-background-color: transparent;
+}
+
+#listView .list-cell {
+    -fx-background-color: transparent;
+
+    /* || Typography block*/
+    -fx-font-family: "Myriad Pro";
+    -fx-text-fill: rgb(192, 187, 170);
+    -fx-font-size: 12;
+}
+
+#listView .list-cell:hover {
+    -fx-background-color: rgb(218, 215, 204);
+    -fx-text-fill: rgb(182, 174, 149);
+
+}
+
+#listView .list-cell:selected {
+    -fx-background-color: rgb(53, 35, 229);
 }
 
 /* TRANSLATE ENGINE*/
@@ -45,6 +98,7 @@
     -fx-fill: rgb(31, 47, 63);
     -fx-font-weight: bold;
 }
+
 .text-area .viewport {
     -fx-background-color: transparent;
 }
@@ -54,9 +108,11 @@
     -fx-background-color: transparent;
 }
 
- /*TEXT INPUT SCROLL BAR*/
+/*TEXT INPUT SCROLL BAR*/
 #textInput {
     -fx-background-color: transparent;
+
+    /* || Typography block*/
     -fx-text-fill: #c0bbaa;
     -fx-font-family: "Myriad Pro";
     -fx-font-size: 12;
@@ -66,16 +122,20 @@
     -fx-opacity: 0;
 
 }
+
 #textInput .scroll-bar {
     -fx-background-color: transparent;
 }
+
 #textInput .scroll-bar > .thumb {
     -fx-background-color: rgb(53, 35, 229);
     -fx-background-radius: 20px;
 }
+
 #textInput .scroll-bar > .thumb:hover {
     -fx-background-color: rgb(87, 69, 252);
 }
+
 #textInput .scroll-bar > .track {
     -fx-background-color: #c7c5c5;
     -fx-background-radius: 20px;
@@ -86,7 +146,7 @@
     -fx-background-radius: 20px;
 }
 
-/* TEXT OUTPUT SCROLLBAR*/
+/* TEXT OUTPUT SCROLLBAR */
 #textOutput {
     -fx-background-color: transparent;
     -fx-text-fill: #d4d1ff;
@@ -98,16 +158,20 @@
     -fx-opacity: 0;
 
 }
+
 #textOutput .scroll-bar {
     -fx-background-color: transparent;
 }
+
 #textOutput .scroll-bar > .thumb {
     -fx-background-color: rgb(223, 217, 250);
     -fx-background-radius: 20px;
 }
+
 #textOutput .scroll-bar > .thumb:hover {
     -fx-background-color: rgb(191, 178, 250);
 }
+
 #textOutput .scroll-bar > .track {
     -fx-background-color: #2211be;
     -fx-background-radius: 20px;
@@ -117,9 +181,11 @@
     -fx-background-color: transparent;
     -fx-background-radius: 20px;
 }
-#copyIcon{
+
+#copyIcon {
     -fx-opacity: 0.6;
 }
+
 #copyIcon:hover {
     -fx-opacity: 1;
 }
@@ -138,28 +204,28 @@
     -fx-min-width: 30px;
     -fx-min-height: 2px;
     -fx-background-radius: 15px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15),2,0,0,0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 2, 0, 0, 0);
 }
 
 #tagLangTo {
     all: none;
-    /* || Typography Block*/
+    /* || Typography Block */
     -fx-font-family: "Century Gothic";
     -fx-font-size: 10px;
     -fx-text-fill: #efefef;
     -fx-font-weight: bold;
 
-    /* || Structure Block*/
+    /* || Structure Block */
     -fx-background-color: rgba(227, 227, 227, 0.4);
     -fx-min-width: 30px;
     -fx-min-height: 2px;
     -fx-background-radius: 15px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15),2,0,0,0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 2, 0, 0, 0);
 }
 
 /* || SWITCH ICON */
 #switchIcon {
-    /* || Structure Block*/
+    /* || Structure Block */
     -fx-background-image: url('../image/switch_icon_app.png');
     -fx-opacity: 0.8;
     -fx-background-size: 50%;
@@ -168,8 +234,33 @@
     -fx-max-width: 30px;
     -fx-max-height: 30px;
     -fx-background-radius: 50px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1),5,0,3,3);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 3, 3);
 }
-#switchIcon:hover{
+
+#switchIcon:hover {
     -fx-opacity: 1;
+}
+
+/* WORD ENGINE */
+#board {
+    /* || Structure block */
+    -fx-background-color: #1f2f3f;
+    -fx-min-width: 600;
+    -fx-min-height: 420;
+    -fx-background-radius: 20px;
+}
+
+#textWord {
+    /* || Typography block */
+    -fx-font-family: "Source Code Pro";
+    -fx-font-weight: 300;
+    -fx-font-size: 30px;
+    -fx-fill: rgb(240, 240, 242);
+}
+#textPronunciation {
+    /* || Typography block */
+    -fx-font-family: "Source Code Pro";
+    -fx-font-weight: lighter;
+    -fx-font-size: 10px;
+    -fx-fill: rgb(240, 240, 242);
 }
