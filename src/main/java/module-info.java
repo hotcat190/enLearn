@@ -5,6 +5,7 @@ module apppackage {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
     exports graphics.main;
     exports utility.calendar;

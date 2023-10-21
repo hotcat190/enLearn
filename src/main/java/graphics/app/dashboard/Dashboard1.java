@@ -1,13 +1,16 @@
 package graphics.app.dashboard;
 
-import dictionary.SearchEngine;
-import dictionary.TranslateEngine;
+import graphics.app.User;
+import graphics.engine.SearchEngine;
+import graphics.engine.TranslateEngine;
 import graphics.app.AppWindow;
+import graphics.engine.WordEngine;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
 import java.util.Objects;
 
 
@@ -19,14 +22,20 @@ public class Dashboard1 extends AppWindow {
     /**
      * Component of dashboard1.
      */
-    private SearchEngine searchEngine = new SearchEngine();
-    private TranslateEngine translateEngine = new TranslateEngine();
+    private final SearchEngine searchEngine = new SearchEngine();
+    private final TranslateEngine translateEngine = new TranslateEngine();
+    private final WordEngine wordEngine = new WordEngine();
+
+    /**
+     * User.
+     */
+    private final User user = new User();
     /**
      * Link to css file.
      */
     private final String linkToCSS = Objects.requireNonNull(getClass().getResource("/css/style_for_dashboard1_class.css")).toExternalForm();
 
-    public Dashboard1(Stage stageInit) {
+    public Dashboard1(Stage stageInit) throws SQLException {
         gridPane = new GridPane();
         scenePage = new Scene(paneWindow);
         stage = stageInit;
@@ -43,11 +52,13 @@ public class Dashboard1 extends AppWindow {
             System.err.println(e);
         }
         try {
-            paneWindow.getChildren().add(searchEngine.getStackSearch());
             paneWindow.getChildren().add(gridPane);
-            gridPane.setLayoutX(100);
-            gridPane.setLayoutY(100);
-            gridPane.add(translateEngine.getPaneTranslateEngine(),0,0);
+            gridPane.add(wordEngine.getPane(),0,0);
+            gridPane.add(translateEngine.getPaneTranslateEngine(),1,0);
+            paneWindow.getChildren().add(searchEngine.getPaneSearch());
+            gridPane.setHgap(35);
+            gridPane.setLayoutX(130);
+            gridPane.setLayoutY(90);
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -63,16 +74,17 @@ public class Dashboard1 extends AppWindow {
 
     }
 
-    private void runAnimation() {
+    private void runAction() {
         applyEventAppWindow();
-        searchEngine.setAnimation();
+        searchEngine.setAction();
         translateEngine.setAnimation(dialog,paneWindow);
         translateEngine.setLiveTranslate();
+        wordEngine.setAction(searchEngine);
 
     }
 
     public void showPage() {
-        runAnimation();
+        runAction();
         stage.show();
     }
 }
