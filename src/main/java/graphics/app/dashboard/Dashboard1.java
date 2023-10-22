@@ -1,6 +1,6 @@
 package graphics.app.dashboard;
 
-import graphics.app.User;
+//import graphics.app.User;
 import graphics.engine.SearchEngine;
 import graphics.engine.TranslateEngine;
 import graphics.app.AppWindow;
@@ -29,7 +29,7 @@ public class Dashboard1 extends AppWindow {
     /**
      * User.
      */
-    private final User user = new User();
+//    private final User user = new User();
     /**
      * Link to css file.
      */

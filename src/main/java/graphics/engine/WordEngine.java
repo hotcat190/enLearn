@@ -3,7 +3,10 @@ package graphics.engine;
 import dictionary.Dictionary;
 import dictionary.Word;
 import graphics.StandardParameter;
-import javafx.scene.control.ListView;
+import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
+import javafx.scene.control.*;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -23,7 +26,13 @@ public class WordEngine {
      */
     private final VBox vBoxWord = new VBox();
     private final Text textWord = new Text("word");
+
     private final Text textPronunciation = new Text();
+
+    private final Text textDefinition = new Text();
+
+    private final  Text textPoS = new Text();
+
     /**
      * Link to CSS.
      */
@@ -42,8 +51,17 @@ public class WordEngine {
 
             vBoxWord.setTranslateY(10);
             vBoxWord.setTranslateX(20);
+            textWord.setWrappingWidth(400);
+            textDefinition.setWrappingWidth(400);
+            textPoS.setWrappingWidth(400);
+            textDefinition.setWrappingWidth(400);
+
+
             vBoxWord.getChildren().add(textWord);
             vBoxWord.getChildren().add(textPronunciation);
+            vBoxWord.getChildren().add(textPoS);
+            vBoxWord.getChildren().add(textDefinition);
+
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -53,6 +71,8 @@ public class WordEngine {
         board.setId("board");
         textWord.setId("textWord");
         textPronunciation.setId("textPronunciation");
+        textDefinition.setId("textDefinition");
+        textPoS.setId("textPoS");
     }
 
     private void setCSS() {
@@ -91,6 +111,8 @@ public class WordEngine {
             listView.getItems().clear();
             textWord.setText(word.getWord());
             textPronunciation.setText(word.getPronunciation());
+            textDefinition.setText(word.getDefinition());
+            textPoS.setText(word.getPart_of_speech());
         });
 
         listViewHistory.setOnMouseClicked(e->{

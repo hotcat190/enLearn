@@ -13,6 +13,9 @@ public class Word {
         pronunciation = resultSet.getString(2);
         part_of_speech = resultSet.getString(3);
         definition = resultSet.getString(4);
+        definition = definition.replaceAll("[=]","• ");
+        definition = definition.replaceAll("[+]",":");
+        definition = definition.replaceAll("[\n][!]","\n▶ ");
     }
 
     public String getWord() {

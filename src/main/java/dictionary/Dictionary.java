@@ -9,7 +9,6 @@ import java.util.Stack;
 
 public class Dictionary {
     private static final Connection connection;
-
     static {
         try {
             connection = DriverManager.getConnection(Sever.URL,Sever.USER,Sever.PASSWORD);
