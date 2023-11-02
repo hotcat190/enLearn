@@ -63,7 +63,7 @@ public class AppWindow {
     /**
      * Dialog global.
      */
-    protected Dialog dialog = new Dialog();
+    public static Dialog dialog = new Dialog();
     /**
      * Get pane of window to link current page.
      */

@@ -1,9 +1,9 @@
 package graphics.app.dashboard;
 
-import graphics.app.User;
 import graphics.engine.SearchEngine;
 import graphics.engine.TranslateEngine;
 import graphics.app.AppWindow;
+import graphics.engine.UserEngine;
 import graphics.engine.WordEngine;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -25,15 +25,13 @@ public class Dashboard1 extends AppWindow {
     private final SearchEngine searchEngine = new SearchEngine();
     private final TranslateEngine translateEngine = new TranslateEngine();
     private final WordEngine wordEngine = new WordEngine();
+    private final UserEngine userEngine = new UserEngine();
 
     /**
-     * User.
+     * Parameter.
      */
-    private final User user = new User();
-    /**
-     * Link to css file.
-     */
-    private final String linkToCSS = Objects.requireNonNull(getClass().getResource("/css/style_for_dashboard1_class.css")).toExternalForm();
+    public static final String LINK_CSS = Objects.requireNonNull(Dashboard1.class.getResource("/css/style_for_dashboard1_class.css")).toExternalForm();
+
 
     public Dashboard1(Stage stageInit) throws SQLException {
         gridPane = new GridPane();
@@ -55,8 +53,10 @@ public class Dashboard1 extends AppWindow {
             paneWindow.getChildren().add(gridPane);
             gridPane.add(wordEngine.getPane(),0,0);
             gridPane.add(translateEngine.getPaneTranslateEngine(),1,0);
+            gridPane.add(userEngine.getvBox(), 0, 1);
             paneWindow.getChildren().add(searchEngine.getPaneSearch());
             gridPane.setHgap(35);
+            gridPane.setVgap(-10);
             gridPane.setLayoutX(130);
             gridPane.setLayoutY(90);
         } catch (Exception e) {
@@ -69,17 +69,17 @@ public class Dashboard1 extends AppWindow {
     }
 
     private void setCSS() {
-        paneWindow.getStylesheets().add(linkToCSS);
+        paneWindow.getStylesheets().add(LINK_CSS);
         paneWindow.applyCss();
 
     }
 
     private void runAction() {
         applyEventAppWindow();
-        searchEngine.setAction();
-        translateEngine.setAnimation(dialog,paneWindow);
+        searchEngine.setEvent();
+        translateEngine.setEvent(dialog,paneWindow);
         translateEngine.setLiveTranslate();
-        wordEngine.setAction(searchEngine);
+        wordEngine.setEvent(searchEngine);
 
     }
 

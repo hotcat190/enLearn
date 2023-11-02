@@ -101,8 +101,8 @@ public class AppStartPage extends AppWindow {
         Set attribute for all node.
          */
         try {
-            setIdPage();
-            setCSSPage();
+            setId();
+            setCSS();
             scenePage.setFill(Color.TRANSPARENT);
 
             vBoxVersionInfo.setLayoutX(40);
@@ -131,7 +131,7 @@ public class AppStartPage extends AppWindow {
         }
     }
 
-    private void setIdPage() {
+    private void setId() {
         labelForTime.setId("labelForTime");
         labelForDay.setId("labelForDay");
         labelForDate.setId("labelForDate");
@@ -148,7 +148,7 @@ public class AppStartPage extends AppWindow {
         stateDay.setId("stateDay");
     }
 
-    private void setCSSPage() {
+    private void setCSS() {
         vBoxForTime.getStylesheets().add(linkToCSS);
         paneWindow.getStylesheets().add(linkToCSS);
         hBoxStateDay.getStylesheets().add(linkToCSS);

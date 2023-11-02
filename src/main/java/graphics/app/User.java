@@ -27,17 +27,28 @@ public class User {
             System.out.println(delta);
             if (delta == 1) {
                 sql = "insert into user(streakday,lasttimelogin) \n" +
-                        "select streakday+1 ,current_date(), from user where id=(select max(id) from user) ;";
+                        "select streakday+1,current_date()  from user order by id desc limit 1;";
                 statement.executeUpdate(sql);
             } else if (delta != 0) {
                 sql = "insert into user(streakday,lasttimelogin) \n" +
-                        "0 ,current_date ;";
+                        "values(0 ,current_date());";
                 statement.executeUpdate(sql);
             }
-            sql="select streakday from user where id=(select max(id) from user)";
+            sql="select streakday,score from user order by id desc limit 1";
+            resultSet = statement.executeQuery(sql);
+            resultSet.next();
+            streakDay = resultSet.getInt(1);
+            highestScore = resultSet.getInt(2);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
+    public int getStreakDay() {
+        return streakDay;
+    }
+
+    public int getHighestScore() {
+        return highestScore;
+    }
 }
