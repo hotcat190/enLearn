@@ -40,16 +40,6 @@ public class Dictionary {
         return statement.executeQuery(sql).next();
     }
 
-    public static Stack<String> getListPartOfSpeechOfWord(Word word) throws SQLException {
-        String sql = String.format("select * from dictionary where word=\"%s\";", word.getWord());
-        ResultSet resultSet = statement.executeQuery(sql);
-        Stack<String> stack = new Stack<>();
-        while (resultSet.next()) {
-            stack.push(resultSet.getString(3).split(",")[0]);
-        }
-        return stack;
-    }
-
     public static void putHistory(String word) throws SQLException {
         String sql = String.format("insert into history values(\"%s\");", word);
         statement.executeUpdate(sql);
@@ -74,7 +64,6 @@ public class Dictionary {
         ResultSet resultSet = statement.executeQuery(sql);
         if (resultSet.next()) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(resultSet.getString(1));
             arrayList.add(resultSet.getString(2));
             arrayList.add(resultSet.getString(3));
             return arrayList;

@@ -92,10 +92,12 @@
 
 #title {
     /* || Typography block*/
-    -fx-font-family: "Source Code Pro";
-    -fx-font-size: 23px;
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-size: 25px;
     -fx-fill: rgb(31, 47, 63);
     -fx-font-weight: bold;
+
+    -fx-font-scale: 0.9;
 }
 
 .text-area .viewport {
@@ -241,20 +243,14 @@
 }
 
 /* WORD ENGINE */
-#board {
-    /* || Structure block */
-    -fx-background-color: #1f2f3f;
-    -fx-min-width: 600;
-    -fx-min-height: 420;
-    -fx-background-radius: 20px;
-}
+
 
 #textWord {
     /* || Typography block */
     -fx-font-family: "Segoe UI Variable";
     -fx-font-weight: bold;
     -fx-font-size: 30px;
-    -fx-fill: rgb(240, 240, 242);
+    -fx-text-fill: rgb(240, 240, 242);
 }
 
 #textPronunciation {
@@ -305,7 +301,6 @@
 
 /* PROGRESS */
 #streakText {
-    /* || Typography block*/
     -fx-fill: #f79afc;
     -fx-font-family: "Source Code Pro";
     -fx-font-weight: bold;
@@ -314,7 +309,6 @@
 }
 
 #scoreText {
-    /* || Typography block*/
     -fx-fill: #a9fce8;
     -fx-font-family: "Source Code Pro";
     -fx-font-weight: bold;
@@ -328,11 +322,8 @@
 /*SYNONYM */
 #synonymButton {
     all: none;
-    /* || Structure block*/
     -fx-background-color: #109eff;
     -fx-background-radius: 6px;
-
-    /* || Typography block*/
     -fx-font-size: 9px;
     -fx-font-family: 'Segoe UI Variable';
     -fx-font-weight: bold;
@@ -345,11 +336,8 @@
 
 #synonymNotButton {
     all: none;
-    /* || Structure block*/
     -fx-background-color: #67d1ff;
     -fx-background-radius: 6px;
-
-    /* || Typography block*/
     -fx-font-size: 9px;
     -fx-font-family: 'Segoe UI Variable';
     -fx-font-weight: bold;
@@ -363,11 +351,8 @@
 /* ANTONYM */
 #antonymButton {
     all: none;
-    /* || Structure block*/
     -fx-background-color: #ff15d3;
     -fx-background-radius: 6px;
-
-    /* || Typography block*/
     -fx-font-size: 9px;
     -fx-font-family: 'Segoe UI Variable';
     -fx-font-weight: bold;
@@ -380,11 +365,8 @@
 
 #antonymNotButton {
     all: none;
-    /* || Structure block*/
     -fx-background-color: #fa79e1;
     -fx-background-radius: 6px;
-
-    /* || Typography block*/
     -fx-font-size: 9px;
     -fx-font-family: 'Segoe UI Variable';
     -fx-font-weight: bold;
@@ -397,40 +379,16 @@
 
 /* TITLE GRAMMAR */
 #titleGrammar {
-    /* || Typography block*/
-    -fx-font-family: "Source Code Pro";
+    /* || Typography structure */
+    -fx-font-family: "Segoe UI Variable";
     -fx-font-size: 10;
     -fx-fill: #f4f4f4;
     -fx-font-weight: bold;
 }
 
-/* POS BUTTON */
-#buttonPOS {
-    all: none;
-    /* || Structure block*/
-    -fx-background-color: transparent;
-    -fx-border-radius: 6px;
-    -fx-border-color: #e6e6e6;
-    -fx-border-width: 1px;
 
-    /* || Typography block*/
-    -fx-font-family: "Segoe UI Black";
-    -fx-font-weight: bold;
-    -fx-text-fill: #e6e6e6;
-    -fx-font-size: 10px;
-}
-
-#buttonPOS:hover {
-    /* || Structure block*/
-    -fx-background-color: #0044dd;
-    -fx-background-radius: 6px;
-    -fx-border-width: 0;
-
-    -fx-effect: dropshadow(three-pass-box, rgb(3, 62, 196), 30, 0, 0, 10);
-}
 
 #irregularVerbsHBox {
-    /* || Structure block*/
     -fx-background-color: #3151f4;
     -fx-background-radius: 5px;
 }

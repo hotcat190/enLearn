@@ -7,7 +7,8 @@ import graphics.control.Dialog;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -180,20 +181,20 @@ public class TranslateEngine {
 
     private void setEventOutputBox(Dialog dialog, Pane paneWindow) {
         copyIcon.setOnMouseMoved(e -> {
-            AppWindow.dialog.getStackPane().toFront();
+            AppWindow.dialog.getLayout().toFront();
             AppWindow.dialog.setText("Copied");
-            AppWindow.dialog.getStackPane().setLayoutX(e.getSceneX() - copyIcon.getFitWidth() / 2 - AppWindow.dialog.getStackPane().getBoundsInLocal().getWidth() / 2);
-            AppWindow.dialog.getStackPane().setLayoutY(e.getSceneY() + copyIcon.getFitHeight() + 40);
+            AppWindow.dialog.getLayout().setLayoutX(e.getSceneX() - copyIcon.getFitWidth() / 2 - AppWindow.dialog.getLayout().getBoundsInLocal().getWidth() / 2);
+            AppWindow.dialog.getLayout().setLayoutY(e.getSceneY() + copyIcon.getFitHeight() + 40);
 
         });
         copyIcon.setOnMouseClicked(e -> {
-            AppWindow.dialog.getStackPane().setOpacity(1);
+            AppWindow.dialog.getLayout().setOpacity(1);
             ClipboardContent clipboardContent = new ClipboardContent();
             clipboardContent.putString(stringOutput.toString());
             Clipboard.getSystemClipboard().setContent(clipboardContent);
         });
         copyIcon.setOnMouseExited(e -> {
-            AppWindow.dialog.getStackPane().setOpacity(0);
+            AppWindow.dialog.getLayout().setOpacity(0);
         });
 
     }
@@ -219,28 +220,50 @@ public class TranslateEngine {
         setEventOutputBox(dialog, paneWindow);
     }
 
+    StringProperty stringProperty = new SimpleStringProperty(stringOutput.toString());
     public void setLiveTranslate() {
         /*
          * Multithreading for 2 task.
          * Task1: Translate.
          * Task2: Wait until task1 on finished, update output with "..." loading sign.
          */
+
+//        textOutput.textProperty().unbind();
+//        textOutput.textProperty().bind(stringProperty);
+//        textInput.setOnKeyTyped(e -> {
+//            String inputText = textInput.getText();
+//            textOutput.setText(stringOutput + ". . .");
+//            if (inputText.matches("^(.*)[ ,.&;!\n]$")) {
+//                new Thread(() -> {
+//                    try {
+//                        stringOutput = new StringBuffer(Translate.translate(new StringBuffer(tagLangFrom.getText()), new StringBuffer(tagLangTo.getText()), new StringBuffer(inputText)));
+//                        if (stringOutput.toString().startsWith("<!DOCTYPE html>")) {
+//                            stringOutput = new StringBuffer("Service Google Translate is unavailable");
+//                        }
+////                        Platform.runLater(() -> textOutput.setText(stringOutput.toString()));
+//                    } catch (IOException ex) {
+//                        throw new RuntimeException(ex);
+//                    }
+//                }).start();
+//            }
+//        });
+        textOutput.textProperty().unbind();
+        textOutput.textProperty().bind(stringProperty);
         textInput.setOnKeyTyped(e -> {
             String inputText = textInput.getText();
-            textOutput.setText(stringOutput + ". . .");
-            if (inputText.matches("^(.*)[ ,.&;!\n]$")) {
+            if (true) {
                 new Thread(() -> {
                     try {
-                        stringOutput = new StringBuffer(Translate.translate(new StringBuffer(tagLangFrom.getText()), new StringBuffer(tagLangTo.getText()), new StringBuffer(inputText)));
-                        if (stringOutput.toString().startsWith("<!DOCTYPE html>")) {
-                            stringOutput = new StringBuffer("Service Google Translate is unavailable");
+                        stringProperty.set(Translate.translate(new StringBuffer(tagLangFrom.getText()), new StringBuffer(tagLangTo.getText()), new StringBuffer(inputText)));
+                        if (stringProperty.get().startsWith("<!DOCTYPE html>")) {
+                            stringProperty.set("Service Google Translate is unavailable");
                         }
-                        Platform.runLater(() -> textOutput.setText(stringOutput.toString()));
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
                 }).start();
             }
         });
+
     }
 }

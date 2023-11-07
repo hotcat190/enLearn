@@ -2,6 +2,7 @@ package graphics.engine;
 
 import dictionary.Dictionary;
 import graphics.app.AppWindow;
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -38,8 +39,8 @@ public class SearchEngine {
         setId();
         setCSS();
 
-        setUpListViewLayout();
         setUpSearchLayout();
+        setUpListViewLayout();
     }
 
     /**
@@ -114,7 +115,7 @@ public class SearchEngine {
             if (!listView.getItems().isEmpty() || !listViewHistory.getItems().isEmpty()) {
                 searchShape.setMinHeight(listView.getMaxHeight() + 40);
             } else {
-                searchShape.setMinHeight(34);
+//                searchShape.setMinHeight(34);
             }
         });
         textInput.setOnKeyTyped(e -> {
@@ -155,15 +156,30 @@ public class SearchEngine {
             if (e.getTarget() != searchShape && e.getTarget() != paneSearch && e.getTarget() != textInput) {
                 if (!isPressed) {
                     listView.getItems().clear();
-                    listViewHistory.getItems().clear();
+//                    listViewHistory.getItems().clear();
                 }
-                searchShape.setMinHeight(34);
                 if (textInput.getText().isEmpty()) {
                     textInput.setText("Search for word");
                 }
                 textInput.setEditable(false);
             }
         });
+        new AnimationTimer(){
+
+            @Override
+            public void handle(long l) {
+                if (listViewHistory.getItems().isEmpty() && listView.getItems().isEmpty()) {
+                    searchShape.setMinHeight(34);
+                    listView.setMaxHeight(0);
+                    listViewHistory.setMaxHeight(0);
+                } else {
+                    searchShape.setMinHeight(34);
+                    searchShape.setMinHeight(Math.max(listView.getMaxHeight(), listView.getHeight())+40);
+                    listView.setMaxHeight(190);
+                    listViewHistory.setMaxHeight(190);
+                }
+            }
+        }.start();
     }
 
     private void setUpListViewLayout() {

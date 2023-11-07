@@ -4,7 +4,7 @@ import graphics.engine.SearchEngine;
 import graphics.engine.TranslateEngine;
 import graphics.app.AppWindow;
 import graphics.engine.UserEngine;
-import graphics.engine.WordEngine;
+import graphics.engine.word.WordEngine;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -30,7 +30,7 @@ public class Dashboard1 extends AppWindow {
     /**
      * Parameter.
      */
-    public static final String LINK_CSS = Objects.requireNonNull(Dashboard1.class.getResource("/css/style_for_dashboard1_class.css")).toExternalForm();
+        public static final String LINK_CSS = Objects.requireNonNull(Dashboard1.class.getResource("/css/style_for_dashboard1_class.css")).toExternalForm();
 
 
     public Dashboard1(Stage stageInit) throws SQLException {
@@ -52,12 +52,12 @@ public class Dashboard1 extends AppWindow {
         try {
             paneWindow.getChildren().add(gridPane);
             gridPane.add(wordEngine.getPane(),0,0);
-            gridPane.add(translateEngine.getPaneTranslateEngine(),1,0);
+//            gridPane.add(translateEngine.getPaneTranslateEngine(),1,0);
             gridPane.add(userEngine.getvBox(), 0, 1);
             paneWindow.getChildren().add(searchEngine.getPaneSearch());
             gridPane.setHgap(35);
             gridPane.setVgap(-10);
-            gridPane.setLayoutX(130);
+            gridPane.setLayoutX(150);
             gridPane.setLayoutY(90);
         } catch (Exception e) {
             System.err.println(e);

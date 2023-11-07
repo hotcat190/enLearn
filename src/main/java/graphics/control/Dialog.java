@@ -24,8 +24,8 @@ public class Dialog {
         stackPane.getChildren().add(rect);
         stackPane.getChildren().add(text);
 
-        getStackPane().setScaleX(0.7);
-        getStackPane().setScaleY(0.7);
+        getLayout().setScaleX(0.7);
+        getLayout().setScaleY(0.7);
     }
 
     public void setText(String text) {
@@ -37,7 +37,7 @@ public class Dialog {
         stackPane.layout();
     }
 
-    public Pane getStackPane() {
+    public Pane getLayout() {
         return stackPane;
     }
 }

@@ -37,7 +37,7 @@ public class AppWindow {
     /**
      * App Window is equal 85% Laptop Window
      */
-    public static double SCALE = 0.85;
+    public static double SCALE = 0.9;
     public final static double APP_HEIGHT = ScreenLaptop.SCREEN_HEIGHT * SCALE;
     public final static double APP_WIDTH = ScreenLaptop.SCREEN_WIDTH * SCALE;
     public final static double DELTA_Y = (APP_HEIGHT - APP_HEIGHT * 0.95) / 2;
@@ -80,13 +80,14 @@ public class AppWindow {
             stageWindow.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/icon_for_app.png"))));
             paneWindow.getChildren().add(moveStage);
             paneWindow.getChildren().add(controlHBox);
-            paneWindow.getChildren().add(dialog.getStackPane());
+            paneWindow.getChildren().add(dialog.getLayout());
         } catch (Exception e) {
             System.out.println("Error at graphics.app.AppWindow and at method setAppWindow()!");
             System.out.println("Error when try add children!");
             System.out.println("Error: " + e);
 
         }
+        System.out.println(REAL_APP_HEIGHT);
         /*
         Set attribute for all node.
          */
@@ -98,7 +99,7 @@ public class AppWindow {
             controlHBox.setLayoutY(DELTA_Y);
             controlHBox.setLayoutX(DELTA_X + REAL_APP_WIDTH - controlHBox.getBoundsInLocal().getWidth());
 
-            dialog.getStackPane().setOpacity(0);
+            dialog.getLayout().setOpacity(0);
 
             moveStage.setLayoutX(DELTA_X);
             moveStage.setLayoutY(DELTA_Y);
