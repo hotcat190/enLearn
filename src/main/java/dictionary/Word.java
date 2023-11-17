@@ -13,6 +13,7 @@ public class Word {
     private final HashMap<String, List<String>> linesDefHashMap=new HashMap<>();
     private final ArrayList<String> synonymsList ;
     private final ArrayList<String> antonymsList ;
+    private String priorityDefinition;
 
     private boolean isIrregularVerb=false;
     public Word(String word) throws SQLException {
@@ -29,6 +30,7 @@ public class Word {
             if (!definition.isEmpty()) {
                 hashMap.put(part_of_speech, definition);
                 linesDefHashMap.put(part_of_speech, definition.lines().toList());
+                priorityDefinition = linesDefHashMap.get(part_of_speech).get(0);
             }
         }
         if(Dictionary.getIrregularVerb(word)!=null) {
@@ -70,6 +72,10 @@ public class Word {
 
     public ArrayList<String> getAntonymsList() {
         return antonymsList;
+    }
+
+    public String getPriorityDefinition() {
+        return priorityDefinition;
     }
 
     private String decodePOS() {

@@ -1,7 +1,6 @@
 /* MAIN LAYOUT */
 #pane {
     /* || Structure Block*/
-    -fx-background-image: url('../image/user_interface_app.png');
     -fx-background-color: transparent;
     -fx-background-size: 95%;
     -fx-background-repeat: no-repeat;
@@ -17,7 +16,7 @@
     /* || Structure Block*/
     -fx-background-color: rgba(244, 244, 242, 1);
     -fx-background-radius: 21px;
-    -fx-min-width: 272;
+    -fx-min-width: 460;
     -fx-min-height: 34;
 
     /* || Modifier Block*/

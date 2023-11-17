@@ -106,7 +106,6 @@ public class SearchEngine {
                 LinkedList<String> linkedList = Dictionary.getHistory();
                 textInput.clear();
                 listViewHistory.getItems().addAll(linkedList.reversed());
-                System.out.println(listViewHistory.getItems().getFirst());
                 listViewHistory.toFront();
             }
 //            else {
@@ -152,18 +151,18 @@ public class SearchEngine {
             searchShape.setMinHeight(34);
             isPressed = true;
         });
-        listView.getScene().addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
-            if (e.getTarget() != searchShape && e.getTarget() != paneSearch && e.getTarget() != textInput) {
-                if (!isPressed) {
-                    listView.getItems().clear();
-//                    listViewHistory.getItems().clear();
-                }
-                if (textInput.getText().isEmpty()) {
-                    textInput.setText("Search for word");
-                }
-                textInput.setEditable(false);
-            }
-        });
+//        listView.getScene().addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
+//            if (e.getTarget() != searchShape && e.getTarget() != paneSearch && e.getTarget() != textInput) {
+//                if (!isPressed) {
+//                    listView.getItems().clear();
+////                    listViewHistory.getItems().clear();
+//                }
+//                if (textInput.getText().isEmpty()) {
+//                    textInput.setText("Search for word");
+//                }
+//                textInput.setEditable(false);
+//            }
+//        });
         new AnimationTimer(){
 
             @Override

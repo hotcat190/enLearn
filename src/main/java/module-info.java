@@ -10,4 +10,7 @@ module apppackage {
 
     exports graphics.main;
     exports utility.calendar;
+
+    opens data.my_dictionary;
+
 }

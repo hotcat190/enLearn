@@ -2,7 +2,7 @@ package graphics.engine;
 
 import dictionary.Translate;
 import graphics.app.AppWindow;
-import graphics.app.dashboard.Dashboard1;
+import graphics.app.dashboard.FirstDashboard;
 import graphics.control.Dialog;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -210,7 +210,7 @@ public class TranslateEngine {
     }
 
     private void setCSS() {
-        paneTranslateEngine.getStylesheets().add(Dashboard1.LINK_CSS);
+        paneTranslateEngine.getStylesheets().add(FirstDashboard.LINK_CSS);
         paneTranslateEngine.applyCss();
         title.applyCss();
     }

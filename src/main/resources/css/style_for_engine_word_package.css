@@ -1,6 +1,8 @@
+
 #textWord {
     /* || Typography structure */
     -fx-font-family: "Segoe UI Variable";
+    -fx-font-weight: bold;
     -fx-font-size: 45;
     -fx-text-fill: #1f2f3f;
 
@@ -8,18 +10,19 @@
 
 #textPronunciation {
     /* || Typography structure */
-    -fx-font-family: "Segoe UI Light";
+    -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 15;
-    -fx-text-fill: #1f2f3f;
+    -fx-text-fill: #92989b;
 }
 
 #board {
     /* || Structure block */
-    -fx-border-color: #cccccc;
-    -fx-border-width: 1px;
-    -fx-border-radius: 20px;
+    /*-fx-border-color: #cccccc;*/
+    /*-fx-border-width: 1px;*/
+    /*-fx-border-radius: 20px;*/
 
-    -fx-background-radius: 20px;
+
+    /*-fx-background-radius: 20px;*/
 }
 
 #buttonPOS {
@@ -109,9 +112,10 @@
 }
 #contronymLayout {
     /* || Structure block */
-    -fx-background-color: #f2f2f0;
+    -fx-background-color: rgba(242, 242, 240, 0.5);
     -fx-background-radius: 20;
-    -fx-effect: dropshadow(three-pass-box, rgba(34, 35, 35, 0.1), 20, 0, 5, 5);
+    -fx-effect: dropshadow(three-pass-box, rgba(43, 43, 43, 0.05), 20, 0, 2, 2);
+
 }
 #contronymButton {
     /* || Structure block */
@@ -121,12 +125,10 @@
 
     /* || Typography block */
     -fx-font-family: "Segoe UI Semibold";
-    -fx-font-size: 10px;
+    -fx-font-size: 9px;
     -fx-text-fill: #1f2f3f;
 }
-#contronymButton:hover {
-    -fx-pref-width: 73;
-    -fx-pref-height: 24;
-    -fx-background-radius: 14;
-    -fx-underline: true;
+
+#scrollPane {
+    -fx-background-color: transparent;
 }

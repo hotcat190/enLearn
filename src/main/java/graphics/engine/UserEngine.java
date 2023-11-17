@@ -2,7 +2,7 @@ package graphics.engine;
 
 import graphics.StandardParameter;
 import graphics.app.User;
-import graphics.app.dashboard.Dashboard1;
+import graphics.app.dashboard.FirstDashboard;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -59,7 +59,7 @@ public class UserEngine {
     }
 
     private void setCSS() {
-        vBox.getStylesheets().add(Dashboard1.LINK_CSS);
+        vBox.getStylesheets().add(FirstDashboard.LINK_CSS);
     }
 
     public VBox getvBox() {
@@ -81,7 +81,7 @@ public class UserEngine {
         ImageView imageScore = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/progress_app.png"))));
         imageScore.setFitWidth(imageScore.getImage().getWidth() * 0.22);
         imageScore.setFitHeight(imageScore.getImage().getHeight() * 0.22);
-        scoreText.setText(String.valueOf(user.getHighestScore()));
+        scoreText.setText(String.valueOf(user.getBand()));
         scoreText.setTranslateY(-3);
         scoreStack.getChildren().add(imageScore);
         scoreStack.getChildren().add(scoreText);

@@ -1,42 +1,19 @@
 package dictionary;
 
-import sql.Sever;
+import sql.SQLData;
 
 import java.sql.*;
 import java.util.*;
 
-public class Dictionary {
-    private static final Connection connection;
-
-    static {
-        try {
-            connection = DriverManager.getConnection(Sever.URL, Sever.USER, Sever.PASSWORD);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static final Statement statement;
-
-    static {
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-    public Dictionary() throws SQLException {
-    }
+public class Dictionary extends SQLData {
 
     public static ResultSet getWord(String regexp) throws SQLException {
         String sql = String.format("select * from dictionary where word regexp(\"%s\");", regexp);
-        return statement.executeQuery(sql);
+         return statement.executeQuery(sql);
     }
 
     public static boolean isExisted(String word) throws SQLException {
-        String sql = String.format("select * from dictionary where word =\"%s\";", word);
+        String sql = String.format("select * from dictionary where word =\"%s\";", word.trim());
         return statement.executeQuery(sql).next();
     }
 

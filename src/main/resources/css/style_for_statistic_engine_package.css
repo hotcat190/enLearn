@@ -1,0 +1,113 @@
+#layoutStatistic {
+    /* || Structure block */
+    -fx-background-color: #f2f2f0;
+    -fx-background-radius: 20px;
+}
+
+/*
+    All background of chart.
+*/
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+#wordLearnedBarChart .chart-bar {
+    -fx-background-color: #1b3eed;
+    -fx-effect: dropshadow(three-pass-box, rgba(27, 62, 237, 0.5), 20, 0, 0, 0);
+    -fx-background-radius: 4px;
+    -fx-max-width: 5;
+}
+
+#wordLearnedBarChart {
+    -fx-vertical-grid-lines-visible: false;
+}
+
+#wordLearnedBarChart .chart-horizontal-grid-lines {
+    -fx-stroke-width: 0.25px;
+    -fx-stroke: #666666;
+    -fx-stroke-dash-array: none;
+}
+
+#wordLearnedBarChart .axis {
+    -fx-font-size: 10px;
+    -fx-tick-label-fill: #666666;
+    -fx-tick-length: 5;
+    -fx-minor-tick-visible: false;
+    -fx-tick-mark-visible: false;
+    -fx-tick-label-font: 10 "Segoe UI Semibold";
+}
+
+
+#lineChart {
+    -fx-vertical-grid-lines-visible: false;
+    -fx-horizontal-grid-lines-visible: false;
+}
+
+#lineChart .chart-series-line {
+    -fx-stroke: #1b3eed;
+    -fx-effect: dropshadow(three-pass-box, rgba(27, 62, 237, 0.5), 20, 0, 0, 0);
+    -fx-stroke-line-join: round;
+    -fx-stroke-line-cap: round;
+}
+
+#lineChart .axis {
+    -fx-tick-length: 5;
+    -fx-minor-tick-visible: false;
+    -fx-tick-mark-visible: false;
+    -fx-tick-label-font: 10 "Segoe UI Semibold";
+    -fx-font-size: 10px;
+
+}
+
+
+#textSelection {
+    -fx-font-family: 'Segoe UI Variable';
+    -fx-font-size: 10px;
+    -fx-fill: #1f2f3f;
+    -fx-font-weight: bold;
+}
+
+#textTitle {
+    -fx-font-family: 'Segoe UI Semibold';
+    -fx-font-size: 8px;
+    -fx-fill: #666666;
+}
+
+#menuButton{
+    all: none;
+    -fx-background-color: #f1f2ed;
+    -fx-font-size: 10px;
+    -fx-fill: #1f2f3f;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(147, 148, 148, 0.2),20,0,2,4)
+}
+#menuButton:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(46, 110, 237, 0.2),20,0,2,4);
+}
+
+#menuButton .menu-item {
+    -fx-background-color: transparent;
+    -fx-font-size: 10px;
+    -fx-text-fill: #1f2f3f;
+    -fx-font-weight: bold;
+}
+
+#menuButton .menu-item :hover {
+    -fx-background-color: #1b3eed;
+    -fx-text-fill: #1f2f3f;
+}
+#menuButton .context-menu {
+    -fx-background-color: #f1f2ed;
+    -fx-background-radius: 0 0 5 5;
+    -fx-min-width: 70;
+}
+
+#statistic-board__layout {
+    -fx-background-radius: 10px;
+    -fx-background-color: #efeeea;
+    -fx-effect: dropshadow(three-pass-box, rgba(31, 31, 31, 0.2), 10, 0, 1, 1);
+}
+.chart-legend {
+    -fx-opacity: 0;
+    -fx-legend-visible: false;
+}
