@@ -1,0 +1,29 @@
+#select-card-view__vbox--layout {
+    -fx-background-color: #f4f4f2;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(51, 50, 50, 0.3), 10, 0, 0, 10);
+
+}
+
+#select-card-view__text--word {
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-weight: bolder;
+    -fx-font-size: 36px;
+    -fx-fill: #3d3d3d;
+}
+
+#select-card-view__radiobutton .radio {
+    -fx-pref-width: 15px;
+    -fx-pref-height: 15px;
+    -fx-border-color: #3d3d3d;
+    -fx-border-width: 2px;
+    -fx-border-radius: 100%;
+    -fx-background-color: transparent;
+
+}
+
+#select-card-view__radiobutton .text {
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-weight: bold;
+    -fx-fill: #3d3d3d;
+}

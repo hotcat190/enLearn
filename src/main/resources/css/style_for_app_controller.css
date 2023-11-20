@@ -1,0 +1,25 @@
+.menu-controller__button {
+    all: none;
+    -fx-background-color: transparent;
+    -fx-min-height: 35;
+    -fx-min-width: 35;
+    -fx-background-radius: 5;
+}
+.menu-controller__button:hover {
+    -fx-background-color: rgba(122, 122, 122, 0.1);
+}
+.menu-controller__button:selected {
+    -fx-background-color: rgba(122, 122, 122, 0.1);
+}
+#menu-controller__layout {
+    -fx-background-color: #f4f4f0;
+    -fx-background-radius: 18 18 18 18;
+    -fx-effect: dropshadow(three-pass-box, rgba(96, 95, 95, 0.3), 10, 0, 0, 0);
+}
+#menu-controller__layout:hover {
+    -fx-background-color: #f4f4f0;
+}
+#menu-controller__rectangle--selected {
+    -fx-fill: #1b3eed;
+    -fx-background-radius: 20px;
+}

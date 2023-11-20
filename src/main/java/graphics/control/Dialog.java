@@ -23,18 +23,21 @@ public class Dialog {
         stackPane.applyCss();
         stackPane.getChildren().add(rect);
         stackPane.getChildren().add(text);
+
+        getLayout().setScaleX(0.7);
+        getLayout().setScaleY(0.7);
     }
 
     public void setText(String text) {
         this.text.setText(text);
-        rect.setWidth(this.text.getLayoutBounds().getWidth()*1.5);
+        rect.setWidth(this.text.getLayoutBounds().getWidth() * 1.5);
         rect.setHeight(this.text.getLayoutBounds().getHeight() * 1.5);
         rect.setArcWidth(10);
         rect.setArcHeight(10);
         stackPane.layout();
     }
 
-    public Pane getStackPane() {
+    public Pane getLayout() {
         return stackPane;
     }
 }

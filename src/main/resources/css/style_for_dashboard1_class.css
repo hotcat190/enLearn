@@ -1,14 +1,10 @@
 /* MAIN LAYOUT */
 #pane {
     /* || Structure Block*/
-    -fx-background-image: url('../image/user_interface_app.png');
     -fx-background-color: transparent;
     -fx-background-size: 95%;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
-
-    /* || Modifier Block*/
-    -fx-effect: dropshadow(three-pass-box, rgba(10, 10, 10, 0.15), 30, 0, -2, 2);
 }
 
 /* SEARCH ENGINE */
@@ -17,7 +13,7 @@
     /* || Structure Block*/
     -fx-background-color: rgba(244, 244, 242, 1);
     -fx-background-radius: 21px;
-    -fx-min-width: 272;
+    -fx-min-width: 460;
     -fx-min-height: 34;
 
     /* || Modifier Block*/
@@ -88,15 +84,16 @@
 /* TRANSLATE ENGINE*/
 @font-face {
     font-family: "sourcebold";
-    src: url('../font/SourceCodePro-Bold.ttf');
 }
 
 #title {
     /* || Typography block*/
-    -fx-font-family: "Source Code Pro";
-    -fx-font-size: 23px;
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-size: 25px;
     -fx-fill: rgb(31, 47, 63);
     -fx-font-weight: bold;
+
+    -fx-font-scale: 0.9;
 }
 
 .text-area .viewport {
@@ -242,25 +239,223 @@
 }
 
 /* WORD ENGINE */
-#board {
-    /* || Structure block */
-    -fx-background-color: #1f2f3f;
-    -fx-min-width: 600;
-    -fx-min-height: 420;
-    -fx-background-radius: 20px;
-}
+
 
 #textWord {
     /* || Typography block */
-    -fx-font-family: "Source Code Pro";
-    -fx-font-weight: 300;
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-weight: bold;
     -fx-font-size: 30px;
-    -fx-fill: rgb(240, 240, 242);
+    -fx-text-fill: rgb(240, 240, 242);
 }
+
 #textPronunciation {
     /* || Typography block */
     -fx-font-family: "Source Code Pro";
     -fx-font-weight: lighter;
     -fx-font-size: 10px;
     -fx-fill: rgb(240, 240, 242);
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+#scrollPane {
+    -fx-background-color: transparent;
+}
+
+#scrollPane .scroll-bar > .increment-button, .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}
+
+#scrollPane .viewport {
+    -fx-background-color: transparent;
+}
+
+#scrollPane .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+#scrollPane .scroll-bar > .thumb {
+    -fx-background-color: rgb(53, 35, 229);
+    -fx-background-radius: 20px;
+}
+
+#scrollPane .scroll-bar > .thumb:hover {
+    -fx-background-color: rgb(87, 69, 252);
+}
+
+#scrollPane .scroll-bar > .track {
+    -fx-background-color: transparent;
+}
+
+#scrollPane .scroll-bar > .corner {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px;
+}
+
+/* PROGRESS */
+#streakText {
+    -fx-fill: #f79afc;
+    -fx-font-family: "Source Code Pro";
+    -fx-font-weight: bold;
+    -fx-font-size: 40px;
+    -fx-effect: dropshadow(three-pass-box, rgba(53, 54, 54, 0.3), 10, 0, 1, 1);
+}
+
+#scoreText {
+    -fx-fill: #a9fce8;
+    -fx-font-family: "Source Code Pro";
+    -fx-font-weight: bold;
+    -fx-font-size: 40px;
+    -fx-effect: dropshadow(three-pass-box, rgba(53, 54, 54, 0.3), 10, 0, 1, 1);
+}
+
+
+/* GRAMMAR */
+
+/*SYNONYM */
+#synonymButton {
+    all: none;
+    -fx-background-color: #109eff;
+    -fx-background-radius: 6px;
+    -fx-font-size: 9px;
+    -fx-font-family: 'Segoe UI Variable';
+    -fx-font-weight: bold;
+    -fx-text-fill: #f4f4f4;
+}
+
+#synonymButton:hover {
+    -fx-background-color: #0683d9;
+}
+
+#synonymNotButton {
+    all: none;
+    -fx-background-color: #67d1ff;
+    -fx-background-radius: 6px;
+    -fx-font-size: 9px;
+    -fx-font-family: 'Segoe UI Variable';
+    -fx-font-weight: bold;
+    -fx-text-fill: #f4f4f4;
+}
+
+#synonymNotButton:hover {
+    -fx-background-color: #2dbdfc;
+}
+
+/* ANTONYM */
+#antonymButton {
+    all: none;
+    -fx-background-color: #ff15d3;
+    -fx-background-radius: 6px;
+    -fx-font-size: 9px;
+    -fx-font-family: 'Segoe UI Variable';
+    -fx-font-weight: bold;
+    -fx-text-fill: #f4f4f4;
+}
+
+#antonymButton:hover {
+    -fx-background-color: #d501ad;
+}
+
+#antonymNotButton {
+    all: none;
+    -fx-background-color: #fa79e1;
+    -fx-background-radius: 6px;
+    -fx-font-size: 9px;
+    -fx-font-family: 'Segoe UI Variable';
+    -fx-font-weight: bold;
+    -fx-text-fill: #f4f4f4;
+}
+
+#antonymNotButton:hover {
+    -fx-background-color: #f84bd8;
+}
+
+/* TITLE GRAMMAR */
+#titleGrammar {
+    /* || Typography structure */
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-size: 10;
+    -fx-fill: #f4f4f4;
+    -fx-font-weight: bold;
+}
+
+
+#irregularVerbsHBox {
+    -fx-background-color: #3151f4;
+    -fx-background-radius: 5px;
+}
+
+.toggle-button:selected {
+    -fx-background-radius: 30px;
+}
+
+#first-dashboard__button--comment:hover {
+    -fx-background-color: blue;
+}
+
+#notation-button__button--control {
+    all: none;
+    -fx-background-color: #1684f2;
+    -fx-background-radius: 3px;
+}
+
+#notation-button__button--control:selected {
+    -fx-background-radius: 30px;
+}
+
+#notation-button__vbox--layout {
+    -fx-effect: dropshadow(three-pass-box, rgba(65, 65, 65, 0.1), 10, 0, 3, 3);
+    -fx-background-radius: 5px;
+}
+
+#notation-button__button--comment {
+    -fx-background-color: transparent;
+}
+
+#notation-button__button--comment:hover {
+    -fx-background-radius: 5px;
+    -fx-background-color: rgba(91, 91, 90, 0.1);
+}
+
+#notation-button__button--comment:selected {
+    -fx-background-radius: 5px;
+    -fx-background-color: rgba(91, 91, 90, 0.1);
+}
+
+#comment-view__vbox--layout {
+    -fx-effect: dropshadow(three-pass-box, rgba(65, 65, 65, 0.1), 10, 0, 3, 3);
+    -fx-background-color: #f4f4f2;
+    -fx-background-radius: 10px;
+}
+
+#comment-view__text--common {
+    -fx-font-size: 8;
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-weight: bold;
+    -fx-fill: #1f2f3f;
+}
+
+#first-dashboard__button--add {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #2a8bec, #3528ef);
+    -fx-background-radius: 100%;
+    -fx-pref-width: 36px;
+    -fx-pref-height: 36px;
+    -fx-max-height: 36px;
+    -fx-max-width: 36px;
+    -fx-background-image: url(../image/add_icon.png);
+    -fx-background-size: 30%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 42, 255, 0.5), 50, 0, 0, 0);
+
+
+    -fx-font-family: "Segoe UI Black";
+    -fx-font-size: 10px;
+    -fx-text-fill: #f4f4f2;
+}
+#first-dashboard__button--add:pressed {
+    -fx-translate-y: 2;
 }

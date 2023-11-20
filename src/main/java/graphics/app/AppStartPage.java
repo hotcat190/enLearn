@@ -1,5 +1,6 @@
 package graphics.app;
 
+import graphics.style.StyleHelper;
 import javafx.animation.*;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -33,7 +34,7 @@ public class AppStartPage extends AppWindow {
      * Main components of app window, edit recently so public.
      */
     public Stage stage;
-    public Scene scenePage = new Scene(paneWindow);
+    public Scene scenePage = new Scene(this);
 
     /**
      * Button Learn to start
@@ -67,71 +68,51 @@ public class AppStartPage extends AppWindow {
     private final HBox hBoxStateDay = new HBox(stateDay, imageStateDay);
 
     /**
-     * Link to css file.
-     */
-    private final String linkToCSS = Objects.requireNonNull(getClass().getResource("/css/style_for_appwindow_class.css")).toExternalForm();
-
-    /**
      * Constructor for AppWindow class
      */
     public AppStartPage(Stage stageInit) {
+        super(stageInit);
         stage = stageInit;
         setAppWindow(stageInit);
-        try {
-            paneWindow.getChildren().add(vBoxForTime);
-            paneWindow.getChildren().add(paneLearnButton);
-            paneWindow.getChildren().add(vBoxVersionInfo);
-            paneWindow.getChildren().add(hBoxStateDay);
+        super.getChildren().add(vBoxForTime);
+        super.getChildren().add(paneLearnButton);
+        super.getChildren().add(vBoxVersionInfo);
+        super.getChildren().add(hBoxStateDay);
 
-            stackPaneForDate.getChildren().add(themeGradientDay);
-            stackPaneForDate.getChildren().add(labelForDate);
-            stackPaneForDate.getChildren().add(labelForMonth);
+        stackPaneForDate.getChildren().add(themeGradientDay);
+        stackPaneForDate.getChildren().add(labelForDate);
+        stackPaneForDate.getChildren().add(labelForMonth);
 
-            vBoxForTime.getChildren().add(stackPaneForDate);
-            vBoxForTime.getChildren().add(labelForDay);
-            vBoxForTime.getChildren().add(labelForTime);
+        vBoxForTime.getChildren().add(stackPaneForDate);
+        vBoxForTime.getChildren().add(labelForDay);
+        vBoxForTime.getChildren().add(labelForTime);
 
-        } catch (Exception e) {
-            System.out.println("Error at graphics.app.AppStartPage and at constructor AppStartPage");
-            System.out.println("Error when try add children!");
-            System.out.println("Error: " + e.toString());
+        setId();
+        setCSS();
+        scenePage.setFill(Color.TRANSPARENT);
 
-        }
-        /*
-        Set attribute for all node.
-         */
-        try {
-            setIdPage();
-            setCSSPage();
-            scenePage.setFill(Color.TRANSPARENT);
+        vBoxVersionInfo.setLayoutX(40);
+        vBoxVersionInfo.setLayoutY(670);
 
-            vBoxVersionInfo.setLayoutX(40);
-            vBoxVersionInfo.setLayoutY(670);
+        labelForDate.setTranslateX(2);
+        labelForMonth.setTranslateX(2);
+        labelForMonth.setTranslateY(-13);
 
-            labelForDate.setTranslateX(2);
-            labelForMonth.setTranslateX(2);
-            labelForMonth.setTranslateY(-13);
+        vBoxForTime.layout();
+        vBoxForTime.setLayoutY(DELTA_Y + 20);
+        vBoxForTime.setLayoutX((APP_WIDTH - vBoxForTime.getMinWidth()) / 2 - 30);
+        vBoxForTime.setAlignment(Pos.CENTER);
 
-            vBoxForTime.layout();
-            vBoxForTime.setLayoutY(DELTA_Y + 20);
-            vBoxForTime.setLayoutX((APP_WIDTH - vBoxForTime.getMinWidth()) / 2 - 30);
-            vBoxForTime.setAlignment(Pos.CENTER);
+        stackPaneForDate.setAlignment(Pos.CENTER);
 
-            stackPaneForDate.setAlignment(Pos.CENTER);
+        themeGradientDay.setFitWidth(themeGradientDay.getImage().getWidth() * 0.25);
+        themeGradientDay.setFitHeight(themeGradientDay.getImage().getHeight() * 0.25);
+        themeGradientDay.setTranslateX(-3);
 
-            themeGradientDay.setFitWidth(themeGradientDay.getImage().getWidth() * 0.25);
-            themeGradientDay.setFitHeight(themeGradientDay.getImage().getHeight() * 0.25);
-            themeGradientDay.setTranslateX(-3);
-
-            stage.setScene(scenePage);
-        } catch (Exception e) {
-            System.out.println("Error at graphics.app.AppStartPage and at constructor AppStartPage");
-            System.out.println("Error when try set for children!");
-            System.out.println("Error: " + e);
-        }
+        stage.setScene(scenePage);
     }
 
-    private void setIdPage() {
+    private void setId() {
         labelForTime.setId("labelForTime");
         labelForDay.setId("labelForDay");
         labelForDate.setId("labelForDate");
@@ -139,7 +120,7 @@ public class AppStartPage extends AppWindow {
         textForLearnButton.setId("textForLearnButton");
         exitButton.setId("exitButton");
         controlHBox.setId("controlHBox");
-        paneWindow.setId("paneForBackground");
+        this.setId("paneForBackground");
         vBoxForTime.setId("vBoxForTime");
         minimizeButton.setId("minimizeButton");
         circleLearnButton.setId("circleLearnButton");
@@ -148,11 +129,8 @@ public class AppStartPage extends AppWindow {
         stateDay.setId("stateDay");
     }
 
-    private void setCSSPage() {
-        vBoxForTime.getStylesheets().add(linkToCSS);
-        paneWindow.getStylesheets().add(linkToCSS);
-        hBoxStateDay.getStylesheets().add(linkToCSS);
-
+    public void setCSS() {
+        this.getStylesheets().add(StyleHelper.getStyleSheet(this,"/css/style_for_appwindow_class.css"));
         labelForMonth.applyCss();
         labelForDay.applyCss();
         labelForDate.applyCss();
@@ -361,7 +339,6 @@ public class AppStartPage extends AppWindow {
      * Set event for button.
      */
     private void setEventAndRunForButton() {
-        applyEventAppWindow();
         setLearnButton();
     }
 
