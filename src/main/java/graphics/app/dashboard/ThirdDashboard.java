@@ -59,6 +59,9 @@ public class ThirdDashboard extends Dashboard {
     @Override
     public void set() {
         setTitle();
+        getTitle().setTranslateX(50);
+        getTitle().setTranslateY(20);
+        textSource.setTranslateX(50);
         this.getChildren().add(translateView);
         this.getChildren().add(getTitle());
         this.getChildren().add(textSource);
@@ -66,9 +69,6 @@ public class ThirdDashboard extends Dashboard {
 
         textSource.setLayoutX(getTitle().getLayoutX());
         textSource.setLayoutY(700);
-
-//        translateView.setLayoutX(70+AppWindow.DELTA_X);
-//        translateView.setLayoutY(AppWindow.DELTA_Y);
     }
 
     /**
@@ -96,8 +96,8 @@ public class ThirdDashboard extends Dashboard {
                 "-fx-font-size: 23;" +
                 "-fx-fill: #1f2f3f;" +
                 "-fx-font-weight: bold;");
-        getTitle().setLayoutX(AppWindow.DELTA_X + 80);
-        getTitle().setLayoutY(AppWindow.DELTA_Y + 15);
+//        getTitle().setLayoutX(AppWindow.DELTA_X + 10);
+//        getTitle().setLayoutY(AppWindow.DELTA_Y -360);
     }
 
     @Override

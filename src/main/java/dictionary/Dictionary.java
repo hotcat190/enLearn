@@ -71,4 +71,18 @@ public class Dictionary extends SQLData {
 
         return null;
     }
+
+    public static ArrayList<String> getDictionary() {
+        String sql = "select distinct word from dictionary;";
+        try {
+            ResultSet resultSet = statement.executeQuery(sql);
+            ArrayList<String> list = new ArrayList<>();
+            while (resultSet.next()) {
+                list.add(resultSet.getString(1));
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

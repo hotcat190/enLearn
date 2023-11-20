@@ -2,6 +2,7 @@ package view.my_dictionary.my_word_box;
 
 import controller.model.Listener;
 import data.my_dictionary.MyNewWord;
+import graphics.StandardParameter;
 import graphics.style.Decorator;
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.TextField;
@@ -9,6 +10,10 @@ import javafx.scene.control.TextField;
 import java.sql.SQLException;
 
 public class SearchFilter extends TextField implements Decorator, Listener {
+    public SearchFilter() {
+        set();
+    }
+
     @Override
     public void setId() {
         this.setId("inputSearchFilter");
@@ -21,7 +26,7 @@ public class SearchFilter extends TextField implements Decorator, Listener {
 
     @Override
     public void set() {
-
+        this.setPrefWidth(350* StandardParameter.SCALE);
     }
 
     @Override

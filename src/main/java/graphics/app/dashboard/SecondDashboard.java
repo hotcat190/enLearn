@@ -23,7 +23,7 @@ public class SecondDashboard extends Dashboard {
     /**
      * Controllers.
      */
-    private final MyDictionaryTableController myDictionaryTableController = new MyDictionaryTableController();
+    private final MyDictionaryTableController myDictionaryTableController = MyDictionaryTableController.myDictionaryTableController;
 
     /**
      * Views.
@@ -110,10 +110,12 @@ public class SecondDashboard extends Dashboard {
 //        gridPane.setMaxWidth(1250*StandardParameter.SCALE);
         gridPane.add(getTitle(), 0, 0, 1, 2);
         gridPane.add(searchFilter, 1, 0);
-        gridPane.add(informationBox, 2, 0, 2, 1);
-        gridPane.add(addButton, 10, 0);
-        gridPane.add(myDictionaryTableController.getView(), 1, 1, 10, 2);
-        gridPane.setLayoutX(200);
+        gridPane.add(informationBox, 3, 0);
+        gridPane.add(addButton, 4, 0);
+        gridPane.add(myDictionaryTableController.getView(), 1, 1, 4, 2);
+
+        gridPane.setHgap(70);
+        gridPane.setLayoutX(80);
         gridPane.setLayoutY(100);
     }
 
@@ -141,10 +143,5 @@ public class SecondDashboard extends Dashboard {
                 "-fx-font-size: 23;" +
                 "-fx-fill: #1f2f3f;" +
                 "-fx-font-weight: bold;");
-    }
-
-    @Override
-    public VBox getTitle() {
-        return textLayout;
     }
 }

@@ -33,6 +33,11 @@ public class InformationBox extends HBox implements Decorator {
         vBoxModified.setId("vBoxInformationBox");
         textTotal.setId("textInformationBox");
         textModified.setId("textInformationBox");
+
+        vBoxTotal.setId("information-box__vbox--total");
+        vBoxModified.setId("information-box__vbox--modified");
+        textTotal.setId("information-box__text--total");
+        textModified.setId("information-box__text--modified");
     }
 
     @Override
@@ -59,7 +64,7 @@ public class InformationBox extends HBox implements Decorator {
 
 
         this.getChildren().addAll(vBoxTotal, vBoxModified);
-        this.setSpacing(20);
+        this.setSpacing(40);
     }
 
     @Override

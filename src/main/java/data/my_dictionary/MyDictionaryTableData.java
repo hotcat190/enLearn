@@ -7,10 +7,11 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 
 public class MyDictionaryTableData extends Data {
+    public final static MyDictionaryTableData myDictionaryTableData = new MyDictionaryTableData();
     private final ObservableList<MyNewWord> observableList = FXCollections.observableArrayList();
     private final FilteredList<MyNewWord> filteredList = new FilteredList<>(observableList);
 
-    public MyDictionaryTableData() {
+    private MyDictionaryTableData() {
 
     }
 
@@ -32,9 +33,11 @@ public class MyDictionaryTableData extends Data {
     public FilteredList<MyNewWord> getFilteredList() {
         return filteredList;
     }
+
     public void add(MyNewWord myNewWord) {
         observableList.add(myNewWord);
     }
+
     public ObservableList<MyNewWord> getObservableList() {
         return observableList;
     }

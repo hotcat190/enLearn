@@ -83,8 +83,8 @@ public class TranslateView extends HBox implements Decorator, Connector, Listene
         tagLanguage.put("Vietnamese", new StringBuffer("vi"));
         tagLanguage.put("English", new StringBuffer("en"));
 
-        double translateY = 80;
-        double translateX = 30;
+        double translateY = 100;
+        double translateX = 50;
         vBox1.setTranslateY(translateY);
         vBox2.setTranslateY(translateY);
 

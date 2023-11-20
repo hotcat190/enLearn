@@ -1,12 +1,12 @@
+.all {
+    -fx-effect: none;
+}
 #pane {
     /* || Structure Block*/
     -fx-background-color: transparent;
     -fx-background-size: 95%;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
-
-    /* || Modifier Block*/
-    -fx-effect: dropshadow(three-pass-box, rgba(10, 10, 10, 0.15), 30, 0, -2, 2);
 }
 #tableView {
     -fx-background-color: transparent;
@@ -98,4 +98,23 @@
     -fx-font-family: "Segoe UI";
     -fx-font-size: 18px;
     -fx-font-weight: bold;
+}
+
+#add-my-word-box__button--save {
+    -fx-background-color: #3a2bf9;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #f4f4f2;
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-weight: bold;
+    -fx-pref-width: 70;
+}
+#add-my-word-box__button--cancel {
+    -fx-background-color: transparent;
+    -fx-border-radius: 5px;
+    -fx-border-color: #757575;
+    -fx-text-fill: #757575;
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-weight: bold;
+    -fx-pref-width: 70;
+
 }

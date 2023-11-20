@@ -4,6 +4,7 @@ import controller.model.Listener;
 import graphics.StandardParameter;
 import graphics.app.AppWindow;
 import graphics.app.dashboard.FirstDashboard;
+import graphics.app.dashboard.FourthDashBoard;
 import graphics.app.dashboard.SecondDashboard;
 import graphics.app.dashboard.ThirdDashboard;
 import graphics.style.Decorator;
@@ -29,6 +30,7 @@ public class AppController extends AppWindow implements Decorator, Listener {
     private final FirstDashboard homeDashboard;
     private final SecondDashboard myDictionaryDashboard;
     private final ThirdDashboard translateDashboard;
+    private final FourthDashBoard fourthDashBoard = FourthDashBoard.fourthDashBoard;
     private final Pane current = new Pane();
     private final Stage stage;
     private final StackPane layout = new StackPane(current, menuController);
@@ -78,7 +80,8 @@ public class AppController extends AppWindow implements Decorator, Listener {
     @Override
     public void set() {
         this.getChildren().add(layout);
-        rectSelected.setLayoutX(menuController.getLayoutX()+menuController.getTranslateX());
+        rectSelected.setLayoutX(menuController.getLayoutX() + menuController.getTranslateX());
+        current.getChildren().add(fourthDashBoard);
 
         layout.getChildren().add(rectSelected);
         layout.setAlignment(Pos.CENTER_LEFT);

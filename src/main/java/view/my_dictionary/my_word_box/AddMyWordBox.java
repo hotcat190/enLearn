@@ -39,6 +39,8 @@ public class AddMyWordBox extends UIComponent implements Listener {
     @Override
     public void setId() {
         layout.setId("layoutMyNewWordBox");
+        saveButton.setId("add-my-word-box__button--save");
+        cancelButton.setId("add-my-word-box__button--cancel");
     }
 
     @Override
@@ -99,11 +101,7 @@ public class AddMyWordBox extends UIComponent implements Listener {
                         pronunciationInput.getInput(),
                         new Date(System.currentTimeMillis()),
                         definitionInput.getInput());
-                SQLMyDictionary.addToMyDictionary(
-                        nameInput.getInput(),
-                        pronunciationInput.getInput(),
-                        definitionInput.getInput()
-                );
+                SQLMyDictionary.addToMyDictionary(myNewWord);
                 Objects.requireNonNull(myDictionaryTableData).add(myNewWord);
             }
             this.setVisible(false);

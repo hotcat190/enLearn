@@ -5,8 +5,6 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
 
-    /* || Modifier Block*/
-    -fx-effect: dropshadow(three-pass-box, rgba(10, 10, 10, 0.15), 30, 0, -2, 2);
 }
 #translate-view__vbox--from {
     -fx-background-color: #f4f4f2;
@@ -45,14 +43,14 @@
     -fx-translate-x: 10;
 }
 #translate-view__menubutton--to .label {
-    -fx-font-size: 16px;
+    -fx-font-size: 13px;
     -fx-font-family: "Segoe UI Variable";
     -fx-font-weight: bold;
     -fx-text-fill: #f4f4f2;
 
 }
 #translate-view__menubutton--from .label {
-    -fx-font-size: 16px;
+    -fx-font-size: 13px;
     -fx-font-family: "Segoe UI Variable";
     -fx-font-weight: bold;
     -fx-text-fill: #f4f4f2;

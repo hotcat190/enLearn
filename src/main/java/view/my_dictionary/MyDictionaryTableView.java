@@ -78,10 +78,6 @@ public class MyDictionaryTableView extends TableView<MyNewWord> implements Conne
         this.getColumns().addAll(orderColumn, wordColumn, pronunciationColumn, updateColumn, definitionColumn) ;
         this.setItems(observableList);
         this.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
-//        tableView.getColumns().forEach(tableColumn -> tableColumn.setResizable(false));
-//        tableView.setMinSize(1010 * StandardParameter.SCALE, 500 * StandardParameter.SCALE);
-//        tableView.setMaxSize(1010 * StandardParameter.SCALE, 500 * StandardParameter.SCALE);
-//        tableView.setMinWidth(50 + 200 + 200 + 200 + 300);
         this.setPrefHeight(625*StandardParameter.SCALE);
 
     }

@@ -1,13 +1,21 @@
 package graphics.app.dashboard;
 
 import controller.model.Listener;
+import controller.my_dictionary.MyDictionaryTableController;
+import data.my_dictionary.MyDictionaryTableData;
+import data.my_dictionary.MyNewWord;
+import data.my_dictionary.SQLMyDictionary;
 import graphics.StandardParameter;
+import graphics.app.dashboard.home.NotationButton;
 import graphics.engine.SearchEngine;
 import graphics.engine.TranslateEngine;
 import graphics.app.AppWindow;
 import graphics.style.Decorator;
 import graphics.style.StyleHelper;
 import javafx.animation.AnimationTimer;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -19,6 +27,7 @@ import view.word.WordBoard;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -36,14 +45,15 @@ public class FirstDashboard extends Dashboard {
     private final StatisticBoard statisticBoard = new StatisticBoard();
 
     private final Text textProgress = new Text("Progress");
+    private final NotationButton notationButton = NotationButton.notationButton;
+    private final Button addButton = new Button();
     /**
      * Parameter.
      */
     public static final String LINK_CSS = Objects.requireNonNull(FirstDashboard.class.getResource("/css/style_for_dashboard1_class.css")).toExternalForm();
-    private final Text textTop1 = new Text("Home");
-    private final Text textBottom1 = new Text("Dashboard");
 
     public FirstDashboard() throws SQLException {
+
         setId();
         setCSS();
         set();
@@ -53,6 +63,7 @@ public class FirstDashboard extends Dashboard {
     @Override
     public void setId() {
         this.setId("pane");
+        addButton.setId("first-dashboard__button--add");
     }
 
     @Override
@@ -71,43 +82,36 @@ public class FirstDashboard extends Dashboard {
                 "-fx-font-size: 23;" +
                 "-fx-fill: #1f2f3f;" +
                 "-fx-font-weight: bold;");
-        textTop1.setStyle("-fx-font-family: 'Segoe UI Semibold';" +
-                "-fx-font-size: 14;" +
-                "-fx-fill: #898b8c;");
-        textBottom1.setStyle("-fx-font-family: 'Segoe UI Variable'; " +
-                "-fx-font-size: 23;" +
-                "-fx-fill: #1f2f3f;" +
-                "-fx-font-weight: bold;");
-//        getTitle().setLayoutX(AppWindow.DELTA_X + 80);
-//        getTitle().setLayoutY(AppWindow.DELTA_Y + 15);
-    }
-
-    @Override
-    public VBox getTitle() {
-        return textLayout;
+        textBottom.setTranslateY(-10);
+        getTitle().setTranslateX(20);
+        getTitle().setTranslateY(-10);
     }
 
     @Override
     public void set() {
-        VBox vBox = new VBox(textTop1, textBottom1);
-        vBox.setSpacing(-10);
-        vBox.setTranslateX(25);
-
         this.getChildren().add(hBox);
         this.getChildren().add(searchEngine.getPaneSearch());
+        this.getChildren().add(notationButton);
+        this.getChildren().add(addButton);
+
+        notationButton.setLayoutX(500);
+        notationButton.setLayoutY(350);
+
+
+        setTitle();
+
         textProgress.setStyle("-fx-fill: #1f2f3f;" +
                 "-fx-font-family: 'Segoe UI Variable';" +
                 "-fx-font-weight: bold;" +
                 "-fx-font-size: 20px");
 
-        setTitle();
 
         hBox.getChildren().addAll(
                 part1, part2
         );
 
         part1.getChildren().addAll(
-                vBox,
+                getTitle(),
                 wordBoard.getLayout()
         );
         part2.getChildren().addAll(
@@ -129,6 +133,12 @@ public class FirstDashboard extends Dashboard {
 
         searchEngine.getPaneSearch().setLayoutX(AppWindow.DELTA_X + 20 * StandardParameter.SCALE + 20);
         searchEngine.getPaneSearch().setLayoutY(50 + AppWindow.DELTA_Y);
+        searchEngine.getPaneSearch().toFront();
+
+        addButton.setLayoutX(searchEngine.getPaneSearch().getLayoutX());
+        addButton.setLayoutY(searchEngine.getPaneSearch().getLayoutY() + 50);
+
+
     }
 
     /**
@@ -166,7 +176,16 @@ public class FirstDashboard extends Dashboard {
         }.start();
         wordBoard.setListener(searchEngine);
         searchEngine.setEvent();
-//        translateEngine.setEvent(dialog, this);
+        addButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            MyNewWord myNewWord = new MyNewWord(SQLMyDictionary.getOrder(),
+                    wordBoard.word.getWord(),
+                    wordBoard.word.getPronunciation(),
+                    new Date(System.currentTimeMillis()),
+                    wordBoard.word.getPriorityDefinition()
+            );
+            SQLMyDictionary.addToMyDictionary(myNewWord);
+            MyDictionaryTableData.myDictionaryTableData.add(myNewWord);
+        });
     }
 
 }

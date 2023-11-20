@@ -14,10 +14,11 @@ import java.sql.SQLException;
 import java.text.ParseException;
 
 public class MyDictionaryTableController extends Controller {
+    public static final MyDictionaryTableController myDictionaryTableController = new MyDictionaryTableController();
     private final MyDictionaryTableView myDictionaryTableView = new MyDictionaryTableView();
-    private final MyDictionaryTableData myDictionaryTableData = new MyDictionaryTableData();
+    private final MyDictionaryTableData myDictionaryTableData = MyDictionaryTableData.myDictionaryTableData;
 
-    public MyDictionaryTableController() {
+    private MyDictionaryTableController() {
         myDictionaryTableView.connect(myDictionaryTableData.getFilteredList());
         try {
             myDictionaryTableData.getObservableList().addAll(SQLMyDictionary.getMyDictionary());

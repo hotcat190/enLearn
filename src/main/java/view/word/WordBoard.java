@@ -127,12 +127,12 @@ public class WordBoard extends DataWord implements Decorator, Listener {
         textWord.setTranslateY(10);
         textPronunciation.setTranslateY(-10);
         HBox hBox_contronym = new HBox(synonymsController.getView(), antonymsController.getView());
-        hBox_contronym.setSpacing(50 * StandardParameter.SCALE);
+        hBox_contronym.setSpacing(100 * StandardParameter.SCALE);
         hBox_contronym.setTranslateX(80);
         mainVBoxWord.getChildren().addAll(partOfSpeechController.getView());
         mainVBoxWord.getChildren().add(hBox_contronym);
 
-        mainVBoxWord.setTranslateX(-15);
+        mainVBoxWord.setTranslateX(-5);
         mainVBoxWord.setAlignment(Pos.CENTER);
         mainVBoxWord.setSpacing(35 * StandardParameter.SCALE);
 

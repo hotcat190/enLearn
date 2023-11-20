@@ -45,6 +45,16 @@ public class SQLMyDictionary extends SQLData {
             throw new RuntimeException(e);
         }
     }
+    public static void addToMyDictionary(MyNewWord myNewWord) {
+        try {
+            String sqlUpdate = String.format("insert into my_dictionary(word,pronunciation,updateDate,definition)" +
+                    "values('%s','%s',date(now()),'%s')",
+                    myNewWord.getWord(), myNewWord.getPronunciation(), myNewWord.getDefinition());
+            statement.executeUpdate(sqlUpdate);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static void addToMyDictionary(String word, String pronunciation, String definition) {
         try {
