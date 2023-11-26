@@ -11,6 +11,8 @@ module apppackage {
     exports graphics.main;
     exports utility.calendar;
 
-    opens data.my_dictionary;
+    opens controller.my_dictionary.data;
+    opens sql.dictionary;
+    opens controller.word.data;
 
 }

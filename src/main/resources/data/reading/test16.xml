@@ -1,0 +1,22 @@
+<test>
+    <paragraph>
+        Meanwhile, on the other side of the mountain, cinders, stone and ash rained down on Pompeii. Sparks from the burning ash ignited the combustible rooftops quickly. Large portions of the city were destroyed in the conflagration. Fire, however, was not the only cause of destruction. Poisonous sulfuric gases saturated the air. These heavy gases were not buoyant in the atmosphere and therefore sank toward the earth and suffocated people.
+    </paragraph>
+    <question>
+        The poisonous gases were not _________ in the air.
+    </question>
+    <answers>
+        able to float
+        visible
+        able to evaporate
+        invisible
+        able to condense
+    </answers>
+    <correctAnswer>
+        able to float
+    </correctAnswer>
+    <explanation>
+        “Buoyant” means able to float. The passage indicates this by indicating that the gases therefore, sank toward earth and suffocated people. Buoyant does not mean visible (B) or possible to see. Able to float/buoyant does not mean able to evaporate (C). Evaporation means turning to vapor, which only liquids can do. Gases are already vapors. Buoyant does not mean invisible (D) or unseen. Able to float does not mean able to condense (E), i.e. turn from vapor to liquid.
+    </explanation>
+</test>
+

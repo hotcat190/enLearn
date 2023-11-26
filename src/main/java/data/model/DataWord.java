@@ -1,6 +1,6 @@
 package data.model;
 
-import dictionary.Word;
+import controller.word.data.Word;
 
 public abstract class DataWord extends Data {
     protected Word word = null;

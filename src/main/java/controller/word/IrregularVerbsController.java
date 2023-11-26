@@ -2,22 +2,22 @@ package controller.word;
 
 import controller.model.Controller;
 import controller.model.Update;
-import data.word.IrregularVerbsData;
-import dictionary.Word;
-import view.word.IrregularVerbsView;
+import controller.word.word.IrregularVerbsData;
+import controller.word.data.Word;
+import controller.word.view.IrregularVerbsView;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.layout.Pane;
 
 public class IrregularVerbsController extends Controller implements Update {
-    private final IrregularVerbsView irregularVerbsView = new IrregularVerbsView(130, 165, 15, 15);
+    private final IrregularVerbsView irregularVerbsView = new IrregularVerbsView(163, 153, 15, 15);
     private final IrregularVerbsData irregularVerbsData = new IrregularVerbsData();
 
     private final StringProperty pastSimpleProperty = new SimpleStringProperty();
     private final StringProperty pastParticipleProperty = new SimpleStringProperty();
 
     public IrregularVerbsController() {
-        irregularVerbsView.connect(pastSimpleProperty, pastSimpleProperty);
+        irregularVerbsView.connect(pastSimpleProperty, pastParticipleProperty);
     }
     public Pane getView() {
         return irregularVerbsView.get();

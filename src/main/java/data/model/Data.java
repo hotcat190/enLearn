@@ -1,6 +1,6 @@
 package data.model;
 
-import sql.SQLData;
+import sql.model.SQLData;
 
 public abstract class Data extends SQLData {
     /**

@@ -1,0 +1,22 @@
+<test>
+    <paragraph>
+        A papal decree of 1493 had assigned all land in the New World west of 50 degrees W longitude to Spain and all the land east of that line to Portugal. Magellan offered to prove that the East Indies fell under Spanish authority. On September 20, 1519, Magellan set sail from Spain with five ships. More than a year later, one of these ships was exploring the topography of South America in search of a water route across the continent. This ship sank, but the remaining four ships searched along the southern peninsula of South America. Finally they found the passage they sought near 50 degrees S latitude. Magellan named this passage the Strait of All Saints, but today it is known as the Strait of Magellan.
+    </paragraph>
+    <question>
+        In the spring of 1521, the ships crossed the _______ now called the International Date Line.
+    </question>
+    <answers>
+        imaginary circle passing through the poles
+        imaginary line parallel to the equator
+        area
+        land mass
+        Answer not available
+    </answers>
+    <correctAnswer>
+        imaginary circle passing through the poles
+    </correctAnswer>
+    <explanation>
+        Meridians are imaginary geographical circles intersecting the poles. Imaginary lines parallel to the equator (B) are latitudes. The International Date Line is a specific meridian, not an area (C). It is not a land mass (D) as it crosses both water and land.
+    </explanation>
+</test>
+

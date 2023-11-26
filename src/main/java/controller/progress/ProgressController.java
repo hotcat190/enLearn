@@ -1,17 +1,21 @@
 package controller.progress;
 
 import controller.model.Controller;
-import graphics.app.User;
+import sql.user.SQLUser;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-import view.progress.ProgressView;
+import controller.progress.view.ProgressView;
 
 public class ProgressController extends Controller {
-    public final ProgressView progressView = new ProgressView();
-    private final User user = new User();
+    /**
+     * Singleton.
+     */
+    private static final ProgressController INSTANCE = new ProgressController();
+    /**
+     * Views.
+     */
+    public final ProgressView progressView = ProgressView.getInstance();
 
     public ProgressController() {
-        progressView.connect(user);
     }
 
     @Override
@@ -29,5 +33,9 @@ public class ProgressController extends Controller {
     @Override
     public Node getView() {
         return progressView;
+    }
+
+    public static ProgressController getInstance() {
+        return INSTANCE;
     }
 }

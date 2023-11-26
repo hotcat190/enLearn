@@ -1,8 +1,8 @@
 package controller.word;
 
-import data.word.PartOfSpeechData;
-import dictionary.Word;
-import view.word.PartOfSpeechView;
+import controller.word.word.PartOfSpeechData;
+import controller.word.data.Word;
+import controller.word.view.PartOfSpeechView;
 import javafx.scene.layout.Pane;
 import controller.model.Controller;
 import controller.model.Update;

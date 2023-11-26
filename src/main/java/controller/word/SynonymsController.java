@@ -1,10 +1,10 @@
 package controller.word;
 
 import controller.model.Update;
-import data.word.ContronymData;
-import dictionary.Word;
-import view.word.ContronymView;
-import view.word.WordBoard;
+import controller.word.word.ContronymData;
+import controller.word.data.Word;
+import controller.word.view.ContronymView;
+import controller.word.view.WordBoard;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
@@ -21,7 +21,7 @@ public class SynonymsController extends ContronymView implements Update {
         }
     };
 
-    public SynonymsController(double width, double height, double leftMargin, double topMargin, Color colorGraphic) throws SQLException {
+    public SynonymsController(double width, double height, double leftMargin, double topMargin, Color colorGraphic) {
         super(width, height, leftMargin, topMargin, colorGraphic);
         connect(contronymData.contronymList);
     }

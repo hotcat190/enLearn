@@ -1,14 +1,13 @@
 package controller.statistic;
 
 import controller.model.Controller;
-import data.statistic.WordBarChartData;
+import controller.statistic.data.WordBarChartData;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-import view.statistic.WordBarChartView;
+import controller.statistic.view.WordBarChartView;
 
 public class WordBardChartController extends Controller {
-    private final WordBarChartData wordBarChartData = new WordBarChartData();
-    private final WordBarChartView wordBarChartView = new WordBarChartView();
+    private final WordBarChartData wordBarChartData = WordBarChartData.getInstance();
+    private final WordBarChartView wordBarChartView = WordBarChartView.getInstance();
     public WordBardChartController() {
         wordBarChartView.connect(wordBarChartData.getObservableList());
     }

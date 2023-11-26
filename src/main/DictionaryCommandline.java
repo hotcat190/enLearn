@@ -11,7 +11,7 @@ public class DictionaryCommandline {
         List<Word> listOfWords = this.dictionary.getListOfWords();
 
         final int MAX_INDEX_DIGITS = 3; // Format up to 3 digits
-        final int MAX_LEN_WORD = 45; // Longest English word length in a major dictionary = 45
+        final int MAX_LEN_WORD = 45; // Longest English word length in a major sql.dictionary = 45
 
         System.out.printf("%-" + MAX_INDEX_DIGITS + "s", "No");
         System.out.print(" | ");

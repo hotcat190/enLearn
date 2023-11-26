@@ -1,22 +1,24 @@
 package controller.my_dictionary;
 
 import controller.model.Controller;
-import data.my_dictionary.MyDictionaryTableData;
-import data.my_dictionary.MyNewWord;
-import data.my_dictionary.SQLMyDictionary;
+import controller.my_dictionary.data.MyDictionaryTableData;
+import sql.dictionary.SQLMyDictionary;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-import utility.calendar.Time;
-import view.my_dictionary.MyDictionaryTableView;
+import controller.my_dictionary.view.MyDictionaryTableView;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.text.ParseException;
 
 public class MyDictionaryTableController extends Controller {
-    public static final MyDictionaryTableController myDictionaryTableController = new MyDictionaryTableController();
-    private final MyDictionaryTableView myDictionaryTableView = new MyDictionaryTableView();
-    private final MyDictionaryTableData myDictionaryTableData = MyDictionaryTableData.myDictionaryTableData;
+    /**
+     * Singleton.
+     */
+    private static final MyDictionaryTableController INSTANCE = new MyDictionaryTableController();
+
+    /**
+     * Components.
+     */
+    private final MyDictionaryTableView myDictionaryTableView = MyDictionaryTableView.getInstance();
+    private final MyDictionaryTableData myDictionaryTableData = MyDictionaryTableData.getInstance();
 
     private MyDictionaryTableController() {
         myDictionaryTableView.connect(myDictionaryTableData.getFilteredList());
@@ -30,6 +32,7 @@ public class MyDictionaryTableController extends Controller {
     public MyDictionaryTableData getData() {
         return myDictionaryTableData;
     }
+
     @Override
     public void updateView() {
     }
@@ -45,5 +48,9 @@ public class MyDictionaryTableController extends Controller {
     @Override
     public Node getView() {
         return myDictionaryTableView;
+    }
+
+    public static MyDictionaryTableController getInstance() {
+        return INSTANCE;
     }
 }

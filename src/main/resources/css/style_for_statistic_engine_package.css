@@ -1,7 +1,7 @@
 #layoutStatistic {
     /* || Structure block */
-    -fx-background-color: #f2f2f0;
-    -fx-background-radius: 20px;
+    -fx-background-color: #1b1b1b;
+    -fx-background-radius: 10px;
 }
 
 /*
@@ -63,48 +63,47 @@
 #textSelection {
     -fx-font-family: 'Segoe UI Variable';
     -fx-font-size: 10px;
-    -fx-fill: #1f2f3f;
+    -fx-fill: #f2f2f2;
     -fx-font-weight: bold;
 }
 
 #textTitle {
     -fx-font-family: 'Segoe UI Semibold';
     -fx-font-size: 8px;
-    -fx-fill: #666666;
+    -fx-fill: #f2f2f2;
 }
 
-#menuButton{
+#graph-button__button--menu{
     all: none;
-    -fx-background-color: #f1f2ed;
+    -fx-background-color: #111111;
     -fx-font-size: 10px;
     -fx-fill: #1f2f3f;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow(three-pass-box, rgba(147, 148, 148, 0.2),20,0,2,4)
 }
-#menuButton:hover {
-    -fx-effect: dropshadow(three-pass-box, rgba(46, 110, 237, 0.2),20,0,2,4);
+#graph-button__button--menu:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(38, 38, 38, 0.2),20,0,2,4);
 }
 
-#menuButton .menu-item {
+#graph-button__button--menu .menu-item {
     -fx-background-color: transparent;
     -fx-font-size: 10px;
     -fx-text-fill: #1f2f3f;
     -fx-font-weight: bold;
 }
 
-#menuButton .menu-item :hover {
+#graph-button__button--menu .menu-item :hover {
     -fx-background-color: #1b3eed;
-    -fx-text-fill: #1f2f3f;
+    -fx-text-fill: #4f4f4f;
 }
-#menuButton .context-menu {
-    -fx-background-color: #f1f2ed;
+#graph-button__button--menu .context-menu {
+    -fx-background-color: #111111;
     -fx-background-radius: 0 0 5 5;
     -fx-min-width: 70;
 }
 
 #statistic-board__layout {
     -fx-background-radius: 10px;
-    -fx-background-color: #efeeea;
+    -fx-background-color: #1b1b1b;
     -fx-effect: dropshadow(three-pass-box, rgba(31, 31, 31, 0.2), 10, 0, 1, 1);
 }
 .chart-legend {

@@ -34,7 +34,7 @@ public class GraphButton extends View implements Decorator, Listener {
     public void setId() {
         textTitle.setId("textTitle");
         listView.setId("listView");
-        menuButton.setId("menuButton");
+        menuButton.setId("graph-button__button--menu");
     }
 
     @Override

@@ -1,1 +1,1 @@
-# dictionary-app
+# sql.dictionary-app

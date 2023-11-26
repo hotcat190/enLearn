@@ -1,25 +1,56 @@
+/** LAYOUT */
+#menu-controller__layout {
+    /* || Structure block */
+    -fx-background-color: #1b1b1b;
+    -fx-background-radius: 12px;
+
+    /* || Modifier block */
+    -fx-effect: dropshadow(three-pass-box, rgba(38, 38, 38, 0.3), 10, 0, 0, 0);
+}
+
 .menu-controller__button {
     all: none;
+    -fx-background-size: 18px 18px;
+    -fx-background-repeat: no-repeat;
     -fx-background-color: transparent;
-    -fx-min-height: 35;
-    -fx-min-width: 35;
-    -fx-background-radius: 5;
+    -fx-min-height: 33;
+    -fx-min-width: 33;
+    -fx-max-width: 33;
+    -fx-background-radius: 7;
+
+    -fx-content-display: left;
+    -fx-graphic-text-gap: 18px;
+    -fx-text-fill: #666666;
+    -fx-font-family: "Segoe UI Variable", sans-serif;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+
+    -fx-alignment: baseline-left;
 }
+
 .menu-controller__button:hover {
     -fx-background-color: rgba(122, 122, 122, 0.1);
 }
+
 .menu-controller__button:selected {
-    -fx-background-color: rgba(122, 122, 122, 0.1);
+    -fx-background-color: rgb(27, 62, 237);
+    -fx-text-fill: #f2f2f2;
 }
-#menu-controller__layout {
-    -fx-background-color: #f4f4f0;
-    -fx-background-radius: 18 18 18 18;
-    -fx-effect: dropshadow(three-pass-box, rgba(96, 95, 95, 0.3), 10, 0, 0, 0);
+
+.menu-controller__button .graphic {
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
 }
-#menu-controller__layout:hover {
-    -fx-background-color: #f4f4f0;
-}
-#menu-controller__rectangle--selected {
-    -fx-fill: #1b3eed;
-    -fx-background-radius: 20px;
+
+
+#menu-controller__button--controller {
+    -fx-background-color: transparent;
+    -fx-min-height: 35;
+    -fx-min-width: 35;
+
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-size: 15px;
+    -fx-font-weight: bolder;
+    -fx-text-fill: rgb(27, 62, 237);
+    -fx-alignment: baseline-left;
 }

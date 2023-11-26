@@ -42,6 +42,10 @@ public class Time {
         return pattern.format(new Date());
     }
 
+    public static String getHoursAndMinutes() {
+        DateFormat pattern = new SimpleDateFormat("h:mm a");
+        return pattern.format(new Date());
+    }
     /**
      * Get days with format EEEE (Monday,Tuesday,..., Sunday).
      *

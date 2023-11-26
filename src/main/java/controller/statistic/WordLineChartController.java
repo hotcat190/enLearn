@@ -1,14 +1,13 @@
 package controller.statistic;
 
 import controller.model.Controller;
-import data.statistic.WordLineChartData;
+import controller.statistic.data.WordLineChartData;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
-import view.statistic.WordLineChartView;
+import controller.statistic.view.WordLineChartView;
 
 public class WordLineChartController extends Controller {
-    private final WordLineChartView wordLineChartView = new WordLineChartView();
-    private final WordLineChartData wordLineChartData = new WordLineChartData();
+    private final WordLineChartView wordLineChartView = WordLineChartView.getInstance();
+    private final WordLineChartData wordLineChartData = WordLineChartData.getInstance();
 
     public WordLineChartController() {
         wordLineChartView.connect(wordLineChartData.getObservableList());
