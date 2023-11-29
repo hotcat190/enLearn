@@ -1,4 +1,4 @@
-module apppackage {
+module enLearn {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.media;

@@ -1,1 +1,0 @@
-# sql.dictionary-app
