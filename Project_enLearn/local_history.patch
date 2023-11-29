@@ -1,0 +1,2355 @@
+Index: src/main/java/data/my_dictionary/SQLMyDictionary.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/data/my_dictionary/SQLMyDictionary.java b/src/main/java/data/my_dictionary/SQLMyDictionary.java
+--- a/src/main/java/data/my_dictionary/SQLMyDictionary.java	
++++ b/src/main/java/data/my_dictionary/SQLMyDictionary.java	(date 1699888216235)
+@@ -74,7 +74,7 @@
+     }
+ 
+     public static String getLastModified() {
+-        String sql = "select max(update) from my_dictionary";
++        String sql = "select max(updateDate) from my_dictionary;";
+         ResultSet resultSet = null;
+         DateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+         try {
+Index: src/main/java/view/word/WordUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/word/WordUI.java b/src/main/java/view/word/WordUI.java
+--- a/src/main/java/view/word/WordUI.java	
++++ b/src/main/java/view/word/WordUI.java	(date 1699890777995)
+@@ -2,9 +2,8 @@
+ 
+ import controller.word.PartOfSpeechController;
+ import dictionary.Word;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.scene.control.Label;
+-import javafx.scene.control.ScrollPane;
+ import javafx.scene.layout.VBox;
+ 
+ public class WordUI implements Decorator {
+Index: src/main/java/view/word/WordBoard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/word/WordBoard.java b/src/main/java/view/word/WordBoard.java
+--- a/src/main/java/view/word/WordBoard.java	
++++ b/src/main/java/view/word/WordBoard.java	(date 1699890778042)
+@@ -11,9 +11,8 @@
+ import dictionary.Word;
+ import graphics.StandardParameter;
+ import graphics.app.User;
+-import graphics.app.dashboard.DashboardTitle;
+ import graphics.engine.SearchEngine;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.application.Platform;
+ import javafx.geometry.Pos;
+ import javafx.scene.control.Label;
+@@ -24,7 +23,6 @@
+ import javafx.scene.layout.Pane;
+ import javafx.scene.layout.VBox;
+ import javafx.scene.paint.Color;
+-import javafx.scene.text.Font;
+ 
+ import java.sql.SQLException;
+ import java.util.Objects;
+Index: src/main/java/view/word/ContronymView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/word/ContronymView.java b/src/main/java/view/word/ContronymView.java
+--- a/src/main/java/view/word/ContronymView.java	
++++ b/src/main/java/view/word/ContronymView.java	(date 1699890778200)
+@@ -4,7 +4,7 @@
+ import dictionary.Word;
+ import graphics.StandardParameter;
+ import graphics.app.AppWindow;
+-import graphics.ui.UIComponent;
++import graphics.style.UIComponent;
+ import javafx.scene.control.Button;
+ import javafx.scene.input.MouseEvent;
+ import javafx.scene.layout.FlowPane;
+Index: src/main/java/view/word/DefinitionView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/word/DefinitionView.java b/src/main/java/view/word/DefinitionView.java
+--- a/src/main/java/view/word/DefinitionView.java	
++++ b/src/main/java/view/word/DefinitionView.java	(date 1699890778398)
+@@ -1,7 +1,6 @@
+ package view.word;
+ 
+ import dictionary.Word;
+-import graphics.ui.Decorator;
+ import javafx.scene.layout.VBox;
+ 
+ public class DefinitionView {
+Index: src/main/java/view/word/PartOfSpeechView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/word/PartOfSpeechView.java b/src/main/java/view/word/PartOfSpeechView.java
+--- a/src/main/java/view/word/PartOfSpeechView.java	
++++ b/src/main/java/view/word/PartOfSpeechView.java	(date 1699890777974)
+@@ -2,7 +2,7 @@
+ 
+ import dictionary.Word;
+ import graphics.StandardParameter;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.animation.KeyFrame;
+ import javafx.animation.KeyValue;
+ import javafx.animation.Timeline;
+Index: src/main/java/view/word/IrregularVerbsView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/word/IrregularVerbsView.java b/src/main/java/view/word/IrregularVerbsView.java
+--- a/src/main/java/view/word/IrregularVerbsView.java	
++++ b/src/main/java/view/word/IrregularVerbsView.java	(date 1699890778351)
+@@ -1,7 +1,7 @@
+ package view.word;
+ 
+ import dictionary.Word;
+-import graphics.ui.UIComponent;
++import graphics.style.UIComponent;
+ import javafx.beans.property.StringProperty;
+ import javafx.scene.image.Image;
+ import javafx.scene.layout.VBox;
+Index: src/main/java/view/model/View.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/model/View.java b/src/main/java/view/model/View.java
+--- a/src/main/java/view/model/View.java	
++++ b/src/main/java/view/model/View.java	(date 1699890778206)
+@@ -1,16 +1,15 @@
+ package view.model;
+ 
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.scene.layout.Pane;
+ 
+-import java.util.Objects;
+ 
+-public abstract class View implements Decorator {
+-    protected Pane layout = new Pane();
+-
+-    public abstract void connect(Object object);
++public abstract class View extends Pane implements Decorator {
++    public void connect(Object object) {
++        return;
++    }
+     public Pane get() {
+-        return layout;
++        return this;
+     }
+ 
+ }
+Index: src/main/java/view/model/Connector.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/model/Connector.java b/src/main/java/view/model/Connector.java
+new file mode 100644
+--- /dev/null	(date 1699890593436)
++++ b/src/main/java/view/model/Connector.java	(date 1699890593436)
+@@ -0,0 +1,5 @@
++package view.model;
++
++public interface Connector {
++    void connect(Object object);
++}
+Index: src/main/java/view/model/GraphButton.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/model/GraphButton.java b/src/main/java/view/model/GraphButton.java
+--- a/src/main/java/view/model/GraphButton.java	
++++ b/src/main/java/view/model/GraphButton.java	(date 1699890778223)
+@@ -1,28 +1,27 @@
+ package view.model;
+ 
+ import controller.model.Listener;
+-import graphics.StandardParameter;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.geometry.Pos;
+-import javafx.scene.control.Button;
+ import javafx.scene.control.ListView;
+ import javafx.scene.control.MenuButton;
+ import javafx.scene.control.MenuItem;
+-import javafx.scene.image.Image;
+-import javafx.scene.image.ImageView;
+ import javafx.scene.layout.HBox;
+-import javafx.scene.layout.VBox;
+ import javafx.scene.text.Text;
+ 
+ import java.sql.SQLException;
+ import java.util.Objects;
+ 
+ public class GraphButton extends View implements Decorator, Listener {
++    /**
++     * View.
++     */
+     private final Text textTitle = new Text("Graph");
+     private final HBox hBox = new HBox();
+-
++    private final MenuButton menuButton = new MenuButton();
+     private final ListView<String> listView = new ListView<>();
+-    private final MenuButton menuButton = new MenuButton();
++    MenuItem menuItem = new MenuItem("Word");
++
+ 
+     public GraphButton() {
+         setID();
+@@ -40,36 +39,27 @@
+ 
+     @Override
+     public void setCSS() {
+-        layout.getStylesheets().add(Objects.requireNonNull(getClass().getResource(
++        this.getStylesheets().add(Objects.requireNonNull(getClass().getResource(
+                 "/css/style_for_statistic_engine_package.css"
+         )).toExternalForm());
+     }
+ 
+     @Override
+     public void set() {
+-        MenuItem menuItem = new MenuItem("Word");
++        menuButton.getItems().addAll(menuItem);
+         menuButton.setText("Time");
+-        menuButton.getItems().addAll(menuItem);
+         menuButton.setMinWidth(70);
+-        menuItem.setOnAction(e -> {
+-            menuButton.setText(menuItem.getText());
+-            menuButton.hide();
+-            if (menuItem.getText().equals("Time")) {
+-                menuItem.setText("Word");
+-            } else {
+-                menuItem.setText("Time");
+-            }
+-        });
++
+         hBox.getChildren().addAll(textTitle, menuButton);
+         hBox.setAlignment(Pos.CENTER);
+         hBox.setSpacing(5);
+         hBox.setTranslateX(30);
+-        layout.getChildren().add(hBox);
++
++        this.getChildren().add(hBox);
+     }
+ 
+     @Override
+     public void update() throws SQLException {
+-
+     }
+ 
+     @Override
+@@ -77,18 +67,21 @@
+         return null;
+     }
+ 
+-    @Override
+-    public void connect(Object object) {
+-
+-    }
+-
+     @Override
+     public void setListener(Object object) {
+-
+     }
+ 
+     @Override
+     public void setListener() {
++        menuItem.setOnAction(e -> {
++            menuButton.setText(menuItem.getText());
++            menuButton.hide();
++            if (menuItem.getText().equals("Time")) {
++                menuItem.setText("Word");
++            } else {
++                menuItem.setText("Time");
++            }
++        });
+     }
+ 
+     public MenuButton getMenuButton() {
+Index: src/main/java/view/progress/ProgressView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/progress/ProgressView.java b/src/main/java/view/progress/ProgressView.java
+--- a/src/main/java/view/progress/ProgressView.java	
++++ b/src/main/java/view/progress/ProgressView.java	(date 1699892952694)
+@@ -2,21 +2,22 @@
+ 
+ import graphics.StandardParameter;
+ import graphics.app.User;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
++import graphics.style.StyleHelper;
+ import javafx.beans.property.SimpleStringProperty;
+ import javafx.beans.property.StringProperty;
+ import javafx.scene.layout.GridPane;
+ import javafx.scene.layout.Pane;
+ import javafx.scene.layout.StackPane;
++import view.model.Connector;
+ import view.model.View;
+ 
+ import java.sql.SQLException;
+ import java.util.Objects;
+ 
+-public class ProgressView extends View  {
+-
++public class ProgressView extends Pane implements Decorator, Connector {
+     /**
+-     * Layout.
++     * View.
+      */
+     private final StackPane layerDecor = new StackPane();
+     private final Pane layer1 = new Pane();
+@@ -52,9 +53,7 @@
+ 
+     @Override
+     public void setCSS() {
+-        layout.getStylesheets().add(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource(
+-                "/css/style_for_progress_view.css"
+-        )).toExternalForm()));
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this, "/css/style_for_progress_view.css"));
+         layer1.applyCss();
+         layer2.applyCss();
+     }
+@@ -67,10 +66,10 @@
+ 
+         gridPane.setLayoutX(10);
+         gridPane.setLayoutY(15);
+-        gridPane.add(bandBox.get(), 0, 0);
+-        gridPane.add(streakBox.get(), 0, 1);
+-        gridPane.add(progressBoxIntroView.get(), 1, 0);
+-        gridPane.add(skillBox.get(), 1, 1);
++        gridPane.add(bandBox, 0, 0);
++        gridPane.add(streakBox, 0, 1);
++        gridPane.add(progressBoxIntroView, 1, 0);
++        gridPane.add(skillBox, 1, 1);
+ 
+         layer1.setPrefSize(390 * StandardParameter.SCALE, 289 * StandardParameter.SCALE);
+         layer1.setMinSize(390 * StandardParameter.SCALE, 289 * StandardParameter.SCALE);
+@@ -79,8 +78,8 @@
+ 
+         layer2.setPrefSize(425 * StandardParameter.SCALE, 280 * StandardParameter.SCALE);
+         layerDecor.getChildren().addAll(layer1, layer2);
+-        layout.getChildren().add(layerDecor);
+-        layout.getChildren().add(gridPane);
++        this.getChildren().add(layerDecor);
++        this.getChildren().add(gridPane);
+ 
+     }
+ 
+@@ -101,7 +100,6 @@
+         bandBox.connect(bandConnect);
+         skillBox.connect(skillConnect);
+         streakBox.connect(streakConnect);
+-
+         try {
+             update();
+         } catch (SQLException e) {
+Index: src/main/java/view/progress/ProgressBoard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/progress/ProgressBoard.java b/src/main/java/view/progress/ProgressBoard.java
+--- a/src/main/java/view/progress/ProgressBoard.java	
++++ b/src/main/java/view/progress/ProgressBoard.java	(date 1699893427068)
+@@ -4,6 +4,7 @@
+ import controller.progress.ProgressController;
+ import data.model.Data;
+ import graphics.app.User;
++import javafx.scene.Node;
+ import javafx.scene.layout.Pane;
+ 
+ public class ProgressBoard extends Data implements Listener {
+@@ -13,7 +14,7 @@
+     public final ProgressController progressController = new ProgressController();
+ 
+ 
+-    public Pane getLayout(){
++    public Node getLayout(){
+         return progressController.getView();
+     }
+     @Override
+@@ -31,7 +32,6 @@
+      */
+     @Override
+     public void load() {
+-
+     }
+ 
+     /**
+@@ -39,6 +39,5 @@
+      */
+     @Override
+     public void set() {
+-
+     }
+ }
+Index: src/main/java/view/progress/ProgressBoxView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/progress/ProgressBoxView.java b/src/main/java/view/progress/ProgressBoxView.java
+--- a/src/main/java/view/progress/ProgressBoxView.java	
++++ b/src/main/java/view/progress/ProgressBoxView.java	(date 1699892554277)
+@@ -1,22 +1,24 @@
+ package view.progress;
+ 
+-import graphics.StandardParameter;
+-import graphics.app.User;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.beans.property.SimpleStringProperty;
+ import javafx.scene.image.Image;
+ import javafx.scene.image.ImageView;
++import javafx.scene.layout.Pane;
+ import javafx.scene.text.Text;
++import view.model.Connector;
+ import view.model.View;
+ 
+ import java.sql.SQLException;
+ import java.util.Objects;
+ 
+-public class ProgressBoxView extends View  {
++public class ProgressBoxView extends Pane implements Decorator, Connector {
+     protected final ImageView boxImage = new ImageView();
+     protected final Text textDetail = new Text("*");
+ 
+     public ProgressBoxView() {
++        setID();
++        setCSS();
+         set();
+     }
+ 
+@@ -33,7 +35,6 @@
+ 
+     @Override
+     public void setCSS() {
+-
+     }
+ 
+     @Override
+@@ -44,13 +45,12 @@
+                 "-fx-font-weight: bold;");
+         textDetail.setLayoutY(60);
+         textDetail.setLayoutX(35);
+-        layout.getChildren().add(boxImage);
+-        layout.getChildren().add(textDetail);
++        this.getChildren().add(boxImage);
++        this.getChildren().add(textDetail);
+     }
+ 
+     @Override
+     public void update() throws SQLException {
+-
+     }
+ 
+     @Override
+Index: src/main/java/view/progress/ProgressBoxIntroView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/progress/ProgressBoxIntroView.java b/src/main/java/view/progress/ProgressBoxIntroView.java
+--- a/src/main/java/view/progress/ProgressBoxIntroView.java	
++++ b/src/main/java/view/progress/ProgressBoxIntroView.java	(date 1699892554288)
+@@ -1,29 +1,27 @@
+ package view.progress;
+ 
+ import controller.model.Listener;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.scene.layout.VBox;
+ import javafx.scene.text.Text;
+ import view.model.View;
+ 
+ import java.sql.SQLException;
+ 
+-public class ProgressBoxIntroView extends View implements Listener {
+-    private final VBox vBox = new VBox();
++public class ProgressBoxIntroView extends VBox implements Decorator,Listener {
+ 
+     public ProgressBoxIntroView() {
+         setID();
+         setCSS();
+         set();
++        setListener();
+     }
+     @Override
+     public void setListener(Object object) {
+-
+     }
+ 
+     @Override
+     public void setListener() {
+-
+     }
+ 
+     @Override
+@@ -33,7 +31,6 @@
+ 
+     @Override
+     public void setCSS() {
+-
+     }
+ 
+     @Override
+@@ -54,24 +51,18 @@
+                 "-fx-font-size: 10;");
+         textBottom1.setTranslateY(-5);
+         textBottom2.setTranslateY(6);
+-        vBox.getChildren().add( new VBox(textTop, textBottom1, textBottom2));
+-        vBox.setTranslateY(15);
+-        vBox.setTranslateX(20);
+-        layout.getChildren().add(vBox);
++
++        this.getChildren().add( new VBox(textTop, textBottom1, textBottom2));
++        this.setTranslateY(15);
++        this.setTranslateX(20);
+     }
+ 
+     @Override
+     public void update() throws SQLException {
+-
+     }
+ 
+     @Override
+     public String getLink() {
+         return null;
+     }
+-
+-    @Override
+-    public void connect(Object object) {
+-
+-    }
+ }
+Index: src/main/java/view/statistic/StatisticBoard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/statistic/StatisticBoard.java b/src/main/java/view/statistic/StatisticBoard.java
+--- a/src/main/java/view/statistic/StatisticBoard.java	
++++ b/src/main/java/view/statistic/StatisticBoard.java	(date 1699891440322)
+@@ -4,33 +4,37 @@
+ import controller.statistic.StatusStatisticController;
+ import controller.statistic.WordBardChartController;
+ import controller.statistic.WordLineChartController;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.event.ActionEvent;
+ import javafx.scene.control.MenuItem;
++import javafx.scene.layout.Pane;
+ import javafx.scene.layout.VBox;
+ import view.model.GraphButton;
+ import view.model.View;
+ 
+ import java.sql.SQLException;
+ 
+-public class StatisticBoard extends View implements Decorator, Listener {
++public class StatisticBoard extends Pane implements Decorator, Listener {
++    /**
++     * Controller.
++     */
+     private final WordBardChartController wordBardChartController = new WordBardChartController();
+     private final StatusStatisticController statusStatisticController = new StatusStatisticController();
+     private final WordLineChartController wordLineChartController = new WordLineChartController();
+ 
++    /**
++     * View.
++     */
+     private final GraphButton graphButton = new GraphButton();
+     private final VBox vBox = new VBox();
+ 
+     public StatisticBoard() {
++        setID();
++        setCSS();
+         set();
+         setListener();
+     }
+ 
+-    @Override
+-    public void connect(Object object) {
+-
+-    }
+-
+     @Override
+     public void setID() {
+ 
+@@ -50,10 +54,9 @@
+         vBox.setSpacing(20);
+ 
+         graphButton.get().setTranslateX(370);
+-        layout.getChildren().add(vBox);
+-        layout.getChildren().add(graphButton.get());
+-//        layout.getChildren().add(wordLineChartController.getView());
+ 
++        this.getChildren().add(vBox);
++        this.getChildren().add(graphButton.get());
+     }
+ 
+     @Override
+@@ -79,7 +82,7 @@
+                 if (menuItem.getText().equals("Time")) {
+                     vBox.getChildren().remove(1);
+                     vBox.getChildren().add(wordBardChartController.getView());
+-                } else {
++                } else if (menuItem.getText().equals("Word")) {
+                     vBox.getChildren().remove(1);
+                     vBox.getChildren().add(wordLineChartController.getView());
+                 }
+Index: src/main/java/view/statistic/WordBarChartView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/statistic/WordBarChartView.java b/src/main/java/view/statistic/WordBarChartView.java
+--- a/src/main/java/view/statistic/WordBarChartView.java	
++++ b/src/main/java/view/statistic/WordBarChartView.java	(date 1699893300922)
+@@ -1,28 +1,21 @@
+ package view.statistic;
+ 
+ import graphics.StandardParameter;
+-import graphics.ui.Decorator;
+-import javafx.beans.Observable;
+-import javafx.beans.property.ListProperty;
+-import javafx.beans.property.SimpleListProperty;
+-import javafx.beans.value.ObservableValue;
+-import javafx.collections.FXCollections;
++import graphics.style.Decorator;
++import graphics.style.StyleHelper;
+ import javafx.collections.ObservableList;
+ import javafx.scene.chart.*;
++import view.model.Connector;
+ import view.model.View;
+ 
+ import java.sql.SQLException;
+ import java.util.Objects;
+ 
+-public class WordBarChartView  extends View implements Decorator {
+-    private final CategoryAxis xAxis = new CategoryAxis();
+-    private final NumberAxis yAxis = new NumberAxis();
+-    private final BarChart<String, Number> wordLearnedBarChart = new BarChart<>(xAxis, yAxis);
++public class WordBarChartView extends BarChart<String, Number> implements Decorator, Connector {
+     private final XYChart.Series<String, Number> series = new XYChart.Series<>();
+ 
+     public WordBarChartView() {
+-        wordLearnedBarChart.getData().add(series);
+-
++        super(new CategoryAxis(), new NumberAxis());
+         setID();
+         setCSS();
+         set();
+@@ -30,30 +23,26 @@
+ 
+     @Override
+     public void setID() {
+-        wordLearnedBarChart.setId("wordLearnedBarChart");
++        this.setId("wordLearnedBarChart");
+     }
+ 
+     @Override
+     public void setCSS() {
+-        layout.getStylesheets().add(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource(
+-                "/css/style_for_statistic_engine_package.css"
+-        )).toExternalForm()));;
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this, "/css/style_for_statistic_engine_package.css"));
+     }
+ 
+     @Override
+     public void set() {
+-        wordLearnedBarChart.setPrefSize(560* StandardParameter.SCALE,300);
+-        wordLearnedBarChart.setMaxSize(560* StandardParameter.SCALE, 300);
+-        wordLearnedBarChart.setMinSize(560* StandardParameter.SCALE, 300);
+-        wordLearnedBarChart.getYAxis().setTickMarkVisible(false);
++        this.setPrefSize(560 * StandardParameter.SCALE, 300);
++        this.setMaxSize(560 * StandardParameter.SCALE, 300);
++        this.setMinSize(560 * StandardParameter.SCALE, 300);
++        this.getYAxis().setTickMarkVisible(false);
+ 
+-
+-        layout.getChildren().add(wordLearnedBarChart);
++        this.getData().add(series);
+     }
+ 
+     @Override
+     public void update() throws SQLException {
+-
+     }
+ 
+     @Override
+Index: src/main/java/view/statistic/WordLineChartView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/statistic/WordLineChartView.java b/src/main/java/view/statistic/WordLineChartView.java
+--- a/src/main/java/view/statistic/WordLineChartView.java	
++++ b/src/main/java/view/statistic/WordLineChartView.java	(date 1699892997869)
+@@ -1,61 +1,50 @@
+ package view.statistic;
+ 
+ import graphics.StandardParameter;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
++import graphics.style.StyleHelper;
+ import javafx.collections.ObservableList;
+-import javafx.scene.chart.CategoryAxis;
+-import javafx.scene.chart.LineChart;
+-import javafx.scene.chart.NumberAxis;
+-import javafx.scene.chart.XYChart;
++import javafx.scene.chart.*;
++import view.model.Connector;
+ import view.model.View;
+ 
+ import java.sql.SQLException;
+ import java.util.Objects;
+ 
+-public class WordLineChartView extends View implements Decorator {
+-    private final CategoryAxis xAxis = new CategoryAxis();
+-    private final NumberAxis yAxis = new NumberAxis();
+-    private final LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
++public class WordLineChartView extends LineChart<String,Number> implements Decorator, Connector {
+     private final XYChart.Series<String, Number> series = new XYChart.Series<>();
+ 
+ 
+     public WordLineChartView() {
++        super(new CategoryAxis(), new NumberAxis());
+         setID();
+         setCSS();
+         set();
+-
+     }
+ 
+     @Override
+     public void setID() {
+-        lineChart.setId("lineChart");
+-
++        this.setId("lineChart");
+     }
+ 
+     @Override
+     public void setCSS() {
+-        layout.getStylesheets().add(Objects.requireNonNull(getClass().getResource(
+-                "/css/style_for_statistic_engine_package.css"
+-        )).toExternalForm());
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this, "/css/style_for_statistic_engine_package.css"));
+     }
+ 
+     @Override
+     public void set() {
+-        lineChart.setPrefSize(560* StandardParameter.SCALE,300);
+-        lineChart.setMaxSize(560* StandardParameter.SCALE, 300);
+-        lineChart.setMinSize(560* StandardParameter.SCALE, 300);
+-        lineChart.getYAxis().setTickMarkVisible(false);
+-
+-        lineChart.getData().add(series);
+-        lineChart.setCreateSymbols(false);
++        this.setPrefSize(560* StandardParameter.SCALE,300);
++        this.setMaxSize(560* StandardParameter.SCALE, 300);
++        this.setMinSize(560* StandardParameter.SCALE, 300);
++        this.getYAxis().setTickMarkVisible(false);
+ 
+-
+-        layout.getChildren().add(lineChart);
++        this.getData().add(series);
++        this.setCreateSymbols(false);
+     }
+ 
+     @Override
+     public void update() throws SQLException {
+-
+     }
+ 
+     @Override
+Index: src/main/java/view/my_dictionary/my_word_box/InputBox.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/my_dictionary/my_word_box/InputBox.java b/src/main/java/view/my_dictionary/my_word_box/InputBox.java
+--- a/src/main/java/view/my_dictionary/my_word_box/InputBox.java	
++++ b/src/main/java/view/my_dictionary/my_word_box/InputBox.java	(date 1699890778247)
+@@ -1,10 +1,9 @@
+ package view.my_dictionary.my_word_box;
+ 
+ import graphics.StandardParameter;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.scene.control.TextArea;
+ import javafx.scene.control.TextField;
+-import javafx.scene.layout.HBox;
+ import javafx.scene.layout.VBox;
+ import javafx.scene.text.Text;
+ 
+Index: src/main/java/view/my_dictionary/my_word_box/AddMyWordBox.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/my_dictionary/my_word_box/AddMyWordBox.java b/src/main/java/view/my_dictionary/my_word_box/AddMyWordBox.java
+--- a/src/main/java/view/my_dictionary/my_word_box/AddMyWordBox.java	
++++ b/src/main/java/view/my_dictionary/my_word_box/AddMyWordBox.java	(date 1699890778325)
+@@ -4,13 +4,12 @@
+ import data.my_dictionary.MyDictionaryTableData;
+ import data.my_dictionary.MyNewWord;
+ import data.my_dictionary.SQLMyDictionary;
+-import graphics.ui.UIComponent;
++import graphics.style.UIComponent;
+ import javafx.scene.control.Button;
+ import javafx.scene.layout.GridPane;
+ 
+ import java.sql.Date;
+ import java.sql.SQLException;
+-import java.sql.Time;
+ import java.util.Objects;
+ 
+ public class AddMyWordBox extends UIComponent implements Listener {
+Index: src/main/java/view/my_dictionary/my_word_box/SearchFilter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/my_dictionary/my_word_box/SearchFilter.java b/src/main/java/view/my_dictionary/my_word_box/SearchFilter.java
+--- a/src/main/java/view/my_dictionary/my_word_box/SearchFilter.java	
++++ b/src/main/java/view/my_dictionary/my_word_box/SearchFilter.java	(date 1699890778168)
+@@ -2,7 +2,7 @@
+ 
+ import controller.model.Listener;
+ import data.my_dictionary.MyNewWord;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.collections.transformation.FilteredList;
+ import javafx.scene.control.TextField;
+ 
+Index: src/main/java/view/my_dictionary/my_word_box/InformationBox.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/my_dictionary/my_word_box/InformationBox.java b/src/main/java/view/my_dictionary/my_word_box/InformationBox.java
+--- a/src/main/java/view/my_dictionary/my_word_box/InformationBox.java	
++++ b/src/main/java/view/my_dictionary/my_word_box/InformationBox.java	(date 1699890778160)
+@@ -1,9 +1,9 @@
+ package view.my_dictionary.my_word_box;
+ 
+ import data.my_dictionary.SQLMyDictionary;
+-import graphics.ui.Decorator;
+-import javafx.css.Styleable;
+-import javafx.css.Stylesheet;
++import graphics.StandardParameter;
++import graphics.style.Decorator;
++import javafx.geometry.Pos;
+ import javafx.scene.layout.HBox;
+ import javafx.scene.layout.VBox;
+ import javafx.scene.text.Text;
+@@ -11,43 +11,60 @@
+ import java.sql.SQLException;
+ 
+ public class InformationBox extends HBox implements Decorator {
++    /**
++     * View.
++     */
+     private final VBox vBoxTotal = new VBox();
+     private final VBox vBoxModified = new VBox();
+     private final Text textTotal = new Text();
+     private final Text textTitleTotal = new Text("Total words");
+     private final Text textModified = new Text();
+-    private final Text textTitleModified = new Text();
++    private final Text textTitleModified = new Text("Last modified");
+ 
+     public InformationBox() {
+         setID();
+         setCSS();
+-        setCSS();
++        set();
+     }
+ 
+     @Override
+     public void setID() {
+-
++        vBoxTotal.setId("vBoxInformationBox");
++        vBoxModified.setId("vBoxInformationBox");
++        textTotal.setId("textInformationBox");
++        textModified.setId("textInformationBox");
+     }
+ 
+     @Override
+     public void setCSS() {
+-
++        // CSS from parent
+     }
+ 
+     @Override
+     public void set() {
++        textTotal.setTranslateX(10);
++        textTitleTotal.setTranslateX(10);
++        textModified.setTranslateX(10);
++        textTitleModified.setTranslateX(10);
++        textTotal.setText(String.valueOf(SQLMyDictionary.getTotalWords()));
++        textModified.setText(SQLMyDictionary.getLastModified());
++
+         vBoxTotal.getChildren().addAll(textTotal, textTitleTotal);
++        vBoxTotal.setPrefSize(103 * StandardParameter.SCALE, 72 * StandardParameter.SCALE);
++        vBoxTotal.setAlignment(Pos.CENTER_LEFT);
++
+         vBoxModified.getChildren().addAll(textModified, textTitleModified);
++        vBoxModified.setPrefSize(200 * StandardParameter.SCALE, 72 * StandardParameter.SCALE);
++        vBoxModified.setAlignment(Pos.CENTER_LEFT);
++
++
+         this.getChildren().addAll(vBoxTotal, vBoxModified);
+         this.setSpacing(20);
+-
+-        textTotal.setText(String.valueOf(SQLMyDictionary.getTotalWords()));
+-        textTitleModified.setText(SQLMyDictionary.getLastModified());
+     }
+ 
+     @Override
+     public void update() throws SQLException {
+-
++        // No need to update
+     }
+ 
+     @Override
+Index: src/main/java/view/my_dictionary/MyDictionaryTableView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/my_dictionary/MyDictionaryTableView.java b/src/main/java/view/my_dictionary/MyDictionaryTableView.java
+--- a/src/main/java/view/my_dictionary/MyDictionaryTableView.java	
++++ b/src/main/java/view/my_dictionary/MyDictionaryTableView.java	(date 1699891218097)
+@@ -2,30 +2,27 @@
+ 
+ import data.my_dictionary.MyNewWord;
+ import graphics.StandardParameter;
++import graphics.style.Decorator;
++import graphics.style.StyleHelper;
+ import javafx.collections.FXCollections;
+ import javafx.collections.ObservableList;
+ import javafx.collections.transformation.FilteredList;
+-import javafx.scene.control.TableCell;
+ import javafx.scene.control.TableColumn;
+-import javafx.scene.control.TableRow;
+ import javafx.scene.control.TableView;
+ import javafx.scene.control.cell.PropertyValueFactory;
+-import javafx.scene.layout.VBox;
+-import view.model.View;
++import view.model.Connector;
+ 
+-import java.sql.Date;
+ import java.sql.SQLException;
+-import java.util.Objects;
+ 
+-public class MyDictionaryTableView extends View {
+-    private final TableView<MyNewWord> tableView = new TableView<>();
++
++public class MyDictionaryTableView extends TableView<MyNewWord> implements Connector, Decorator {
+     private final TableColumn<MyNewWord, Integer> orderColumn = new TableColumn<>("#");
+     private final TableColumn<MyNewWord, String> wordColumn = new TableColumn<>("Word");
+     private final TableColumn<MyNewWord, String> pronunciationColumn = new TableColumn<>("Pronunciation");
+     private final TableColumn<MyNewWord, String> updateColumn = new TableColumn<>("Update");
+     private final TableColumn<MyNewWord, String> definitionColumn = new TableColumn<>("Definition");
+ 
+-    private ObservableList<MyNewWord> observableList = FXCollections.observableArrayList();
++    private final ObservableList<MyNewWord> observableList = FXCollections.observableArrayList();
+ 
+     public MyDictionaryTableView() {
+         setID();
+@@ -36,14 +33,14 @@
+     @Override
+     public void connect(Object object) {
+         if (object instanceof FilteredList<?>) {
+-            tableView.setItems((FilteredList<MyNewWord>) object);
++            this.setItems((FilteredList<MyNewWord>) object);
+         }
+     }
+ 
+     @Override
+     public void setID() {
+         // You can set the ID here if needed
+-        tableView.setId("tableView");
++        this.setId("tableView");
+         updateColumn.setId("updateColumn");
+         wordColumn.setId("wordColumn");
+         pronunciationColumn.setId("pronunciationColumn");
+@@ -53,10 +50,7 @@
+ 
+     @Override
+     public void setCSS() {
+-        // You can set CSS styles here if needed
+-        layout.getStylesheets().add(Objects.requireNonNull(getClass().getResource(
+-                "/css/style_for_second_dashboard.css"
+-        )).toExternalForm());
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this, "/css/style_for_second_dashboard.css"));
+     }
+ 
+     @Override
+@@ -81,22 +75,19 @@
+ 
+         definitionColumn.setMinWidth(300);
+ 
+-        tableView.getColumns().addAll(orderColumn, wordColumn, pronunciationColumn, updateColumn, definitionColumn) ;
+-        tableView.setItems(observableList);
+-        layout.getChildren().add(tableView);
+-        ;
+-        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
++        this.getColumns().addAll(orderColumn, wordColumn, pronunciationColumn, updateColumn, definitionColumn) ;
++        this.setItems(observableList);
++        this.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+ //        tableView.getColumns().forEach(tableColumn -> tableColumn.setResizable(false));
+ //        tableView.setMinSize(1010 * StandardParameter.SCALE, 500 * StandardParameter.SCALE);
+ //        tableView.setMaxSize(1010 * StandardParameter.SCALE, 500 * StandardParameter.SCALE);
+ //        tableView.setMinWidth(50 + 200 + 200 + 200 + 300);
+-        tableView.setPrefHeight(625*StandardParameter.SCALE);
++        this.setPrefHeight(625*StandardParameter.SCALE);
+ 
+     }
+ 
+     @Override
+     public void update() throws SQLException {
+-        // Implement update logic if needed
+     }
+ 
+     @Override
+Index: src/main/java/graphics/app/dashboard/Dashboard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/app/dashboard/Dashboard.java b/src/main/java/graphics/app/dashboard/Dashboard.java
+--- a/src/main/java/graphics/app/dashboard/Dashboard.java	
++++ b/src/main/java/graphics/app/dashboard/Dashboard.java	(date 1699898635566)
+@@ -2,18 +2,17 @@
+ 
+ import controller.model.Listener;
+ import graphics.app.AppWindow;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.scene.Scene;
+ import javafx.scene.paint.Color;
+ import javafx.stage.Stage;
+ 
+ public abstract class Dashboard extends AppWindow implements Listener, Decorator {
+-    private final Stage stage;
+     private final Scene scene;
+ 
+     protected Dashboard(Stage stage) {
+-        this.stage = stage;
+-        this.scene = new Scene(paneWindow);
++        super(stage);
++        this.scene = new Scene(this);
+         this.scene.setFill(Color.TRANSPARENT);
+ 
+ 
+Index: src/main/java/graphics/app/dashboard/DashboardTitle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/app/dashboard/DashboardTitle.java b/src/main/java/graphics/app/dashboard/DashboardTitle.java
+--- a/src/main/java/graphics/app/dashboard/DashboardTitle.java	
++++ b/src/main/java/graphics/app/dashboard/DashboardTitle.java	(date 1699890778125)
+@@ -1,6 +1,6 @@
+ package graphics.app.dashboard;
+ 
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.scene.layout.VBox;
+ import javafx.scene.text.Text;
+ 
+Index: src/main/java/graphics/app/dashboard/FirstDashboard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/app/dashboard/FirstDashboard.java b/src/main/java/graphics/app/dashboard/FirstDashboard.java
+--- a/src/main/java/graphics/app/dashboard/FirstDashboard.java	
++++ b/src/main/java/graphics/app/dashboard/FirstDashboard.java	(date 1699900951916)
+@@ -5,7 +5,8 @@
+ import graphics.engine.SearchEngine;
+ import graphics.engine.TranslateEngine;
+ import graphics.app.AppWindow;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
++import graphics.style.StyleHelper;
+ import javafx.animation.AnimationTimer;
+ import javafx.scene.layout.HBox;
+ import javafx.scene.layout.VBox;
+@@ -23,7 +24,7 @@
+ 
+ public class FirstDashboard extends AppWindow implements Decorator, Listener, DashboardTitle {
+     private final Stage stage;
+-    private final Scene scenePage;
++//    private final Scene scenePage;
+     private final HBox hBox = new HBox();
+     private final VBox part1 = new VBox();
+     private final VBox part2 = new VBox();
+@@ -42,35 +43,32 @@
+ 
+ 
+     public FirstDashboard(Stage stageInit) throws SQLException {
+-        scenePage = new Scene(paneWindow);
++        super(stageInit);
++//        scenePage = new Scene(this);
+         stage = stageInit;
+-        setAppWindow(stageInit);
+-        stage.setScene(scenePage);
+-
++//        setAppWindow(stageInit);
++//        stage.setScene(scenePage);
+         setID();
+         setCSS();
+         set();
+         setListener();
++
+     }
+ 
+     @Override
+     public void setID() {
+-        paneWindow.setId("pane");
+-
++        this.setId("pane");
+     }
+ 
+     @Override
+     public void setCSS() {
+-        paneWindow.getStylesheets().add(LINK_CSS);
+-        paneWindow.applyCss();
+-
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this, "/css/style_for_dashboard1_class.css"));
+     }
+ 
+     @Override
+     public void setTitle() {
+         textTop.setText("Home");
+         textBottom.setText("Dashboard");
+-
+         textTop.setStyle("-fx-font-family: 'Segoe UI Semibold';" +
+                 "-fx-font-size: 14;" +
+                 "-fx-fill: #898b8c;");
+@@ -87,17 +85,17 @@
+ 
+     @Override
+     public void set() {
+-        scenePage.setFill(Color.TRANSPARENT);
+-        paneWindow.getChildren().add(hBox);
+-        paneWindow.getChildren().add(searchEngine.getPaneSearch());
++        System.out.println(123);
++//        scenePage.setFill(Color.TRANSPARENT);
++        this.getChildren().add(hBox);
++        this.getChildren().add(searchEngine.getPaneSearch());
+ 
+ 
++        setTitle();
+         getTitle().setLayoutX(DELTA_X + 80);
+         getTitle().setLayoutY(DELTA_Y + 15);
+         getTitle().setSpacing(-10);
+ 
+-        setTitle();
+-
+         hBox.getChildren().addAll(
+                 new Rectangle(73 * StandardParameter.SCALE, 5, Color.RED),
+                 part1, part2
+@@ -108,10 +106,10 @@
+                 wordBoard.getLayout()
+         );
+         part2.getChildren().addAll(
+-                progressBoard.progressController.progressView.get(),
+-                statisticBoard.get()
++                progressBoard.progressController.progressView,
++                statisticBoard
+         );
+-        statisticBoard.get().setTranslateY(20);
++        statisticBoard.setTranslateY(20);
+ 
+         part2.setTranslateX(100 * StandardParameter.SCALE);
+ 
+@@ -134,23 +132,7 @@
+ 
+     }
+ 
+-    @Override
+-    public void update() throws SQLException {
+-    }
+-
+-    @Override
+-    public String getLink() {
+-        return null;
+-    }
+-
+-    private void runAction() {
+-        applyEventAppWindow();
+-        searchEngine.setEvent();
+-        translateEngine.setEvent(dialog, paneWindow);
+-    }
+-
+     public void showDashboard() {
+-        runAction();
+         stage.show();
+     }
+ 
+@@ -167,10 +149,8 @@
+             }
+         }.start();
+         wordBoard.setListener(searchEngine);
++        searchEngine.setEvent();
++        translateEngine.setEvent(dialog, this);
+     }
+ 
+-    @Override
+-    public void setListener(Object object) {
+-
+-    }
+ }
+Index: src/main/java/graphics/app/dashboard/SecondDashboard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/app/dashboard/SecondDashboard.java b/src/main/java/graphics/app/dashboard/SecondDashboard.java
+--- a/src/main/java/graphics/app/dashboard/SecondDashboard.java	
++++ b/src/main/java/graphics/app/dashboard/SecondDashboard.java	(date 1699896290003)
+@@ -2,6 +2,7 @@
+ 
+ import controller.my_dictionary.MyDictionaryTableController;
+ import graphics.StandardParameter;
++import graphics.style.StyleHelper;
+ import javafx.scene.control.Button;
+ import javafx.scene.layout.HBox;
+ import javafx.scene.layout.VBox;
+@@ -15,10 +16,21 @@
+ import java.util.Objects;
+ 
+ public class SecondDashboard extends Dashboard implements DashboardTitle {
++    /**
++     * Controllers.
++     */
+     private final MyDictionaryTableController myDictionaryTableController = new MyDictionaryTableController();
++
++    /**
++     * Views.
++     */
+     private final VBox vBox = new VBox();
+     private final HBox hBox = new HBox();
+     private final Button addButton = new Button("+ Add my new word");
++
++    /**
++     * Engines.
++     */
+     private final AddMyWordBox addMyWordBox = new AddMyWordBox(285, 354, 15, 15);
+     private final SearchFilter searchFilter = new SearchFilter();
+     private final InformationBox informationBox = new InformationBox();
+@@ -31,11 +43,6 @@
+         setListener();
+     }
+ 
+-    @Override
+-    public void setListener(Object object) {
+-
+-    }
+-
+     @Override
+     public void setListener() {
+         addMyWordBox.setListener(myDictionaryTableController.getData());
+@@ -47,21 +54,19 @@
+ 
+     @Override
+     public void setID() {
+-        paneWindow.setId("pane");
++        this.setId("pane");
+         addButton.setId("addButton");
+     }
+ 
+     @Override
+     public void setCSS() {
+-        paneWindow.getStylesheets().add(Objects.requireNonNull(getClass().getResource(
+-                "/css/style_for_second_dashboard.css"
+-        )).toExternalForm());
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this, "/css/style_for_second_dashboard.css"));
+     }
+ 
+     @Override
+     public void set() {
+-        paneWindow.getChildren().add(hBox);
+-        paneWindow.getChildren().add(addMyWordBox.get());
++        this.getChildren().add(hBox);
++        this.getChildren().add(addMyWordBox.get());
+ 
+ 
+         setTitle();
+@@ -69,7 +74,7 @@
+ 
+         addButton.setPrefSize(151 * StandardParameter.SCALE, 38 * StandardParameter.SCALE);
+         addMyWordBox.get().setTranslateY(20);
+-        vBox.getChildren().add(new HBox(searchFilter,addButton));
++        vBox.getChildren().add(new HBox(searchFilter,informationBox,addButton));
+         vBox.getChildren().add(myDictionaryTableController.getView());
+         vBox.setTranslateY(100);
+ 
+@@ -83,19 +88,9 @@
+         addMyWordBox.get().setLayoutY(addButton.getLayoutY()+addButton.getTranslateY());
+     }
+ 
+-    @Override
+-    public void update() throws SQLException {
+-
+-    }
+-
+-    @Override
+-    public String getLink() {
+-        return null;
+-    }
+-
+     @Override
+     public void showDashboard() {
+-        applyEventAppWindow();
++        this.setListener();
+         this.stageWindow.show();
+     }
+ 
+Index: src/main/java/graphics/app/AppWindow.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/app/AppWindow.java b/src/main/java/graphics/app/AppWindow.java
+--- a/src/main/java/graphics/app/AppWindow.java	
++++ b/src/main/java/graphics/app/AppWindow.java	(date 1699900543740)
+@@ -1,8 +1,11 @@
+ package graphics.app;
+ 
++import controller.model.Listener;
+ import data.statistic.SQLStatisticWeek;
+ import data.statistic.SQLTimeStudy;
+ import graphics.control.Dialog;
++import graphics.style.Decorator;
++import graphics.style.StyleHelper;
+ import javafx.application.Platform;
+ import javafx.scene.control.Button;
+ import javafx.scene.image.Image;
+@@ -12,7 +15,6 @@
+ import javafx.stage.Screen;
+ import javafx.stage.Stage;
+ import javafx.stage.StageStyle;
+-import utility.calendar.Time;
+ 
+ import java.sql.SQLException;
+ import java.util.*;
+@@ -32,11 +34,11 @@
+     final static double SCREEN_WIDTH = Screen.getPrimary().getBounds().getWidth();
+ }
+ 
+-public class AppWindow {
++public class AppWindow extends Pane implements Decorator, Listener {
++
+     /**
+      * Basic component of window
+      */
+-    protected Pane paneWindow = new Pane();
+     protected Stage stageWindow;
+     /**
+      * App Window is equal 85% Laptop Window
+@@ -52,95 +54,152 @@
+      */
+     protected final double REAL_APP_WIDTH = APP_WIDTH - 2 * DELTA_X;
+     protected final double REAL_APP_HEIGHT = APP_HEIGHT - 2 * DELTA_Y;
+-    /**
+-     * Control of app.
+-     */
++
+     protected Button exitButton = new Button();
+     protected Button minimizeButton = new Button();
+-    /**
+-     * HBox for horizontal layout of exit button & minimize button
+-     */
+     protected HBox controlHBox = new HBox(minimizeButton, exitButton);
+     private final Rectangle moveStage = new Rectangle(APP_WIDTH - 2 * DELTA_X, 30, Color.TRANSPARENT);
+ 
+-    private final String linkToCSS = Objects.requireNonNull(getClass().getResource("/css/style_for_appwindow_class.css")).toExternalForm();
+     /**
+      * Dialog global.
+      */
+     public static Dialog dialog = new Dialog();
+-    /**
+-     * Get pane of window to link current page.
+-     */
+-    public Pane getPaneWindow() {
+-        return paneWindow;
+-    }
+ 
+-    /**
+-     * Constructor for AppWindow class.
+-     */
+     protected void setAppWindow(Stage stageInit) {
+         stageWindow = stageInit;
+-        try {
+-            stageWindow.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/icon_for_app.png"))));
+-            paneWindow.getChildren().add(moveStage);
+-            paneWindow.getChildren().add(controlHBox);
+-            paneWindow.getChildren().add(dialog.getLayout());
+-        } catch (Exception e) {
+-            System.out.println("Error at graphics.app.AppWindow and at method setAppWindow()!");
+-            System.out.println("Error when try add children!");
+-            System.out.println("Error: " + e);
+-
+-        }
+-        /*
+-        Set attribute for all node.
+-         */
+-        try {
+-            setId();
+-            setCSS();
++
++    }
++    public AppWindow(Stage stage) {
++        super();
++        this.stageWindow = stage;
++
++        exitButton.setId("exitButton");
++        controlHBox.setId("controlHBox");
++        minimizeButton.setId("minimizeButton");
++
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this, "/css/style_for_appwindow_class.css"));
++        exitButton.applyCss();
++        minimizeButton.applyCss();
++
++
++        stageWindow.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/icon_for_app.png"))));
++        this.getChildren().add(moveStage);
++        this.getChildren().add(controlHBox);
++        this.getChildren().add(dialog.getLayout());
+ 
+-            controlHBox.layout();
+-            controlHBox.setLayoutY(DELTA_Y);
+-            controlHBox.setLayoutX(DELTA_X + REAL_APP_WIDTH - controlHBox.getBoundsInLocal().getWidth());
++        controlHBox.layout();
++        controlHBox.setLayoutY(DELTA_Y);
++        controlHBox.setLayoutX(DELTA_X + REAL_APP_WIDTH - controlHBox.getBoundsInLocal().getWidth()-80);
+ 
+-            dialog.getLayout().setOpacity(0);
++        dialog.getLayout().setOpacity(0);
+ 
+-            moveStage.setLayoutX(DELTA_X);
+-            moveStage.setLayoutY(DELTA_Y);
++        moveStage.setLayoutX(DELTA_X);
++        moveStage.setLayoutY(DELTA_Y);
+ 
+-            stageWindow.initStyle(StageStyle.TRANSPARENT);
+-            stageWindow.setTitle("enLearn");
+-            stageWindow.setX((ScreenLaptop.SCREEN_WIDTH - APP_WIDTH) / 2);
+-            stageWindow.setY((ScreenLaptop.SCREEN_HEIGHT - APP_HEIGHT) / 2);
+-            stageWindow.setWidth(APP_WIDTH);
+-            stageWindow.setHeight(APP_HEIGHT);
+-        } catch (Exception e) {
+-            System.out.println("Error at graphics.app.AppWindow:");
+-            System.out.println("Error when try set for children!");
+-            System.out.println("Error: " + e);
+-        }
++        stageWindow.initStyle(StageStyle.TRANSPARENT);
++        stageWindow.setTitle("enLearn");
++        stageWindow.setX((ScreenLaptop.SCREEN_WIDTH - APP_WIDTH) / 2);
++        stageWindow.setY((ScreenLaptop.SCREEN_HEIGHT - APP_HEIGHT) / 2);
++        stageWindow.setWidth(APP_WIDTH);
++        stageWindow.setHeight(APP_HEIGHT);
++
++        moveStage.setOnMousePressed(l -> {
++            this.setOnMousePressed(e -> {
++                this.setOnMouseDragged(e1 -> {
++                    stageWindow.setX(e1.getScreenX() - e.getSceneX());
++                    stageWindow.setY(e1.getScreenY() - e.getSceneY());
++                });
++            });
++        });
++        exitButton.setOnMouseClicked((l) -> {
++            try {
++                SQLTimeStudy.update();
++                SQLStatisticWeek.updateTimes();
++            } catch (SQLException e) {
++                throw new RuntimeException(e);
++            }
++            Platform.exit();
++            System.exit(0);
++        });
++        minimizeButton.setOnMouseClicked((l) -> {
++            stageWindow.setIconified(true);
++        });
++
+     }
+ 
+-    private void setId() {
++    public void setAll() {
++        setID();
++        setCSS();
++        set();
++    }
++    /**
++     * Set id.
++     */
++    @Override
++    public void setID() {
+         exitButton.setId("exitButton");
+         controlHBox.setId("controlHBox");
+         minimizeButton.setId("minimizeButton");
+-    }
+ 
+-    private void setCSS() {
+-        paneWindow.getStylesheets().add(linkToCSS);
+-        controlHBox.getStylesheets().add(linkToCSS);
++        exitButton.applyCss();
++        minimizeButton.applyCss();
++    }
+ 
++    @Override
++    public void setCSS() {
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this, "/css/style_for_appwindow_class.css"));
+         exitButton.applyCss();
+         minimizeButton.applyCss();
+     }
+ 
+     /**
+-     * Set event for button.
++     * Set layout.
+      */
+-    protected void applyEventAppWindow() {
++    @Override
++    public void set() {
++        stageWindow.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/icon_for_app.png"))));
++        this.getChildren().add(moveStage);
++        this.getChildren().add(controlHBox);
++        this.getChildren().add(dialog.getLayout());
++
++        controlHBox.layout();
++        controlHBox.setLayoutY(DELTA_Y);
++        controlHBox.setLayoutX(DELTA_X + REAL_APP_WIDTH - controlHBox.getBoundsInLocal().getWidth());
++
++        dialog.getLayout().setOpacity(0);
++
++        moveStage.setLayoutX(DELTA_X);
++        moveStage.setLayoutY(DELTA_Y);
++
++        stageWindow.initStyle(StageStyle.TRANSPARENT);
++        stageWindow.setTitle("enLearn");
++        stageWindow.setX((ScreenLaptop.SCREEN_WIDTH - APP_WIDTH) / 2);
++        stageWindow.setY((ScreenLaptop.SCREEN_HEIGHT - APP_HEIGHT) / 2);
++        stageWindow.setWidth(APP_WIDTH);
++        stageWindow.setHeight(APP_HEIGHT);
++    }
++
++    /**
++     * Update layout.
++     */
++    @Override
++    public void update() throws SQLException {
++    }
++
++    @Override
++    public String getLink() {
++        return null;
++    }
++    @Override
++    public void setListener(Object object) {
++
++    }
++
++    @Override
++    public void setListener() {
+         moveStage.setOnMousePressed(l -> {
+-            paneWindow.setOnMousePressed(e -> {
+-                paneWindow.setOnMouseDragged(e1 -> {
++            this.setOnMousePressed(e -> {
++                this.setOnMouseDragged(e1 -> {
+                     stageWindow.setX(e1.getScreenX() - e.getSceneX());
+                     stageWindow.setY(e1.getScreenY() - e.getSceneY());
+                 });
+@@ -160,4 +219,8 @@
+             stageWindow.setIconified(true);
+         });
+     }
++
++    public Stage getStageWindow() {
++        return stageWindow;
++    }
+ }
+Index: src/main/java/graphics/app/AppStartPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/app/AppStartPage.java b/src/main/java/graphics/app/AppStartPage.java
+--- a/src/main/java/graphics/app/AppStartPage.java	
++++ b/src/main/java/graphics/app/AppStartPage.java	(date 1699898649842)
+@@ -1,5 +1,6 @@
+ package graphics.app;
+ 
++import graphics.style.StyleHelper;
+ import javafx.animation.*;
+ import javafx.geometry.Pos;
+ import javafx.scene.Scene;
+@@ -33,7 +34,7 @@
+      * Main components of app window, edit recently so public.
+      */
+     public Stage stage;
+-    public Scene scenePage = new Scene(paneWindow);
++    public Scene scenePage = new Scene(this);
+ 
+     /**
+      * Button Learn to start
+@@ -66,69 +67,49 @@
+     private final ImageView imageStateDay = new ImageView(Objects.requireNonNull(getClass().getResource("/image/morning_icon_app.png")).toExternalForm());
+     private final HBox hBoxStateDay = new HBox(stateDay, imageStateDay);
+ 
+-    /**
+-     * Link to css file.
+-     */
+-    private final String linkToCSS = Objects.requireNonNull(getClass().getResource("/css/style_for_appwindow_class.css")).toExternalForm();
+-
+     /**
+      * Constructor for AppWindow class
+      */
+     public AppStartPage(Stage stageInit) {
++        super(stageInit);
+         stage = stageInit;
+         setAppWindow(stageInit);
+-        try {
+-            paneWindow.getChildren().add(vBoxForTime);
+-            paneWindow.getChildren().add(paneLearnButton);
+-            paneWindow.getChildren().add(vBoxVersionInfo);
+-            paneWindow.getChildren().add(hBoxStateDay);
++        super.getChildren().add(vBoxForTime);
++        super.getChildren().add(paneLearnButton);
++        super.getChildren().add(vBoxVersionInfo);
++        super.getChildren().add(hBoxStateDay);
+ 
+-            stackPaneForDate.getChildren().add(themeGradientDay);
+-            stackPaneForDate.getChildren().add(labelForDate);
+-            stackPaneForDate.getChildren().add(labelForMonth);
++        stackPaneForDate.getChildren().add(themeGradientDay);
++        stackPaneForDate.getChildren().add(labelForDate);
++        stackPaneForDate.getChildren().add(labelForMonth);
+ 
+-            vBoxForTime.getChildren().add(stackPaneForDate);
+-            vBoxForTime.getChildren().add(labelForDay);
+-            vBoxForTime.getChildren().add(labelForTime);
++        vBoxForTime.getChildren().add(stackPaneForDate);
++        vBoxForTime.getChildren().add(labelForDay);
++        vBoxForTime.getChildren().add(labelForTime);
+ 
+-        } catch (Exception e) {
+-            System.out.println("Error at graphics.app.AppStartPage and at constructor AppStartPage");
+-            System.out.println("Error when try add children!");
+-            System.out.println("Error: " + e.toString());
+-
+-        }
+-        /*
+-        Set attribute for all node.
+-         */
+-        try {
+-            setId();
+-            setCSS();
+-            scenePage.setFill(Color.TRANSPARENT);
++        setId();
++        setCSS();
++        scenePage.setFill(Color.TRANSPARENT);
+ 
+-            vBoxVersionInfo.setLayoutX(40);
+-            vBoxVersionInfo.setLayoutY(670);
++        vBoxVersionInfo.setLayoutX(40);
++        vBoxVersionInfo.setLayoutY(670);
+ 
+-            labelForDate.setTranslateX(2);
+-            labelForMonth.setTranslateX(2);
+-            labelForMonth.setTranslateY(-13);
++        labelForDate.setTranslateX(2);
++        labelForMonth.setTranslateX(2);
++        labelForMonth.setTranslateY(-13);
+ 
+-            vBoxForTime.layout();
+-            vBoxForTime.setLayoutY(DELTA_Y + 20);
+-            vBoxForTime.setLayoutX((APP_WIDTH - vBoxForTime.getMinWidth()) / 2 - 30);
+-            vBoxForTime.setAlignment(Pos.CENTER);
++        vBoxForTime.layout();
++        vBoxForTime.setLayoutY(DELTA_Y + 20);
++        vBoxForTime.setLayoutX((APP_WIDTH - vBoxForTime.getMinWidth()) / 2 - 30);
++        vBoxForTime.setAlignment(Pos.CENTER);
+ 
+-            stackPaneForDate.setAlignment(Pos.CENTER);
++        stackPaneForDate.setAlignment(Pos.CENTER);
+ 
+-            themeGradientDay.setFitWidth(themeGradientDay.getImage().getWidth() * 0.25);
+-            themeGradientDay.setFitHeight(themeGradientDay.getImage().getHeight() * 0.25);
+-            themeGradientDay.setTranslateX(-3);
++        themeGradientDay.setFitWidth(themeGradientDay.getImage().getWidth() * 0.25);
++        themeGradientDay.setFitHeight(themeGradientDay.getImage().getHeight() * 0.25);
++        themeGradientDay.setTranslateX(-3);
+ 
+-            stage.setScene(scenePage);
+-        } catch (Exception e) {
+-            System.out.println("Error at graphics.app.AppStartPage and at constructor AppStartPage");
+-            System.out.println("Error when try set for children!");
+-            System.out.println("Error: " + e);
+-        }
++        stage.setScene(scenePage);
+     }
+ 
+     private void setId() {
+@@ -139,7 +120,7 @@
+         textForLearnButton.setId("textForLearnButton");
+         exitButton.setId("exitButton");
+         controlHBox.setId("controlHBox");
+-        paneWindow.setId("paneForBackground");
++        this.setId("paneForBackground");
+         vBoxForTime.setId("vBoxForTime");
+         minimizeButton.setId("minimizeButton");
+         circleLearnButton.setId("circleLearnButton");
+@@ -148,11 +129,8 @@
+         stateDay.setId("stateDay");
+     }
+ 
+-    private void setCSS() {
+-        vBoxForTime.getStylesheets().add(linkToCSS);
+-        paneWindow.getStylesheets().add(linkToCSS);
+-        hBoxStateDay.getStylesheets().add(linkToCSS);
+-
++    public void setCSS() {
++        this.getStylesheets().add(StyleHelper.getStyleSheet(this,"/css/style_for_appwindow_class.css"));
+         labelForMonth.applyCss();
+         labelForDay.applyCss();
+         labelForDate.applyCss();
+@@ -361,7 +339,7 @@
+      * Set event for button.
+      */
+     private void setEventAndRunForButton() {
+-        applyEventAppWindow();
++        setListener();
+         setLearnButton();
+     }
+ 
+Index: src/main/java/graphics/main/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/main/Main.java b/src/main/java/graphics/main/Main.java
+--- a/src/main/java/graphics/main/Main.java	
++++ b/src/main/java/graphics/main/Main.java	(date 1699900582571)
+@@ -1,9 +1,14 @@
+ package graphics.main;
+ 
++import graphics.app.AppStartPage;
+ import graphics.app.dashboard.FirstDashboard;
+ import graphics.app.dashboard.SecondDashboard;
+ import javafx.application.Application;
++import javafx.scene.Scene;
++import javafx.scene.paint.Color;
+ import javafx.stage.Stage;
++import view.my_dictionary.my_word_box.InformationBox;
++import view.statistic.StatisticBoard;
+ 
+ 
+ public class Main extends Application {
+@@ -12,10 +17,16 @@
+     public void start(Stage stage) throws Exception {
+ //        AppStartPage appStartPage = new AppStartPage(stage);
+ //        appStartPage.showPage();
+-//        FirstDashboard appUserInterface = new FirstDashboard(stage);
++        FirstDashboard appUserInterface = new FirstDashboard(stage);
+ //        appUserInterface.showDashboard();
+-        SecondDashboard secondDashboard = new SecondDashboard(stage);
+-        secondDashboard.showDashboard();
++//        SecondDashboard secondDashboard = new SecondDashboard(stage);
++//        secondDashboard.showDashboard();
++//        InformationBox informationBox = new InformationBox();
++//        StatisticBoard statisticBoard = new StatisticBoard();
++        Scene scene = new Scene(appUserInterface);
++        scene.setFill(Color.TRANSPARENT);
++        appUserInterface.getStageWindow().setScene(scene);
++        appUserInterface.getStageWindow().show();
+     }
+ 
+     public static void main(String[] args) {
+Index: src/main/java/graphics/style/Decorator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/style/Decorator.java b/src/main/java/graphics/style/Decorator.java
+new file mode 100644
+--- /dev/null	(date 1699890778003)
++++ b/src/main/java/graphics/style/Decorator.java	(date 1699890778003)
+@@ -0,0 +1,28 @@
++package graphics.style;
++
++import java.sql.SQLException;
++
++public interface Decorator {
++    /**
++     * Set id.
++     */
++    void setID();
++
++    /**
++     * Set CSS if this class is parent. Else CSS root is its parent.
++     */
++    void setCSS();
++
++    /**
++     * Set layout.
++     */
++    void set();
++
++    /**
++     * Update layout.
++     */
++    void update() throws SQLException;
++
++    String getLink();
++
++}
+Index: src/main/java/graphics/style/CustomFont.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/style/CustomFont.java b/src/main/java/graphics/style/CustomFont.java
+new file mode 100644
+--- /dev/null	(date 1699890778241)
++++ b/src/main/java/graphics/style/CustomFont.java	(date 1699890778241)
+@@ -0,0 +1,11 @@
++package graphics.style;
++
++import javafx.scene.text.Font;
++
++import java.util.Objects;
++
++public class CustomFont {
++    public static final Font ACUMIN_VARIABLE_CONCEPT = Font.loadFont(Objects.requireNonNull(CustomFont.class.getResource("/font/Acumin Variable Concept.ttf")).toExternalForm(),10);
++    public static final Font ACUMIN_VARIABLE_CONCEPT_SEMI_BOLD = Font.loadFont(Objects.requireNonNull(CustomFont.class.getResource("/font/Acumin Variable Concept Semibold.ttf")).toExternalForm(),10);
++
++}
+Index: src/main/java/graphics/style/StyleHelper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/style/StyleHelper.java b/src/main/java/graphics/style/StyleHelper.java
+new file mode 100644
+--- /dev/null	(date 1699891218107)
++++ b/src/main/java/graphics/style/StyleHelper.java	(date 1699891218107)
+@@ -0,0 +1,12 @@
++package graphics.style;
++
++import java.util.Objects;
++
++public class StyleHelper {
++    /**
++     * Get style sheet to add styleSheets of node.
++     */
++    public static String getStyleSheet(Object object, String path) {
++        return Objects.requireNonNull(object.getClass().getResource(path)).toExternalForm();
++    }
++}
+Index: src/main/java/graphics/style/UIComponent.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/style/UIComponent.java b/src/main/java/graphics/style/UIComponent.java
+new file mode 100644
+--- /dev/null	(date 1699890778132)
++++ b/src/main/java/graphics/style/UIComponent.java	(date 1699890778132)
+@@ -0,0 +1,65 @@
++package graphics.style;
++
++import graphics.StandardParameter;
++import javafx.scene.image.ImageView;
++import javafx.scene.layout.HBox;
++import javafx.scene.layout.VBox;
++import javafx.scene.text.Text;
++
++public abstract class UIComponent implements Decorator {
++    public final double WIDTH;
++    public final double HEIGHT;
++    public final double ICON_WIDTH;
++    public final double ICON_HEIGHT;
++
++    protected final VBox layout = new VBox();
++    protected final ImageView icon = new ImageView();
++    protected final Text titleText = new Text();
++    protected final HBox headerHBox = new HBox(titleText, icon);
++    protected final VBox mainVBox = new VBox();
++    protected final double LEFT_MARGIN;
++    protected final double TOP_MARGIN;
++
++    protected UIComponent(double width, double height, double leftMargin, double topMargin) {
++        WIDTH = width * StandardParameter.SCALE;
++        HEIGHT = height * StandardParameter.SCALE;
++        ICON_HEIGHT = 23 * StandardParameter.SCALE;
++        ICON_WIDTH = 23 * StandardParameter.SCALE;
++        LEFT_MARGIN = leftMargin * StandardParameter.SCALE;
++        TOP_MARGIN = topMargin * StandardParameter.SCALE;
++
++
++        setIcon();
++        setTitleUI();
++
++        titleText.applyCss();
++        icon.applyCss();
++
++        icon.setFitWidth(ICON_WIDTH );
++        icon.setFitHeight(ICON_HEIGHT);
++        icon.setTranslateY(-2);
++
++        layout.getChildren().add(headerHBox);
++        layout.getChildren().add(mainVBox);
++        layout.setPrefSize(WIDTH, HEIGHT);
++        layout.setMinSize(WIDTH, HEIGHT);
++        layout.setMaxSize(WIDTH, HEIGHT);
++
++        headerHBox.setTranslateX(LEFT_MARGIN);
++        headerHBox.setTranslateY(TOP_MARGIN);
++        headerHBox.setSpacing(WIDTH - titleText.getLayoutBounds().getWidth() - icon.getFitWidth()-20);
++
++        mainVBox.setTranslateX(LEFT_MARGIN);
++        mainVBox.setTranslateY(TOP_MARGIN);
++    }
++
++    public VBox get() {
++        return layout;
++    }
++
++
++    protected abstract void setIcon();
++
++    protected abstract void setTitleUI();
++
++}
+Index: src/main/java/graphics/ui/Decorator.java
+===================================================================
+diff --git a/src/main/java/graphics/ui/Decorator.java b/src/main/java/graphics/ui/Decorator.java
+deleted file mode 100644
+--- a/src/main/java/graphics/ui/Decorator.java	
++++ /dev/null	
+@@ -1,16 +0,0 @@
+-package graphics.ui;
+-
+-import java.sql.SQLException;
+-
+-public interface Decorator {
+-    void setID();
+-
+-    void setCSS();
+-
+-    void set();
+-
+-    void update() throws SQLException;
+-
+-    String getLink();
+-
+-}
+Index: src/main/java/graphics/ui/CustomFont.java
+===================================================================
+diff --git a/src/main/java/graphics/ui/CustomFont.java b/src/main/java/graphics/ui/CustomFont.java
+deleted file mode 100644
+--- a/src/main/java/graphics/ui/CustomFont.java	
++++ /dev/null	
+@@ -1,12 +0,0 @@
+-package graphics.ui;
+-
+-import javafx.scene.text.Font;
+-import javafx.scene.text.FontWeight;
+-
+-import java.util.Objects;
+-
+-public class CustomFont {
+-    public static final Font ACUMIN_VARIABLE_CONCEPT = Font.loadFont(Objects.requireNonNull(CustomFont.class.getResource("/font/Acumin Variable Concept.ttf")).toExternalForm(),10);
+-    public static final Font ACUMIN_VARIABLE_CONCEPT_SEMI_BOLD = Font.loadFont(Objects.requireNonNull(CustomFont.class.getResource("/font/Acumin Variable Concept Semibold.ttf")).toExternalForm(),10);
+-
+-}
+Index: src/main/java/graphics/ui/UIComponent.java
+===================================================================
+diff --git a/src/main/java/graphics/ui/UIComponent.java b/src/main/java/graphics/ui/UIComponent.java
+deleted file mode 100644
+--- a/src/main/java/graphics/ui/UIComponent.java	
++++ /dev/null	
+@@ -1,65 +0,0 @@
+-package graphics.ui;
+-
+-import graphics.StandardParameter;
+-import javafx.scene.image.ImageView;
+-import javafx.scene.layout.HBox;
+-import javafx.scene.layout.VBox;
+-import javafx.scene.text.Text;
+-
+-public abstract class UIComponent implements Decorator {
+-    public final double WIDTH;
+-    public final double HEIGHT;
+-    public final double ICON_WIDTH;
+-    public final double ICON_HEIGHT;
+-
+-    protected final VBox layout = new VBox();
+-    protected final ImageView icon = new ImageView();
+-    protected final Text titleText = new Text();
+-    protected final HBox headerHBox = new HBox(titleText, icon);
+-    protected final VBox mainVBox = new VBox();
+-    protected final double LEFT_MARGIN;
+-    protected final double TOP_MARGIN;
+-
+-    protected UIComponent(double width, double height, double leftMargin, double topMargin) {
+-        WIDTH = width * StandardParameter.SCALE;
+-        HEIGHT = height * StandardParameter.SCALE;
+-        ICON_HEIGHT = 23 * StandardParameter.SCALE;
+-        ICON_WIDTH = 23 * StandardParameter.SCALE;
+-        LEFT_MARGIN = leftMargin * StandardParameter.SCALE;
+-        TOP_MARGIN = topMargin * StandardParameter.SCALE;
+-
+-
+-        setIcon();
+-        setTitleUI();
+-
+-        titleText.applyCss();
+-        icon.applyCss();
+-
+-        icon.setFitWidth(ICON_WIDTH );
+-        icon.setFitHeight(ICON_HEIGHT);
+-        icon.setTranslateY(-2);
+-
+-        layout.getChildren().add(headerHBox);
+-        layout.getChildren().add(mainVBox);
+-        layout.setPrefSize(WIDTH, HEIGHT);
+-        layout.setMinSize(WIDTH, HEIGHT);
+-        layout.setMaxSize(WIDTH, HEIGHT);
+-
+-        headerHBox.setTranslateX(LEFT_MARGIN);
+-        headerHBox.setTranslateY(TOP_MARGIN);
+-        headerHBox.setSpacing(WIDTH - titleText.getLayoutBounds().getWidth() - icon.getFitWidth()-20);
+-
+-        mainVBox.setTranslateX(LEFT_MARGIN);
+-        mainVBox.setTranslateY(TOP_MARGIN);
+-    }
+-
+-    public VBox get() {
+-        return layout;
+-    }
+-
+-
+-    protected abstract void setIcon();
+-
+-    protected abstract void setTitleUI();
+-
+-}
+Index: src/main/java/graphics/engine/SearchEngine.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/graphics/engine/SearchEngine.java b/src/main/java/graphics/engine/SearchEngine.java
+--- a/src/main/java/graphics/engine/SearchEngine.java	
++++ b/src/main/java/graphics/engine/SearchEngine.java	(date 1699900832253)
+@@ -151,18 +151,18 @@
+             searchShape.setMinHeight(34);
+             isPressed = true;
+         });
+-        listView.getScene().addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
+-            if (e.getTarget() != searchShape && e.getTarget() != paneSearch && e.getTarget() != textInput) {
+-                if (!isPressed) {
+-                    listView.getItems().clear();
+-//                    listViewHistory.getItems().clear();
+-                }
+-                if (textInput.getText().isEmpty()) {
+-                    textInput.setText("Search for word");
+-                }
+-                textInput.setEditable(false);
+-            }
+-        });
++//        listView.getScene().addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
++//            if (e.getTarget() != searchShape && e.getTarget() != paneSearch && e.getTarget() != textInput) {
++//                if (!isPressed) {
++//                    listView.getItems().clear();
++////                    listViewHistory.getItems().clear();
++//                }
++//                if (textInput.getText().isEmpty()) {
++//                    textInput.setText("Search for word");
++//                }
++//                textInput.setEditable(false);
++//            }
++//        });
+         new AnimationTimer(){
+ 
+             @Override
+Index: src/main/java/controller/model/Listener.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/model/Listener.java b/src/main/java/controller/model/Listener.java
+--- a/src/main/java/controller/model/Listener.java	
++++ b/src/main/java/controller/model/Listener.java	(date 1699889739666)
+@@ -1,7 +1,13 @@
+ package controller.model;
+ 
+ public interface Listener {
++    /**
++     * Set listener with other object.
++     */
+     void setListener(Object object);
+ 
++    /**
++     * Set listener all.
++     */
+     void setListener();
+ }
+Index: src/main/java/controller/model/Controller.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/model/Controller.java b/src/main/java/controller/model/Controller.java
+--- a/src/main/java/controller/model/Controller.java	
++++ b/src/main/java/controller/model/Controller.java	(date 1699893108666)
+@@ -1,5 +1,6 @@
+ package controller.model;
+ 
++import javafx.scene.Node;
+ import javafx.scene.layout.Pane;
+ 
+ public abstract class Controller {
+@@ -9,5 +10,5 @@
+ 
+     public abstract void loadData(Object object);
+ 
+-    public abstract Pane getView();
++    public abstract Node getView();
+ }
+Index: src/main/java/controller/progress/ProgressController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/progress/ProgressController.java b/src/main/java/controller/progress/ProgressController.java
+--- a/src/main/java/controller/progress/ProgressController.java	
++++ b/src/main/java/controller/progress/ProgressController.java	(date 1699893427065)
+@@ -2,6 +2,7 @@
+ 
+ import controller.model.Controller;
+ import graphics.app.User;
++import javafx.scene.Node;
+ import javafx.scene.layout.Pane;
+ import view.progress.ProgressView;
+ 
+@@ -15,21 +16,18 @@
+ 
+     @Override
+     public void updateView() {
+-
+     }
+ 
+     @Override
+     public void loadData() {
+-
+     }
+ 
+     @Override
+     public void loadData(Object object) {
+-
+     }
+ 
+     @Override
+-    public Pane getView() {
+-        return progressView.get();
++    public Node getView() {
++        return progressView;
+     }
+ }
+Index: src/main/java/controller/statistic/WordBardChartController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/statistic/WordBardChartController.java b/src/main/java/controller/statistic/WordBardChartController.java
+--- a/src/main/java/controller/statistic/WordBardChartController.java	
++++ b/src/main/java/controller/statistic/WordBardChartController.java	(date 1699893332169)
+@@ -2,6 +2,7 @@
+ 
+ import controller.model.Controller;
+ import data.statistic.WordBarChartData;
++import javafx.scene.Node;
+ import javafx.scene.layout.Pane;
+ import view.statistic.WordBarChartView;
+ 
+@@ -14,21 +15,18 @@
+ 
+     @Override
+     public void updateView() {
+-
+     }
+ 
+     @Override
+     public void loadData() {
+-
+     }
+ 
+     @Override
+     public void loadData(Object object) {
+-
+     }
+ 
+     @Override
+-    public Pane getView() {
+-        return wordBarChartView.get();
++    public Node getView() {
++        return wordBarChartView;
+     }
+ }
+Index: src/main/java/controller/statistic/WordLineChartController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/statistic/WordLineChartController.java b/src/main/java/controller/statistic/WordLineChartController.java
+--- a/src/main/java/controller/statistic/WordLineChartController.java	
++++ b/src/main/java/controller/statistic/WordLineChartController.java	(date 1699893108646)
+@@ -2,6 +2,7 @@
+ 
+ import controller.model.Controller;
+ import data.statistic.WordLineChartData;
++import javafx.scene.Node;
+ import javafx.scene.layout.Pane;
+ import view.statistic.WordLineChartView;
+ 
+@@ -15,7 +16,6 @@
+ 
+     @Override
+     public void updateView() {
+-
+     }
+ 
+     @Override
+@@ -29,7 +29,7 @@
+     }
+ 
+     @Override
+-    public Pane getView() {
+-        return wordLineChartView.get();
++    public Node getView() {
++        return wordLineChartView;
+     }
+ }
+Index: src/main/java/controller/statistic/StatusStatisticController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/statistic/StatusStatisticController.java b/src/main/java/controller/statistic/StatusStatisticController.java
+--- a/src/main/java/controller/statistic/StatusStatisticController.java	
++++ b/src/main/java/controller/statistic/StatusStatisticController.java	(date 1699890778269)
+@@ -1,9 +1,8 @@
+ package controller.statistic;
+ 
+ import controller.model.Controller;
+-import controller.model.Update;
+ import graphics.app.User;
+-import graphics.ui.Decorator;
++import graphics.style.Decorator;
+ import javafx.scene.layout.Pane;
+ import javafx.scene.layout.VBox;
+ import javafx.scene.text.Text;
+Index: src/main/java/controller/my_dictionary/MyDictionaryTableController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/controller/my_dictionary/MyDictionaryTableController.java b/src/main/java/controller/my_dictionary/MyDictionaryTableController.java
+--- a/src/main/java/controller/my_dictionary/MyDictionaryTableController.java	
++++ b/src/main/java/controller/my_dictionary/MyDictionaryTableController.java	(date 1699893570829)
+@@ -4,6 +4,7 @@
+ import data.my_dictionary.MyDictionaryTableData;
+ import data.my_dictionary.MyNewWord;
+ import data.my_dictionary.SQLMyDictionary;
++import javafx.scene.Node;
+ import javafx.scene.layout.Pane;
+ import utility.calendar.Time;
+ import view.my_dictionary.MyDictionaryTableView;
+@@ -16,7 +17,7 @@
+     private final MyDictionaryTableView myDictionaryTableView = new MyDictionaryTableView();
+     private final MyDictionaryTableData myDictionaryTableData = new MyDictionaryTableData();
+ 
+-    public MyDictionaryTableController() throws ParseException {
++    public MyDictionaryTableController() {
+         myDictionaryTableView.connect(myDictionaryTableData.getFilteredList());
+         try {
+             myDictionaryTableData.getObservableList().addAll(SQLMyDictionary.getMyDictionary());
+@@ -30,21 +31,18 @@
+     }
+     @Override
+     public void updateView() {
+-
+     }
+ 
+     @Override
+     public void loadData() {
+-
+     }
+ 
+     @Override
+     public void loadData(Object object) {
+-
+     }
+ 
+     @Override
+-    public Pane getView() {
+-        return myDictionaryTableView.get();
++    public Node getView() {
++        return myDictionaryTableView;
+     }
+ }
+Index: src/main/resources/css/style_for_second_dashboard.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/css/style_for_second_dashboard.css b/src/main/resources/css/style_for_second_dashboard.css
+--- a/src/main/resources/css/style_for_second_dashboard.css	
++++ b/src/main/resources/css/style_for_second_dashboard.css	(date 1699888734886)
+@@ -88,4 +88,15 @@
+     -fx-background-radius: 10px;
+     -fx-background-color: #f4f4f2;
+     -fx-effect: dropshadow(three-pass-box, rgba(73, 73, 72, 0.3),30,0,1,3);
++}
++
++#vBoxInformationBox {
++    -fx-background-color: #f4f4f2;
++    -fx-background-radius: 20px;
++}
++#textInformationBox {
++    -fx-fill: #1f2f3f;
++    -fx-font-family: "Segoe UI";
++    -fx-font-size: 18px;
++    -fx-font-weight: bold;
+ }
+\ No newline at end of file

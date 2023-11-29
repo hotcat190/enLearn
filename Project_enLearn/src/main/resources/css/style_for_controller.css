@@ -1,0 +1,75 @@
+/** LAYOUT */
+#menu-controller__layout {
+    /* || Structure block */
+    -fx-background-color: #1b1b1b;
+    -fx-background-radius: 12px;
+
+    /* || Modifier block */
+    -fx-effect: dropshadow(three-pass-box, rgba(38, 38, 38, 0.3), 10, 0, 0, 0);
+}
+
+.menu-controller__button {
+    all: none;
+    -fx-background-size: 18px 18px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-min-height: 33;
+    -fx-min-width: 33;
+    -fx-max-width: 33;
+    -fx-background-radius: 7;
+
+    -fx-content-display: left;
+    -fx-graphic-text-gap: 18px;
+    -fx-text-fill: #666666;
+    -fx-font-family: "Segoe UI Variable", sans-serif;
+    -fx-font-size: 0px;
+    -fx-font-weight: bold;
+
+    -fx-alignment: baseline-left;
+}
+
+.menu-controller__button:hover {
+    -fx-background-color: rgba(122, 122, 122, 0.1);
+}
+
+.menu-controller__button:selected {
+    -fx-background-color: rgb(27, 62, 237);
+    -fx-text-fill: #f2f2f2;
+    -fx-font-size: 0px;
+}
+
+.menu-controller__button .graphic {
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+}
+
+
+#menu-controller__button--controller {
+    -fx-background-color: transparent;
+    -fx-min-height: 35;
+    -fx-min-width: 35;
+
+    -fx-font-family: "Segoe UI Variable";
+    -fx-font-size: 15px;
+    -fx-font-weight: bolder;
+    -fx-text-fill: rgb(27, 62, 237);
+    -fx-alignment: baseline-left;
+}
+
+#menu-controller__stackpane--controller {
+    -fx-background-color: red;
+}
+#open-controller__button--learn {
+    -fx-text-fill: #f2f2f2;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-pref-width: 60px;
+    -fx-background-color: rgb(27, 62, 237);
+    -fx-background-radius: 7px;
+}
+#open-controller__button--learn:pressed {
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+#open-controller__button--learn:hover {
+    -fx-effect: dropshadow(gaussian, rgba(27, 62, 237, 0.6), 50, 0, 0, 0);
+}
