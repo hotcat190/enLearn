@@ -13,9 +13,14 @@ import java.util.List;
 import java.util.Stack;
 
 public class SQLMyDictionary extends SQLData {
-    private static int curOrder = 1;
+    private int curOrder = 1;
+    private static final SQLMyDictionary INSTANCE = new SQLMyDictionary();
 
-    public static Stack<MyNewWord> getMyDictionary() throws SQLException {
+    public static SQLMyDictionary getInstance() {
+        return INSTANCE;
+    }
+
+    public Stack<MyNewWord> getMyDictionary() throws SQLException {
         String sql = "select * from my_dictionary;";
         ResultSet resultSet = statement.executeQuery(sql);
         HashSet<MyNewWord> hashSet = new HashSet<>();
@@ -36,7 +41,7 @@ public class SQLMyDictionary extends SQLData {
         return stack;
     }
 
-    public static List<String> getMyWords() {
+    public List<String> getMyWords() {
         List<String> myDictionary = new ArrayList<>();
         String sql = "select word from my_dictionary";
         try {
@@ -49,7 +54,8 @@ public class SQLMyDictionary extends SQLData {
             throw new RuntimeException(e);
         }
     }
-    public static void add(MyNewWord myNewWord) {
+
+    public void add(MyNewWord myNewWord) {
         try {
             String sqlUpdate = String.format("insert into my_dictionary(word,pronunciation,updateDate,definition,hourTag)" +
                             "values('%s','%s',date(now()),'%s',time(now()))",
@@ -60,7 +66,7 @@ public class SQLMyDictionary extends SQLData {
         }
     }
 
-    public static void remove(MyNewWord myNewWord) {
+    public void remove(MyNewWord myNewWord) {
         try {
             String sqlUpdate = String.format("delete from my_dictionary " +
                     "where word='%s' and definition='%s'", myNewWord.getWord(), myNewWord.getDefinition());
@@ -71,7 +77,7 @@ public class SQLMyDictionary extends SQLData {
 
     }
 
-    public static void add(String word, String pronunciation, String definition) {
+    public void add(String word, String pronunciation, String definition) {
         try {
             String sqlUpdate = String.format("insert into my_dictionary(word,pronunciation,updateDate,definition,hourTag)" +
                     "values('%s','%s',date(now()),'%s')", word, pronunciation, definition);
@@ -81,7 +87,7 @@ public class SQLMyDictionary extends SQLData {
         }
     }
 
-    public static void update(MyNewWord oldWord, MyNewWord newWord) {
+    public void update(MyNewWord oldWord, MyNewWord newWord) {
         String sqlUpdate = String.format("update my_dictionary " +
                         "set word='%s'," +
                         "pronunciation='%s', " +
@@ -96,12 +102,12 @@ public class SQLMyDictionary extends SQLData {
         }
     }
 
-    public static int getOrder() {
+    public int getOrder() {
         System.out.println(curOrder);
         return curOrder++;
     }
 
-    public static int getTotalWords() {
+    public int getTotalWords() {
         String sql = "select count(*) from my_dictionary";
         ResultSet resultSet = null;
         try {
@@ -113,7 +119,7 @@ public class SQLMyDictionary extends SQLData {
         }
     }
 
-    public static String getLastModified() {
+    public String getLastModified() {
         String sql = "select max(updateDate) from my_dictionary;";
         ResultSet resultSet = null;
         DateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");

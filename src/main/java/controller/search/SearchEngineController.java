@@ -1,8 +1,8 @@
 package controller.search;
 
 import controller.model.Controller;
-import controller.model.Listener;
-import graphics.engine.search.SearchEngineView;
+import graphics.animation.Listener;
+import controller.search.view.SearchEngineView;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
 

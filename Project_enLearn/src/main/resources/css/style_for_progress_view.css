@@ -1,5 +1,0 @@
-#progress-view__pane--layout {
-    -fx-background-radius: 10px;
-    -fx-background-color: #1b1b1b;
-    -fx-effect: dropshadow(three-pass-box, rgba(31, 31, 31, 0.2), 10, 0, 1, 1);
-}

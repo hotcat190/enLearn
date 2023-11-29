@@ -1,7 +1,7 @@
 package controller.my_dictionary.view.my_word_box;
 
 import controller.model.Controller;
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.my_dictionary.MyDictionaryTableController;
 import graphics.StandardParameter;
 import graphics.style.Decorator;

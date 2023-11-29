@@ -1,7 +1,7 @@
 package app.dashboard.home;
 
-import app.Animation;
-import controller.model.Listener;
+import graphics.animation.Animation;
+import graphics.animation.Listener;
 import graphics.StandardParameter;
 import graphics.style.Decorator;
 import javafx.animation.KeyFrame;

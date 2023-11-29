@@ -6,12 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Time {
-
-    /**
-     * Main date variable to get everything about calendar.
-     */
-    private Date date = new Date();
-
     /**
      * Get AM or PM at time now.
      *
@@ -56,6 +50,10 @@ public class Time {
         return pattern.format(new Date());
     }
 
+    public static String getDateWithFormat(String format) {
+        DateFormat pattern = new SimpleDateFormat(format);
+        return pattern.format(new Date());
+    }
     public static java.sql.Date getDateOf(String date) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         return new java.sql.Date(dateFormat.parse(date).getTime());

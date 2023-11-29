@@ -33,6 +33,10 @@ public class PartOfSpeechController extends Controller implements Update {
 
     @Override
     public Pane getView() {
-        return partOfSpeechView.getLayout();
+        return partOfSpeechView;
+    }
+
+    public PartOfSpeechView getPartOfSpeechView() {
+        return partOfSpeechView;
     }
 }

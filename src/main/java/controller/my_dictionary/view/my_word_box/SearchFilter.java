@@ -1,17 +1,15 @@
 package controller.my_dictionary.view.my_word_box;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.my_dictionary.data.MyNewWord;
 import graphics.StandardParameter;
 import graphics.style.Decorator;
 import javafx.collections.transformation.FilteredList;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 import java.sql.SQLException;
 import java.util.Objects;

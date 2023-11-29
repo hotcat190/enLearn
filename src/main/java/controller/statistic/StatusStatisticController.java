@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class StatusStatisticController extends Controller implements Decorator {
     private final Text textTop = new Text("Total Words Learn");
-    private final Text textTotal = new Text(String.valueOf(SQLUser.getTotalWords()));
+    private final Text textTotal = new Text(String.valueOf(SQLUser.getInstance().getTotalWords()));
     private final Text textDate = new Text();
     private final VBox vBox = new VBox();
 
@@ -50,7 +50,7 @@ public class StatusStatisticController extends Controller implements Decorator {
 
     @Override
     public void update() throws SQLException {
-        textTotal.setText(String.valueOf(SQLUser.getTotalWords()));
+        textTotal.setText(String.valueOf(SQLUser.getInstance().getTotalWords()));
     }
 
     @Override

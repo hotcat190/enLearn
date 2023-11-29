@@ -18,10 +18,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import graphics.load.SingletonAnimationLoading;
 
 import java.util.*;
 
-public class PartOfSpeechView implements Decorator {
+public class PartOfSpeechView extends VBox implements Decorator, SingletonAnimationLoading {
     /**
      * Components.
      */
@@ -31,7 +32,6 @@ public class PartOfSpeechView implements Decorator {
     /**
      * Views.
      */
-    private final VBox vBox = new VBox();
     private final HBox hBoxPOS = new HBox();
     private final ScrollPane scrollPane = new ScrollPane();
     public final DefinitionView definitionView = new DefinitionView();
@@ -66,12 +66,10 @@ public class PartOfSpeechView implements Decorator {
         definitionView.loadData(word);
     }
 
-    public VBox getLayout() {
-        return vBox;
-    }
-    @Override
     public void setId() {
         scrollPane.setId("scrollPane");
+        hBoxPOS.setId("part-of-speech-view__hbox-pos");
+        this.setId("part-of-speech-view__vbox--layout");
     }
 
     @Override
@@ -85,13 +83,13 @@ public class PartOfSpeechView implements Decorator {
 
         scrollPane.setMinSize(498 * StandardParameter.SCALE, 160);
         scrollPane.setMaxSize(498 * StandardParameter.SCALE, 160);
-        scrollPane.setContent(definitionView.getLayout());
+        scrollPane.setContent(definitionView);
 
 
-        vBox.setAlignment(Pos.CENTER_LEFT);
-        vBox.getChildren().add(hBoxPOS);
-        vBox.getChildren().add(scrollPane);
-        vBox.setSpacing(10);
+        this.setAlignment(Pos.CENTER_LEFT);
+        this.getChildren().add(hBoxPOS);
+        this.getChildren().add(scrollPane);
+        this.setSpacing(10);
     }
 
     @Override
@@ -170,10 +168,10 @@ public class PartOfSpeechView implements Decorator {
         }
         icon.setFitWidth(22);
         icon.setFitHeight(22);
-        definitionView.getLayout().getChildren().add(hBox);
+        definitionView.getChildren().add(hBox);
     }
     private void setDefUI(List<String> defList) {
-        definitionView.getLayout().getChildren().clear();
+        definitionView.getChildren().clear();
         StringBuilder exampleSection = new StringBuilder();
         for (int i = 0; i < defList.size(); i++) {
             String def = defList.get(i);
@@ -182,7 +180,7 @@ public class PartOfSpeechView implements Decorator {
             ImageView icon = new ImageView();
             if (def.startsWith("-")) {
                 if (i - 1 > 0 && !defList.get(i - 1).startsWith("-")) {
-                    definitionView.getLayout().getChildren().add(new HBox(new Text("")));
+                    definitionView.getChildren().add(new HBox(new Text("")));
                 }
                 text.setText(def);
                 addDefUI(hBox, text, icon, "definition");
@@ -198,5 +196,34 @@ public class PartOfSpeechView implements Decorator {
                 }
             }
         }
+    }
+
+    @Override
+    public void setSingletonOnLoading() {
+        for (Node node : hBoxPOS.getChildren()) {
+            node.setOpacity(0);
+        }
+        definitionView.getChildren().clear();
+        scrollPane.getContent().setOpacity(0);
+        hBoxPOS.setStyle("-fx-background-color: rgb(56,56,56)");
+
+        hBoxPOS.setMaxWidth(400);
+        scrollPane.setMinSize(400 * StandardParameter.SCALE, 160);
+        scrollPane.setMaxSize(400 * StandardParameter.SCALE, 160);
+        this.setMaxWidth(400);
+        this.setStyle("-fx-background-color: rgb(56,56,56)");
+
+    }
+
+    @Override
+    public void removeSingletonLoading() {
+        for (Node node : hBoxPOS.getChildren()) {
+            node.setOpacity(1);
+        }
+        scrollPane.getContent().setOpacity(1);
+        hBoxPOS.setStyle("-fx-background-color: transparent");
+        scrollPane.setMinSize(498 * StandardParameter.SCALE, 160);
+        scrollPane.setMaxSize(498 * StandardParameter.SCALE, 160);
+        this.setStyle("-fx-background-color: transparent");
     }
 }

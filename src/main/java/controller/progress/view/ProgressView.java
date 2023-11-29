@@ -10,8 +10,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import view.model.Connector;
 
-import java.sql.SQLException;
-
 public class ProgressView extends Pane implements Decorator, Connector {
     /**
      * Singleton.
@@ -71,9 +69,9 @@ public class ProgressView extends Pane implements Decorator, Connector {
 
     @Override
     public void update() {
-        bandConnect.set(String.valueOf(SQLUser.getBand()));
-        streakConnect.set(String.valueOf(SQLUser.getStreakDay()));
-        skillConnect.set(SQLUser.getSkillPoint());
+        bandConnect.set(String.valueOf(SQLUser.getInstance().getBand()));
+        streakConnect.set(String.valueOf(SQLUser.getInstance().getStreakDay()));
+        skillConnect.set(SQLUser.getInstance().getSkillPoint());
     }
 
     @Override

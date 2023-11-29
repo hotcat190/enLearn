@@ -1,6 +1,6 @@
 package app.dashboard.model;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import graphics.style.Decorator;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -15,4 +15,6 @@ public abstract class Dashboard extends Pane implements Listener, Decorator, Das
     public VBox getTitle() {
         return textLayout;
     }
+
+    public abstract void load();
 }

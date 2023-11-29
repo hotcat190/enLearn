@@ -1,18 +1,15 @@
 package sql.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public abstract class SQLData {
-    protected static Connection connection;
-    protected static Statement statement;
+    protected Connection connection;
+    protected  Statement statement;
 
-    static {
+    protected SQLData() {
         try {
             connection = DriverManager.getConnection(SQLSever.URL, SQLSever.USER, SQLSever.PASSWORD);
-            statement = connection.createStatement();
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             statement.execute("set sql_safe_updates=0;");
         } catch (SQLException e) {
             throw new RuntimeException(e);

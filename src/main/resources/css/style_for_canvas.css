@@ -12,11 +12,7 @@
 }
 
 #version {
-<<<<<<<< HEAD:Project_enLearn/src/resources/css/style_for_appwindow_class.css
-    /* || Typography Block*/
-========
     /* || Typography Block */
->>>>>>>> 38c4f56933a0d027639b88c5d6dac5b6467de8dd:src/main/resources/css/style_for_canvas.css
     -fx-font-family: Arial;
     -fx-font-size: 12px;
     -fx-font-weight: bolder;
@@ -62,21 +58,6 @@
     -fx-font-weight: lighter;
 }
 
-<<<<<<<< HEAD:Project_enLearn/src/resources/css/style_for_appwindow_class.css
-#exitButton {
-    all: none;
-    /* || Structure Block*/
-    -fx-background-image: url('../image/exit_button_app.png');
-    -fx-background-color: transparent;
-    -fx-min-width: 40;
-    -fx-min-height: 30;
-    -fx-background-size: 12 12;
-    -fx-background-position: center center;
-    -fx-background-repeat: no-repeat;
-    -fx-background-radius: 0 25 0 0;
-}
-========
->>>>>>>> 38c4f56933a0d027639b88c5d6dac5b6467de8dd:src/main/resources/css/style_for_canvas.css
 
 /* MINIMIZE BUTTON */
 #canvas__button--minimize {
@@ -109,10 +90,6 @@
 #canvas__button--exit {
     all: none;
     /* || Structure Block*/
-<<<<<<<< HEAD:Project_enLearn/src/resources/css/style_for_appwindow_class.css
-    -fx-background-image: url('../image/exit_button_hover_app.png');
-    -fx-background-color: rgba(135, 233, 224, 0.8);
-========
     -fx-background-image: url('../image/exit_button_app.png');
     -fx-background-color: transparent;
     -fx-min-width: 40;
@@ -127,7 +104,6 @@
     /* || Structure Block*/
     -fx-background-image: url('../image/exit_button_hover_app.png');
     -fx-background-color: #1b3eed;
->>>>>>>> 38c4f56933a0d027639b88c5d6dac5b6467de8dd:src/main/resources/css/style_for_canvas.css
     -fx-min-width: 40;
     -fx-min-height: 30;
     -fx-background-size: 12 12;

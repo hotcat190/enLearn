@@ -1,6 +1,6 @@
 package app.dashboard.home;
 
-import app.Animation;
+import graphics.animation.Animation;
 import graphics.StandardParameter;
 import graphics.style.Decorator;
 import javafx.animation.*;
@@ -88,6 +88,10 @@ public class GoTestCard extends Pane implements Decorator, Animation {
             rotateTransition.setFromAngle(0);
             rotateTransition.stop();
         });
+    }
+
+    public Button getGoButton() {
+        return goButton;
     }
 
     public static GoTestCard getInstance() {

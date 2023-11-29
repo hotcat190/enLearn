@@ -4,6 +4,7 @@ import graphics.StandardParameter;
 import graphics.style.Decorator;
 import graphics.style.StyleHelper;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.chart.*;
 import view.model.Connector;
 
@@ -29,7 +30,7 @@ public class WordLineChartView extends LineChart<String, Number> implements Deco
 
     @Override
     public void setId() {
-        this.setId("lineChart");
+        this.setId("word-line-chart-view__chart--layout");
     }
 
     @Override
@@ -42,6 +43,7 @@ public class WordLineChartView extends LineChart<String, Number> implements Deco
         this.setMaxSize(640 * StandardParameter.SCALE, 300);
         this.setMinSize(640 * StandardParameter.SCALE, 300);
         this.getYAxis().setTickMarkVisible(false);
+        this.setPadding(new Insets(30,0,0,0));
 
         this.getData().add(series);
         this.setCreateSymbols(false);

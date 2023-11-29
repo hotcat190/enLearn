@@ -9,10 +9,7 @@ import java.sql.SQLException;
 public class TestDashboard extends Dashboard {
     private final static TestDashboard TEST_DASHBOARD = new TestDashboard();
     private final TestController testController = TestController.getInstance();
-    private TestDashboard() {
-        setId();
-        setCSS();
-        set();
+    public TestDashboard() {
     }
 
     /**
@@ -76,5 +73,12 @@ public class TestDashboard extends Dashboard {
 
     public static TestDashboard getInstance() {
         return TEST_DASHBOARD;
+    }
+
+    @Override
+    public void load() {
+        setId();
+        setCSS();
+        set();
     }
 }

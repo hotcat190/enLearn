@@ -2,28 +2,20 @@ package app.dashboard.home;
 
 import controller.progress.ProgressController;
 import controller.search.SearchEngineController;
-import controller.my_dictionary.data.MyDictionaryTableData;
-import controller.my_dictionary.data.MyNewWord;
-import graphics.Canvas;
+import graphics.canvas.Canvas;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
-import sql.dictionary.SQLMyDictionary;
 import graphics.StandardParameter;
 import app.dashboard.model.Dashboard;
 import graphics.style.StyleHelper;
 import javafx.animation.AnimationTimer;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import controller.statistic.view.StatisticBoard;
 import controller.word.view.WordBoard;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.time.LocalTime;
 
 
 public class HomeDashboard extends Dashboard {
@@ -52,12 +44,7 @@ public class HomeDashboard extends Dashboard {
     private final Text textProgress = new Text("Progress");
     private final GoTestCard goTestCard = GoTestCard.getInstance();
 
-    private HomeDashboard() {
-
-        setId();
-        setCSS();
-        set();
-        setListener();
+    public HomeDashboard() {
     }
 
     @Override
@@ -175,5 +162,13 @@ public class HomeDashboard extends Dashboard {
 
     public static HomeDashboard getInstance() {
         return INSTANCE;
+    }
+
+    @Override
+    public void load() {
+        setId();
+        setCSS();
+        set();
+        setListener();
     }
 }

@@ -34,13 +34,13 @@ public class WordLineChartData extends Data {
     @Override
     public void set() {
         try {
-            observableList.add(new XYChart.Data<>("Mon", SQLStatisticWeek.getTotalWords(DayOfWeek.Monday.name())));
-            observableList.add(new XYChart.Data<>("Tue", SQLStatisticWeek.getTotalWords(DayOfWeek.Tuesday.name())));
-            observableList.add(new XYChart.Data<>("Wed", SQLStatisticWeek.getTotalWords(DayOfWeek.Wednesday.name())));
-            observableList.add(new XYChart.Data<>("Thus", SQLStatisticWeek.getTotalWords(DayOfWeek.Thursday.name())));
-            observableList.add(new XYChart.Data<>("Fri", SQLStatisticWeek.getTotalWords(DayOfWeek.Friday.name())));
-            observableList.add(new XYChart.Data<>("Sat", SQLStatisticWeek.getTotalWords(DayOfWeek.Saturday.name())));
-            observableList.add(new XYChart.Data<>("Sun", SQLStatisticWeek.getTotalWords(DayOfWeek.Sunday.name())));
+            observableList.add(new XYChart.Data<>("Mon", SQLStatisticWeek.getInstance().getTotalWords(DayOfWeek.Monday.name())));
+            observableList.add(new XYChart.Data<>("Tue", SQLStatisticWeek.getInstance().getTotalWords(DayOfWeek.Tuesday.name())));
+            observableList.add(new XYChart.Data<>("Wed", SQLStatisticWeek.getInstance().getTotalWords(DayOfWeek.Wednesday.name())));
+            observableList.add(new XYChart.Data<>("Thus", SQLStatisticWeek.getInstance().getTotalWords(DayOfWeek.Thursday.name())));
+            observableList.add(new XYChart.Data<>("Fri", SQLStatisticWeek.getInstance().getTotalWords(DayOfWeek.Friday.name())));
+            observableList.add(new XYChart.Data<>("Sat", SQLStatisticWeek.getInstance().getTotalWords(DayOfWeek.Saturday.name())));
+            observableList.add(new XYChart.Data<>("Sun", SQLStatisticWeek.getInstance().getTotalWords(DayOfWeek.Sunday.name())));
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

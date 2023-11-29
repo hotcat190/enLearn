@@ -8,11 +8,11 @@ module apppackage {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
 
-    exports graphics.main;
+    exports main;
     exports utility.calendar;
 
     opens controller.my_dictionary.data;
     opens sql.dictionary;
     opens controller.word.data;
-
+    opens controller.translator.data;
 }

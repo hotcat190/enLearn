@@ -23,7 +23,7 @@ public class MyDictionaryTableController extends Controller {
     private MyDictionaryTableController() {
         myDictionaryTableView.connect(myDictionaryTableData.getFilteredList());
         try {
-            myDictionaryTableData.getObservableList().addAll(SQLMyDictionary.getMyDictionary());
+            myDictionaryTableData.getObservableList().addAll(SQLMyDictionary.getInstance().getMyDictionary());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

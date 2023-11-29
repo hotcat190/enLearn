@@ -6,40 +6,49 @@ import java.sql.*;
 import java.util.*;
 
 public class Word {
-    private final String word ;
+    private final String word;
     private String pronunciation = "";
     private String part_of_speech = "";
     private final ArrayList<String> pastTenseList = new ArrayList<>();
     private final HashMap<String, String> hashMap = new HashMap<>();
-    private final HashMap<String, List<String>> linesDefHashMap=new HashMap<>();
-    private final ArrayList<String> synonymsList ;
-    private final ArrayList<String> antonymsList ;
+    private final HashMap<String, List<String>> linesDefHashMap = new HashMap<>();
+    private final ArrayList<String> synonymsList;
+    private final ArrayList<String> antonymsList;
     private String priorityDefinition;
 
-    private boolean isIrregularVerb=false;
-    public Word(String word) throws SQLException {
-        ResultSet resultSet = SQLDictionary.getWord("^" + word.trim() + " $");
-        this.word = word;
-        while (resultSet.next()) {
-            pronunciation = resultSet.getString(2);
-            part_of_speech = resultSet.getString(3);
-            part_of_speech = decodePOS();
-            String definition = resultSet.getString(4);
-            definition = definition.replaceAll("[=]", "• ");
-            definition = definition.replaceAll("[+]", ":");
-            definition = definition.replaceAll("[\n][!]", "\n▶ ");
-            if (!definition.isEmpty()) {
-                hashMap.put(part_of_speech, definition);
-                linesDefHashMap.put(part_of_speech, definition.lines().toList());
-                priorityDefinition = linesDefHashMap.get(part_of_speech).get(0);
+
+    public Word(String word) {
+        ResultSet resultSet = null;
+        try {
+            resultSet = SQLDictionary.getInstance().getWord("^" + word.trim() + " $");
+            this.word = word;
+            while (resultSet.next()) {
+                pronunciation = resultSet.getString(2);
+                part_of_speech = resultSet.getString(3);
+                part_of_speech = decodePOS();
+                String definition = resultSet.getString(4);
+                definition = definition.replaceAll("=", "• ");
+                definition = definition.replaceAll("[+]", ":");
+                definition = definition.replaceAll("\n!", "\n▶ ");
+                if (!definition.isEmpty()) {
+                    hashMap.put(part_of_speech, definition);
+                    linesDefHashMap.put(part_of_speech, definition.lines().toList());
+                    priorityDefinition = linesDefHashMap.get(part_of_speech).get(0);
+                }
+            }
+            pastTenseList.addAll(SQLDictionary.getInstance().getIrregularVerb(word));
+            antonymsList = SQLDictionary.getInstance().getAntonyms(word);
+            synonymsList = SQLDictionary.getInstance().getSynonyms(word);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                assert resultSet != null;
+                resultSet.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
         }
-        if(SQLDictionary.getIrregularVerb(word)!=null) {
-            pastTenseList.addAll(SQLDictionary.getIrregularVerb(word));
-            isIrregularVerb = true;
-        }
-        antonymsList = SQLDictionary.getAntonyms(word);
-        synonymsList = SQLDictionary.getSynonyms(word);
     }
 
     public String getWord() {
@@ -63,9 +72,6 @@ public class Word {
         return pastTenseList;
     }
 
-    public boolean isIrregularVerb() {
-        return isIrregularVerb;
-    }
 
     public ArrayList<String> getSynonymsList() {
         return synonymsList;

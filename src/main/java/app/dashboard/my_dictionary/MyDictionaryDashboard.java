@@ -31,10 +31,6 @@ public class MyDictionaryDashboard extends Dashboard {
     private final GridPane gridPane = new GridPane();
 
     public MyDictionaryDashboard() {
-        setId();
-        setCSS();
-        set();
-        setListener();
     }
 
     /**
@@ -110,5 +106,13 @@ public class MyDictionaryDashboard extends Dashboard {
 
     public static MyDictionaryDashboard getInstance() {
         return INSTANCE;
+    }
+
+    @Override
+    public void load() {
+        setId();
+        setCSS();
+        set();
+        setListener();
     }
 }

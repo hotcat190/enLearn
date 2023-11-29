@@ -1,6 +1,6 @@
 package controller.test.controller;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.test.vocabulary.VocabularyTestController;
 import controller.test.reading.ReadingTestController;
 import graphics.StandardParameter;

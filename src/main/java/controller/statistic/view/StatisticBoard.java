@@ -1,8 +1,8 @@
 package controller.statistic.view;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.statistic.StatusStatisticController;
-import controller.statistic.WordBardChartController;
+import controller.statistic.TimeBarChartController;
 import controller.statistic.WordLineChartController;
 import graphics.StandardParameter;
 import graphics.style.Decorator;
@@ -12,7 +12,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.*;
-import view.model.GraphButton;
 
 import java.sql.SQLException;
 
@@ -21,7 +20,7 @@ public class StatisticBoard extends StackPane implements Decorator, Listener {
     /**
      * Components.
      */
-    private final WordBardChartController wordBardChartController = new WordBardChartController();
+    private final TimeBarChartController timeBarChartController = new TimeBarChartController();
     private final StatusStatisticController statusStatisticController = new StatusStatisticController();
     private final WordLineChartController wordLineChartController = new WordLineChartController();
 
@@ -54,12 +53,12 @@ public class StatisticBoard extends StackPane implements Decorator, Listener {
         HBox h_box = new HBox(statusStatisticController.getView(), graphButton);
         h_box.setAlignment(Pos.CENTER_LEFT);
         h_box.setSpacing(300);
-        h_box.setTranslateY(25);
-        h_box.setPadding(new Insets(0,0,0,20));
+        h_box.setTranslateY(15);
+        h_box.setPadding(new Insets(0,0,0,30));
         graphButton.get().setTranslateY(5);
         vBox.getChildren().addAll(
                 h_box,
-                wordBardChartController.getView()
+                timeBarChartController.getView()
         );
 
         this.setAlignment(Pos.CENTER);
@@ -89,7 +88,7 @@ public class StatisticBoard extends StackPane implements Decorator, Listener {
                 statusStatisticController.update(menuItem.getText());
                 if (menuItem.getText().equals("Time")) {
                     vBox.getChildren().remove(1);
-                    vBox.getChildren().add(wordBardChartController.getView());
+                    vBox.getChildren().add(timeBarChartController.getView());
                 } else if (menuItem.getText().equals("Word")) {
                     vBox.getChildren().remove(1);
                     vBox.getChildren().add(wordLineChartController.getView());

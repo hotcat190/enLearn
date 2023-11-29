@@ -1,11 +1,11 @@
 package app.dashboard.translator;
 
-import app.MenuController;
-import graphics.Canvas;
+import app.controller.MenuController;
+import graphics.canvas.Canvas;
 import app.dashboard.model.Dashboard;
 import graphics.style.StyleHelper;
 import javafx.scene.text.Text;
-import controller.translate.view.TranslateView;
+import controller.translator.view.TranslateView;
 
 import java.sql.SQLException;
 
@@ -21,9 +21,6 @@ public class TranslatorDashboard extends Dashboard {
     private final Text textSource = new Text("API FROM GOOGLE");
 
     public TranslatorDashboard() {
-        setId();
-        setCSS();
-        set();
     }
 
     /**
@@ -103,5 +100,12 @@ public class TranslatorDashboard extends Dashboard {
 
     public static TranslatorDashboard getInstance() {
         return INSTANCE;
+    }
+
+    @Override
+    public void load() {
+        setId();
+        setCSS();
+        set();
     }
 }

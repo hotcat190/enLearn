@@ -1,6 +1,6 @@
 package controller.progress.view;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import graphics.style.Decorator;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;

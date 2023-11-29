@@ -120,7 +120,7 @@ public class MyDictionaryTableView extends TableView<MyNewWord> implements Conne
                                 } else {
                                     MyNewWord myNewWord = getTableView().getItems().get(getIndex());
                                     deleteButton.setOnMouseClicked(e -> {
-                                        SQLMyDictionary.remove(myNewWord);
+                                        SQLMyDictionary.getInstance().remove(myNewWord);
                                         MyDictionaryTableData.getInstance().remove(myNewWord);
                                         myDictionaryTableView.refresh();
                                     });

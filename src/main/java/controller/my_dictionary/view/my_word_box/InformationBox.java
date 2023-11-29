@@ -51,8 +51,8 @@ public class InformationBox extends HBox implements Decorator {
         textTitleTotal.setTranslateX(10);
         textModified.setTranslateX(10);
         textTitleModified.setTranslateX(10);
-        textTotal.setText(String.valueOf(SQLMyDictionary.getTotalWords()));
-        textModified.setText(SQLMyDictionary.getLastModified());
+        textTotal.setText(String.valueOf(SQLMyDictionary.getInstance().getTotalWords()));
+        textModified.setText(SQLMyDictionary.getInstance().getLastModified());
 
         vBoxTotal.getChildren().addAll(textTotal, textTitleTotal);
         vBoxTotal.setPrefSize(103 * StandardParameter.SCALE, 72 * StandardParameter.SCALE);

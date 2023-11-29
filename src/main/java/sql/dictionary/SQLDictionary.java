@@ -1,23 +1,34 @@
 package sql.dictionary;
 
 import sql.model.SQLData;
+import sql.model.SQLSever;
 
 import java.sql.*;
 import java.util.*;
 
 public class SQLDictionary extends SQLData {
+    private static final SQLDictionary INSTANCE = new SQLDictionary();
 
-    public static ResultSet getWord(String regexp) throws SQLException {
-        String sql = String.format("select * from dictionary where word regexp(\"%s\");", regexp);
+    public static SQLDictionary getInstance() {
+        return INSTANCE;
+    }
+
+    private SQLDictionary() {
+    }
+    public ResultSet getWord(String regexp) throws SQLException {
+
+        String sql = String.format("""
+                         select * from dictionary where word regexp('%s');
+                """, regexp);
          return statement.executeQuery(sql);
     }
 
-    public static boolean isExisted(String word) throws SQLException {
+    public boolean isExisted(String word) throws SQLException {
         String sql = String.format("select * from dictionary where word =\"%s\";", word.trim());
         return statement.executeQuery(sql).next();
     }
 
-    public static void putHistory(String word)  {
+    public void putHistory(String word)  {
         String sqlSafe = "set sql_safe_updates=0;";
         String sqlDelete = String.format("delete from history where word='%s';", word);
         String sql = String.format("insert into history values(now(),'%s');", word);
@@ -31,7 +42,7 @@ public class SQLDictionary extends SQLData {
         }
     }
 
-    public static String getMedia(String word) {
+    public String getMedia(String word) {
         String sql = String.format("select distinct media from sound where word='%s'", word);
         try {
             ResultSet resultSet = statement.executeQuery(sql);
@@ -42,10 +53,10 @@ public class SQLDictionary extends SQLData {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return "";
     }
 
-    public static List<String> getHistory() {
+    public List<String> getHistory() {
         List<String> list = new ArrayList<>();
         String sql = "select word from history order by lastModifier desc;";
         try {
@@ -56,46 +67,52 @@ public class SQLDictionary extends SQLData {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return  list;
+        return list;
     }
 
-    public static ArrayList<String> getIrregularVerb(String word) throws SQLException {
-        String sql = String.format("select * from irregular_verbs where infinity=\"%s\"", word);
+    public ArrayList<String> getIrregularVerb(String word) throws SQLException {
+        String sql = String.format("""
+        select * from irregular_verbs where infinity='%s'
+        """, word);
         ResultSet resultSet = statement.executeQuery(sql);
+        ArrayList<String> arrayList = new ArrayList<>();
         if (resultSet.next()) {
-            ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(resultSet.getString(2));
             arrayList.add(resultSet.getString(3));
             return arrayList;
         }
-        return null;
+        return arrayList;
     }
 
-    public static ArrayList<String> getAntonyms(String word) throws SQLException {
+    public ArrayList<String> getAntonyms(String word) throws SQLException {
         String sql = String.format("select * from antonyms where word=\"%s\"", word);
         ResultSet resultSet = statement.executeQuery(sql);
         if (resultSet.next()) return new ArrayList<>(Arrays.asList(resultSet.getString(2).split(",")));
-        return null;
+        return new ArrayList<>();
     }
 
-    public static ArrayList<String> getSynonyms(String word) throws SQLException {
+    public ArrayList<String> getSynonyms(String word) throws SQLException {
         String sql = String.format("select * from synonyms where word=\"%s\"", word);
         ResultSet resultSet = statement.executeQuery(sql);
         if (resultSet.next()) {
             ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(resultSet.getString(2).split(";")));
-            if (arrayList.size() >= 6) {
-                arrayList = new ArrayList<>(arrayList.subList(0,6));
-            }
+
             for (int i=0;i<arrayList.size();i++) {
+                if (!SQLDictionary.getInstance().isExisted(arrayList.get(i))) {
+                    arrayList.remove(i);
+                    continue;
+                }
                 arrayList.set(i, arrayList.get(i).split("\\|")[0]);
+            }
+            if (arrayList.size() >= 4) {
+                arrayList = new ArrayList<>(arrayList.subList(0,4));
             }
             return arrayList;
         }
-
-        return null;
+        return new ArrayList<>();
     }
 
-    public static ArrayList<String> getDictionary() {
+    public ArrayList<String> getDictionary() {
         String sql = "select distinct word from dictionary;";
         try {
             ResultSet resultSet = statement.executeQuery(sql);

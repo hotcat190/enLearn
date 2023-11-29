@@ -10,11 +10,17 @@ public class IrregularVerbsData extends DataWord {
     }
 
     public String getPastSimple() {
-        return word.getPastTenseList().get(0);
+        if(!word.getPastTenseList().isEmpty()) {
+            return word.getPastTenseList().get(0);
+        }
+        return "";
     }
 
     public String getPastParticiple() {
-        return word.getPastTenseList().get(1);
+        if(!word.getPastTenseList().isEmpty()) {
+            return word.getPastTenseList().get(1);
+        }
+        return "";
     }
 
     /**

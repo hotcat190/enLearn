@@ -11,8 +11,8 @@ import java.util.Random;
 public class VocabularyTestData {
     private final int AMOUNT;
     private final List<VocabularyWord> vocabularyWords = new ArrayList<>();
-    private final List<String> dictionary = SQLDictionary.getDictionary();
-    private final List<String> myDictionary = SQLMyDictionary.getMyWords();
+    private final List<String> dictionary = SQLDictionary.getInstance().getDictionary();
+    private final List<String> myDictionary = SQLMyDictionary.getInstance().getMyWords();
 
     public VocabularyTestData(int amount) {
         AMOUNT = amount;

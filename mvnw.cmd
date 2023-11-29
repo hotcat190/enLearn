@@ -127,11 +127,7 @@ FOR /F "usebackq tokens=1,2 delims==" %%A IN ("%MAVEN_PROJECTBASEDIR%\.mvn\wrapp
 )
 
 @REM Extension to allow automatically downloading the maven-wrapper.jar from Maven-central
-<<<<<<< HEAD:Project_enLearn/mvnw.cmd
-@REM This allows using the maven wrapper in projects that prohibit checking in binary dictionary.
-=======
 @REM This allows using the maven wrapper in projects that prohibit checking in binary sql.dictionary.
->>>>>>> 38c4f56933a0d027639b88c5d6dac5b6467de8dd:mvnw.cmd
 if exist %WRAPPER_JAR% (
     if "%MVNW_VERBOSE%" == "true" (
         echo Found %WRAPPER_JAR%

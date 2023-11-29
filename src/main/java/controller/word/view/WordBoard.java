@@ -1,23 +1,27 @@
 package controller.word.view;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.my_dictionary.data.MyDictionaryTableData;
 import controller.my_dictionary.data.MyNewWord;
 import controller.word.AntonymsController;
 import controller.word.IrregularVerbsController;
 import controller.word.PartOfSpeechController;
 import controller.word.SynonymsController;
-import graphics.engine.search.SearchEngineHistoryView;
+import controller.search.view.SearchEngineHistoryView;
 import graphics.style.StyleHelper;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
+import graphics.load.SingletonAnimationLoading;
 import sql.dictionary.SQLMyDictionary;
 import sql.statistic.SQLStatisticWeek;
 import sql.user.SQLUser;
 import sql.dictionary.SQLDictionary;
 import controller.word.data.Word;
 import graphics.StandardParameter;
-import graphics.engine.search.SearchEngineView;
+import controller.search.view.SearchEngineView;
 import graphics.style.Decorator;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
@@ -38,16 +42,7 @@ import java.sql.Time;
 import java.time.LocalTime;
 import java.util.Objects;
 
-public class WordBoard extends VBox implements Decorator, Listener {
-
-    /**
-     * Standard Parameter.
-     */
-
-    public final static double WIDTH = 525 * StandardParameter.SCALE;
-    public final static double HEIGHT = 500 * StandardParameter.SCALE;
-    private final static double LEFT_MARGIN = 30 * StandardParameter.SCALE;
-    private final static double TOP_MARGIN = 30 * StandardParameter.SCALE;
+public class WordBoard extends VBox implements Decorator, Listener, SingletonAnimationLoading {
     /**
      * Controllers.
      */
@@ -73,6 +68,8 @@ public class WordBoard extends VBox implements Decorator, Listener {
     private final static WordBoard INSTANCE = new WordBoard();
     private final VBox mainVBox = new VBox();
     private final HBox modifierHBox = new HBox();
+    private final HBox hBoxSpeech = new HBox(textPronunciation, speechButton, addButton);
+
 
     /**
      * Singleton.
@@ -97,6 +94,8 @@ public class WordBoard extends VBox implements Decorator, Listener {
         textWord.setId("word-board__text--word");
         textPronunciation.setId("word-board__text--pronunciation");
         speechButton.setId("word-board__button--speech");
+
+        hBoxSpeech.setId("word-board__hbox--speech");
     }
 
     @Override
@@ -109,9 +108,7 @@ public class WordBoard extends VBox implements Decorator, Listener {
 
     public void load(Word word) {
         this.word = word;
-        if (word.isIrregularVerb()) {
-            irregularVerbsController.loadData(word);
-        }
+        irregularVerbsController.loadData(word);
         partOfSpeechController.loadData(word);
         synonymsController.loadData(word);
         antonymsController.loadData(word);
@@ -120,6 +117,8 @@ public class WordBoard extends VBox implements Decorator, Listener {
 
     @Override
     public void set() {
+        textWord.setPadding(new Insets(10, 0, 0, 0));
+
         nullIcon.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(
                 "/image/null_icon_grammar_app.png"
         ))));
@@ -134,9 +133,8 @@ public class WordBoard extends VBox implements Decorator, Listener {
         speechButton.setVisible(false);
         addButton.setVisible(false);
 
-        final HBox h_box_speech = new HBox(textPronunciation, speechButton, addButton);
-        h_box_speech.setAlignment(Pos.CENTER_LEFT);
-        h_box_speech.setSpacing(10);
+        hBoxSpeech.setAlignment(Pos.CENTER_LEFT);
+        hBoxSpeech.setSpacing(10);
         HBox hBox_contronym = new HBox(synonymsController.getView(), antonymsController.getView());
         hBox_contronym.setSpacing(100 * StandardParameter.SCALE);
 
@@ -145,7 +143,7 @@ public class WordBoard extends VBox implements Decorator, Listener {
         this.setSpacing(30);
 
         mainVBox.getChildren().add(textWord);
-        mainVBox.getChildren().add(h_box_speech);
+        mainVBox.getChildren().add(hBoxSpeech);
         mainVBox.getChildren().addAll(partOfSpeechController.getView());
         mainVBox.setSpacing(10);
         mainVBox.setAlignment(Pos.TOP_LEFT);
@@ -160,18 +158,22 @@ public class WordBoard extends VBox implements Decorator, Listener {
     }
 
     public void lastUpdate(String selectionWord) {
+        setSingletonOnLoading();
         new Thread(() -> {
             try {
                 load(new Word(selectionWord));
-                SQLUser.increaseTotalWords();
-                SQLStatisticWeek.increaseTotalWordsAndTotalTimes();
-                SQLDictionary.putHistory(word.getWord());
+                SQLUser.getInstance().increaseTotalWords();
+                SQLStatisticWeek.getInstance().increaseTotalWordsAndTotalTimes();
+                SQLDictionary.getInstance().putHistory(word.getWord());
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
             new Thread(() -> Platform.runLater(() -> {
                 try {
                     update();
+
+                    textWord.setBackground(Background.fill(Color.TRANSPARENT));
+                    removeSingletonLoading();
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -182,7 +184,7 @@ public class WordBoard extends VBox implements Decorator, Listener {
     @Override
     public void update() throws SQLException {
         irregularVerbsController.updateView();
-        textWord.setText(word.getWord().replace(word.getWord().substring(0, 1), word.getWord().substring(0, 1).toUpperCase()));
+        textWord.setText(word.getWord().replaceFirst(word.getWord().substring(0, 1), word.getWord().substring(0, 1).toUpperCase()));
         textPronunciation.setText(word.getPronunciation());
         partOfSpeechController.updateView();
         synonymsController.updateView(this);
@@ -209,28 +211,64 @@ public class WordBoard extends VBox implements Decorator, Listener {
     public void setListener() {
         speechButton.setOnMouseClicked(e -> {
             System.out.println("Media is " + word.getWord());
-            Media media = new Media(SQLDictionary.getMedia(word.getWord().trim()));
+            Media media = new Media(SQLDictionary.getInstance().getMedia(word.getWord().trim()));
             MediaPlayer mediaPlayer = new MediaPlayer(media);
             mediaPlayer.play();
         });
         SearchEngineView searchEngineView = SearchEngineView.getInstance();
-        searchEngineView.getListView().addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            lastUpdate(searchEngineView.getWordSelected());
-        });
+        searchEngineView.getListView().addEventHandler(MouseEvent.MOUSE_CLICKED, e -> lastUpdate(searchEngineView.getWordSelected()));
         searchEngineView.addEventHandler(KeyEvent.KEY_PRESSED, e -> {
             if (e.getCode() == KeyCode.ENTER) {
                 lastUpdate(searchEngineView.getWordSelected());
             }
         });
         addButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            MyNewWord myNewWord = new MyNewWord(SQLMyDictionary.getOrder(),
+            MyNewWord myNewWord = new MyNewWord(SQLMyDictionary.getInstance().getOrder(),
                     word.getWord(),
                     word.getPronunciation(),
                     new Date(System.currentTimeMillis()),
                     Time.valueOf(LocalTime.now()), word.getPriorityDefinition()
             );
-            SQLMyDictionary.add(myNewWord);
+            SQLMyDictionary.getInstance().add(myNewWord);
             MyDictionaryTableData.getInstance().add(myNewWord);
         });
+    }
+
+    @Override
+    public void setSingletonOnLoading() {
+        textWord.setTranslateY(10);
+        textPronunciation.setTranslateY(10);
+        hBoxSpeech.setTranslateY(10);
+        partOfSpeechController.getPartOfSpeechView().setTranslateY(10);
+
+        textWord.setText(" ".repeat(10));
+        textPronunciation.setText(" ".repeat(10));
+
+        textWord.setStyle("-fx-background-color: rgb(56,56,56);");
+        textPronunciation.setStyle("-fx-background-color: rgb(56,56,56);");
+        partOfSpeechController.getPartOfSpeechView().setSingletonOnLoading();
+        hBoxSpeech.setMaxWidth(400);
+        hBoxSpeech.setStyle(
+                "    -fx-background-color: rgb(56,56,56);");
+        for (Node node : hBoxSpeech.getChildren()) {
+            node.setOpacity(0);
+        }
+    }
+
+    @Override
+    public void removeSingletonLoading() {
+        textWord.setTranslateY(0);
+        textPronunciation.setTranslateY(0);
+        hBoxSpeech.setTranslateY(0);
+        partOfSpeechController.getPartOfSpeechView().setTranslateY(0);
+
+        partOfSpeechController.getPartOfSpeechView().removeSingletonLoading();
+        hBoxSpeech.setStyle(
+                "    -fx-background-color: transparent;");
+        textWord.setStyle("-fx-background-color: transparent;");
+        textPronunciation.setStyle("-fx-background-color: transparent;");
+        for (Node node : hBoxSpeech.getChildren()) {
+            node.setOpacity(1);
+        }
     }
 }

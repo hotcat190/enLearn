@@ -1,6 +1,6 @@
 package controller.test.vocabulary.fill_in_word;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.test.vocabulary.data.VocabularyWord;
 import graphics.StandardParameter;
 import graphics.style.Decorator;

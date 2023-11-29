@@ -1,6 +1,6 @@
 package controller.test.vocabulary.fill_in_word;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.test.controller.TestController;
 import controller.test.vocabulary.data.VocabularyTestData;
 import controller.test.vocabulary.data.VocabularyWord;

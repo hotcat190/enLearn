@@ -1,8 +1,7 @@
 package controller.test.reading.view;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.test.controller.TestController;
-import controller.test.controller.TestOpen;
 import controller.test.reading.data.ReadingQuestion;
 import controller.test.reading.data.ReadingTestData;
 import controller.test.view.model.TestView;

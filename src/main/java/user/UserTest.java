@@ -35,8 +35,8 @@ public class UserTest {
                 fibPoint += 2;
             }
         });
-        SQLUser.setBand(rPoint + fibPoint);
-        SQLUser.update();
+        SQLUser.getInstance().setBand(rPoint + fibPoint);
+        SQLUser.getInstance().update();
         ProgressView.getInstance().update();
     }
 
@@ -46,8 +46,8 @@ public class UserTest {
                 rPoint += 20;
             }
         });
-        SQLUser.setBand(rPoint + fibPoint);
-        SQLUser.update();
+        SQLUser.getInstance().setBand(rPoint + fibPoint);
+        SQLUser.getInstance().update();
         ProgressView.getInstance().update();
     }
 

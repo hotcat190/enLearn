@@ -1,6 +1,6 @@
 package controller.my_dictionary.view.my_word_box;
 
-import controller.model.Listener;
+import graphics.animation.Listener;
 import controller.my_dictionary.data.MyDictionaryTableData;
 import controller.my_dictionary.data.MyNewWord;
 import javafx.geometry.Insets;
@@ -103,12 +103,12 @@ public class AddMyWordBox extends UIComponent implements Listener {
     public void setListener(Object object) {
         saveButton.setOnMouseClicked(e -> {
             if (!nameInput.getInput().isEmpty()) {
-                MyNewWord myNewWord = new MyNewWord(SQLMyDictionary.getOrder(),
+                MyNewWord myNewWord = new MyNewWord(SQLMyDictionary.getInstance().getOrder(),
                         nameInput.getInput(),
                         pronunciationInput.getInput(),
                         new Date(System.currentTimeMillis()),
                         Time.valueOf(LocalTime.now()), definitionInput.getInput());
-                SQLMyDictionary.add(myNewWord);
+                SQLMyDictionary.getInstance().add(myNewWord);
                 MyDictionaryTableData.getInstance().add(myNewWord);
             }
             AddMyWordBoxController.getInstance().hide();
