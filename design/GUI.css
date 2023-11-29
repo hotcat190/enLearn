@@ -1,0 +1,60 @@
+@charset "utf-8";
+	.NormalCharacterStyle
+{
+	font-family : Calibri;
+	font-size : 6px;
+	letter-spacing : 1.2px;
+	color : #1F2F3F;
+	color : rgb(31, 47, 63);
+}
+.NormalCharacterStyle1
+{
+	font-family : Source Code Variable;
+	font-weight : bold;
+	font-size : 16px;
+	color : #1F2F3F;
+	color : rgb(31, 47, 63);
+}
+.NormalCharacterStyle2
+{
+	font-family : Gill Sans MT;
+	font-weight : bold;
+	font-size : 18px;
+	letter-spacing : 0.18px;
+	color : #EFCB35;
+	color : rgb(239, 203, 53);
+	text-outline : #EFCB35;
+	text-outline : rgb(239, 203, 53);
+}
+.NormalCharacterStyle5
+{
+	font-family : Segoe UI;
+	font-size : 21px;
+	letter-spacing : 0.21px;
+	color : #1F2F3F;
+	color : rgb(31, 47, 63);
+}
+.NormalCharacterStyle4
+{
+	font-family : Source Code Variable;
+	font-weight : bold;
+	font-size : 16px;
+	letter-spacing : 4.8px;
+	color : #1F2F3F;
+	color : rgb(31, 47, 63);
+}
+.NormalCharacterStyle6
+{
+	font-family : Myriad Pro;
+	font-size : 12px;
+	color : #1F2F3F;
+	color : rgb(31, 47, 63);
+}
+.NormalCharacterStyle3
+{
+	font-family : Myriad Variable Concept;
+	font-size : 13px;
+	letter-spacing : 0.13px;
+	color : #1F2F3F;
+	color : rgb(31, 47, 63);
+}

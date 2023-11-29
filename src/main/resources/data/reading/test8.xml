@@ -1,0 +1,22 @@
+<test>
+    <paragraph>
+        Marie Curie was one of the most accomplished scientists in history. Together with her husband, Pierre, she discovered radium, an element widely used for treating cancer, and studied uranium and other radioactive substances. Pierre and Marie’s amicable collaboration later helped to unlock the secrets of the atom.
+    </paragraph>
+    <question>
+        The Curies’ _________ collaboration helped to unlock the secrets of the atom.
+    </question>
+    <answers>
+        friendly
+        competitive
+        courteous
+        industrious
+        chemistry
+    </answers>
+    <correctAnswer>
+        friendly
+    </correctAnswer>
+    <explanation>
+        “Amicable” means friendly. It does not mean competitive (B), i.e. oppositional, ambitious, or aggressive; courteous (C), i.e. polite; industrious (D), i.e. hard-working; or chemistry (E): their collaboration was in physics, but moreover, the passage specifically describes their collaboration as “amicable.”
+    </explanation>
+</test>
+

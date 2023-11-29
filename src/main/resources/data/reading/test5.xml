@@ -1,0 +1,22 @@
+<test>
+    <paragraph>
+        A papal decree of 1493 had assigned all land in the New World west of 50 degrees W longitude to Spain and all the land east of that line to Portugal. Magellan offered to prove that the East Indies fell under Spanish authority. On September 20, 1519, Magellan set sail from Spain with five ships. More than a year later, one of these ships was exploring the topography of South America in search of a water route across the continent. This ship sank, but the remaining four ships searched along the southern peninsula of South America. Finally they found the passage they sought near 50 degrees S latitude. Magellan named this passage the Strait of All Saints, but today it is known as the Strait of Magellan.
+    </paragraph>
+    <question>
+        Four of the ships sought a passage along a southern ______.
+    </question>
+    <answers>
+        coast
+        inland
+        body of land with water on three sides
+        border
+        Answer not available
+    </answers>
+    <correctAnswer>
+        physical features
+    </correctAnswer>
+    <explanation>
+        Topography means the physical features of a land mass. It does not mean coastline (A), mountain range (B), or islands (D).
+    </explanation>
+</test>
+

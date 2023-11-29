@@ -1,0 +1,22 @@
+<test>
+    <paragraph>
+        In addition to making these investigations, archaeologists have been able to study the skeletons of victims by using distilled water to wash away the volcanic ash. By strengthening the brittle bones with acrylic paint, scientists have been able to examine the skeletons and draw conclusions about the diet and habits of the residents. Finally, the excavations at both Pompeii and Herculaneum have yielded many examples of classical art, such as jewelry made of bronze, which is an alloy of copper and tin. The eruption of Mount Vesuvius and its tragic consequences have provided everyone with a wealth of data about the effects that volcanoes can have on the surrounding area. Today, volcanologists can locate and predict eruptions, saving lives and preventing the destruction of other cities and cultures.
+    </paragraph>
+    <question>
+        Scientists have used _________ water to wash away volcanic ash from the skeletons of victims.
+    </question>
+    <answers>
+        bottled
+        volcanic
+        purified
+        sea
+        fountain
+    </answers>
+    <correctAnswer>
+        purified
+    </correctAnswer>
+    <explanation>
+        Distilled water is purified water. Distilled water is not equivalent to bottled (A), volcanic (B), sea (D), or fountain (E) water.
+    </explanation>
+</test>
+
