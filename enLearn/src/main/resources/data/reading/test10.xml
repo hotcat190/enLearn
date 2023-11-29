@@ -1,0 +1,22 @@
+<test>
+    <paragraph>
+        Marie was born in 1867 in Warsaw, Poland, where her father was a professor of physics. At an early age, she displayed a brilliant mind and a blithe personality. Her great exuberance for learning prompted her to continue with her studies after high school. She became disgruntled, however, when she learned that the university in Warsaw was closed to women. Determined to receive a higher education, she defiantly left Poland and in 1891 entered the Sorbonne, a French university, where she earned her master’s degree and doctorate in physics.
+    </paragraph>
+    <question>
+        When she learned that she could not attend the university in Warsaw, she felt _________.
+    </question>
+    <answers>
+        hopeless
+        annoyed
+        depressed
+        worried
+        None of the above
+    </answers>
+    <correctAnswer>
+        annoyed
+    </correctAnswer>
+    <explanation>
+        “Disgruntled” means annoyed. It does not mean hopeless (A), depressed (C), or worried (D).
+    </explanation>
+</test>
+

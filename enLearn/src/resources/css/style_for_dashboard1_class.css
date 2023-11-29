@@ -1,0 +1,175 @@
+
+#pane {
+    /* || Structure Block*/
+    -fx-background-image: url('../image/user_interface_app.png');
+    -fx-background-color: transparent;
+    -fx-background-size: 95%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+
+    /* || Modifier Block*/
+    -fx-effect: dropshadow(three-pass-box, rgba(10, 10, 10, 0.15), 30, 0, -2, 2);
+}
+
+/* SEARCH ENGINE*/
+#searchShape {
+    all: none;
+    /* || Structure Block*/
+    -fx-background-color: rgba(244, 244, 242, 1);
+    -fx-background-radius: 21px;
+    -fx-min-width: 272;
+    -fx-min-height: 34;
+
+    /* || Modifier Block*/
+    -fx-effect: dropshadow(three-pass-box, rgba(89, 82, 49, 0.08), 5, 0, 2, 2);
+}
+
+#searchEngine {
+    -fx-background-color: transparent;
+    -fx-font-family: "Myriad Pro";
+    -fx-font-size: 12;
+    -fx-text-fill: rgb(192, 187, 170);
+
+}
+
+/* TRANSLATE ENGINE*/
+@font-face {
+    font-family: "sourcebold";
+    src: url('../font/SourceCodePro-Bold.ttf');
+}
+
+#title {
+    /* || Typography block*/
+    -fx-font-family: "Source Code Pro";
+    -fx-font-size: 23px;
+    -fx-fill: rgb(31, 47, 63);
+    -fx-font-weight: bold;
+}
+.text-area .viewport {
+    -fx-background-color: transparent;
+}
+
+
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+ /*TEXT INPUT SCROLL BAR*/
+#textInput {
+    -fx-background-color: transparent;
+    -fx-text-fill: #c0bbaa;
+    -fx-font-family: "Myriad Pro";
+    -fx-font-size: 12;
+}
+
+#textInput .scroll-bar > .increment-button, .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+
+}
+#textInput .scroll-bar {
+    -fx-background-color: transparent;
+}
+#textInput .scroll-bar > .thumb {
+    -fx-background-color: rgb(53, 35, 229);
+    -fx-background-radius: 20px;
+}
+#textInput .scroll-bar > .thumb:hover {
+    -fx-background-color: rgb(87, 69, 252);
+}
+#textInput .scroll-bar > .track {
+    -fx-background-color: #c7c5c5;
+    -fx-background-radius: 20px;
+}
+
+#textInput .scroll-bar > .corner {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px;
+}
+
+/* TEXT OUTPUT SCROLLBAR*/
+#textOutput {
+    -fx-background-color: transparent;
+    -fx-text-fill: #d4d1ff;
+    -fx-font-family: "Myriad Pro";
+    -fx-font-size: 12;
+}
+
+#textOutput .scroll-bar > .increment-button, .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+
+}
+#textOutput .scroll-bar {
+    -fx-background-color: transparent;
+}
+#textOutput .scroll-bar > .thumb {
+    -fx-background-color: rgb(223, 217, 250);
+    -fx-background-radius: 20px;
+}
+#textOutput .scroll-bar > .thumb:hover {
+    -fx-background-color: rgb(191, 178, 250);
+}
+#textOutput .scroll-bar > .track {
+    -fx-background-color: #2211be;
+    -fx-background-radius: 20px;
+}
+
+#textOutput .scroll-bar > .corner {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px;
+}
+#copyIcon{
+    -fx-opacity: 0.6;
+}
+#copyIcon:hover {
+    -fx-opacity: 1;
+}
+
+/* TAG LANGUAGE*/
+#tagLangFrom {
+    all: none;
+    /* || Typography Block*/
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 10px;
+    -fx-text-fill: #3523e5;
+    -fx-font-weight: bold;
+
+    /* || Structure Block*/
+    -fx-background-color: rgba(227, 227, 227, 0.4);
+    -fx-min-width: 30px;
+    -fx-min-height: 2px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15),2,0,0,0);
+}
+
+#tagLangTo {
+    all: none;
+    /* || Typography Block*/
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 10px;
+    -fx-text-fill: #efefef;
+    -fx-font-weight: bold;
+
+    /* || Structure Block*/
+    -fx-background-color: rgba(227, 227, 227, 0.4);
+    -fx-min-width: 30px;
+    -fx-min-height: 2px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15),2,0,0,0);
+}
+
+/* || SWITCH ICON */
+#switchIcon {
+    /* || Structure Block*/
+    -fx-background-image: url('../image/switch_icon_app.png');
+    -fx-opacity: 0.8;
+    -fx-background-size: 50%;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-background-radius: 50px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1),5,0,3,3);
+}
+#switchIcon:hover{
+    -fx-opacity: 1;
+}
