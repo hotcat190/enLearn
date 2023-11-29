@@ -1,0 +1,10 @@
+#text {
+    -fx-fill: #efebeb;
+    -fx-font-family: "Source Code Pro";
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+    -fx-background-color: transparent;
+}
+#rect {
+    -fx-background-color: #121e28;
+}
