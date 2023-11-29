@@ -61,6 +61,7 @@ public class TranslateView extends HBox implements Decorator, Connector, Listene
     public static TranslateView getInstance() {
         return INSTANCE;
     }
+
     /**
      * Set id.
      */
@@ -198,6 +199,7 @@ public class TranslateView extends HBox implements Decorator, Connector, Listene
             String temp = menuButtonFrom.getText();
             menuButtonFrom.setText(menuItemFrom.getText());
             menuItemFrom.setText(temp);
+            menuItemTo.setText(menuButtonTo.getText());
             menuButtonTo.setText(menuItemFrom.getText());
         });
 
@@ -205,7 +207,9 @@ public class TranslateView extends HBox implements Decorator, Connector, Listene
             String temp = menuButtonTo.getText();
             menuButtonTo.setText(menuItemTo.getText());
             menuItemTo.setText(temp);
+            menuItemFrom.setText(menuButtonFrom.getText());
             menuButtonFrom.setText(menuItemTo.getText());
+
         });
     }
 }

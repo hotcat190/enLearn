@@ -72,7 +72,7 @@ public class UserSkill {
         if (average < 3) {
             return "C";
         }
-        if (average < 4) {
+        if (average < 4) {  
             return "C+";
         }
         if (average < 5) {

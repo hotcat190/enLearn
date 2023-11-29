@@ -20,9 +20,7 @@
     -fx-border-radius: 100%;
     -fx-background-color: transparent;
 }
-#select-card-view__radiobutton .radio .dot {
-    -fx-background-color: #1b3eed;
-}
+
 
 #select-card-view__radiobutton .text {
     -fx-font-family: "Segoe UI Variable";

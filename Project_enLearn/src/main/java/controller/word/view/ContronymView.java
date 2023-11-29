@@ -19,7 +19,6 @@ public abstract class ContronymView extends UIComponent {
     private ArrayList<String> contronymList;
     private final FlowPane contronymFlowPane = new FlowPane();
     private final Color GRAPHIC_TEXT_COLOR_OF_BUTTON;
-    private final Label textNoContent = new Label("No content here!");
 
     protected ContronymView(double width, double height, double leftMargin, double topMargin, Color colorGraphic) {
         super(width, height, leftMargin, topMargin);
@@ -63,7 +62,6 @@ public abstract class ContronymView extends UIComponent {
     public void setId() {
         layout.setId("contronym--view__pane--layout");
         titleText.setId("contronym--view__text--title");
-        textNoContent.setId("contronym-view__text--no-content");
     }
 
     @Override
@@ -75,7 +73,6 @@ public abstract class ContronymView extends UIComponent {
         setContronymFlowPane();
         mainVBox.getChildren().add(contronymFlowPane);
         mainVBox.setTranslateY(25);
-        textNoContent.setPadding(new Insets(0, 0, 0, 35));
     }
 
     public void connect(ArrayList<String> contronymList) {
@@ -102,12 +99,6 @@ public abstract class ContronymView extends UIComponent {
         while (i < contronymFlowPane.getChildren().size()) {
             Button button = (Button) contronymFlowPane.getChildren().get(i++);
             button.setVisible(false);
-        }
-
-        if (contronymList.isEmpty()) {
-            layout.getChildren().add(textNoContent);
-        } else {
-            layout.getChildren().remove(textNoContent);
         }
     }
 
