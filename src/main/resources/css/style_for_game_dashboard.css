@@ -1,0 +1,20 @@
+#flip-card__stackpane--layout {
+    -fx-background-radius: 10px;
+    -fx-background-color: #1b1b1b;
+}
+.game-dashboard__button--control {
+    -fx-background-image: url(../image/arrow_icon.png);
+    -fx-background-color: transparent;
+    -fx-pref-width: 50px;
+    -fx-pref-height: 50px;
+    -fx-border-radius: 100px;
+    -fx-border-width: 2px;
+    -fx-border-color: #1b3eed;
+    -fx-background-size: 50%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+.game-dashboard__button--control:pressed {
+    -fx-scale-x: 90%;
+    -fx-scale-y: 90%;
+}

@@ -1,0 +1,22 @@
+<test>
+    <paragraph>
+        The volcano had been inactive for centuries. There was little warning of the coming eruption, although one account unearthed by archaeologists says that a hard rain and a strong wind had disturbed the celestial calm during the preceding night. Early the next morning, the volcano poured a huge river of molten rock down upon Herculaneum, completely burying the city and filling the harbor with coagulated lava.
+    </paragraph>
+    <question>
+        Herculaneum and its harbor were buried under _________ lava.
+    </question>
+    <answers>
+        liquid
+        solid
+        flowing
+        gas
+        Answer not available
+    </answers>
+    <correctAnswer>
+        solid
+    </correctAnswer>
+    <explanation>
+        “Coagulated” means solidified. Liquid (A) is an opposite of solid. Flowing (C) assumes a liquid, not solid, state. Gas (D) is another opposite of solid. (Three states of matter, like volcanic material, are liquid, solid, and gaseous.)
+    </explanation>
+</test>
+

@@ -1,0 +1,22 @@
+<test>
+    <paragraph>
+        A papal decree of 1493 had assigned all land in the New World west of 50 degrees W longitude to Spain and all the land east of that line to Portugal. Magellan offered to prove that the East Indies fell under Spanish authority. On September 20, 1519, Magellan set sail from Spain with five ships. More than a year later, one of these ships was exploring the topography of South America in search of a water route across the continent. This ship sank, but the remaining four ships searched along the southern peninsula of South America. Finally they found the passage they sought near 50 degrees S latitude. Magellan named this passage the Strait of All Saints, but today it is known as the Strait of Magellan.
+    </paragraph>
+    <question>
+        The passage was found near 50 degrees S of ________.
+    </question>
+    <answers>
+        Greenwich
+        The equator
+        Spain
+        Portugal
+        Madrid
+    </answers>
+    <correctAnswer>
+        The equator
+    </correctAnswer>
+    <explanation>
+        The passage was found near 50 degrees S latitude. Latitudes are measured horizontally, in relation to the equator or central imaginary line, equidistant between the North and South Poles. Longitudes are measured vertically. Greenwich (A), the location of zero degrees longitude, adopted as the global standard, is both incorrect and never named in the passage. Spain (C), Portugal (D), and Madrid (E) in Spain are also incorrect.
+    </explanation>
+</test>
+
