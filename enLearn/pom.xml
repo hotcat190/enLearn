@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>Project_enLearn</artifactId>
+  <artifactId>enLearn</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Project_enLearn</name>
+  <name>enLearn</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
