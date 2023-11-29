@@ -17,7 +17,7 @@ An English-Vietnamese dictionary and an English learning app.
 - Flip card vocabulary game.
 - User-friendly graphical version or simple command-line interface.
 ## Set up
-- Import database from folder EnglishLearningApp.
+- Import database from folder [EnglishLearningApp](https://drive.google.com/file/d/1mHKaka6RBGfd0guMYWMaWynnbRrXaBWI/view?usp=sharing).
 
 ## Screenshots
 ![image](https://github.com/hotcat190/enLearn/assets/124645604/a1e5547b-244c-4ecc-a81d-53c49ee3523d)
