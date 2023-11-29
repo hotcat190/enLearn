@@ -1,7 +1,8 @@
 # English Learning App
 ![logo_icon](https://github.com/hotcat190/enLearn/assets/124645604/86393c5b-ae60-48a1-9585-c194b7f28f39)
 
-![image](https://github.com/hotcat190/enLearn/assets/124645604/9fcae4a1-5885-4857-bc05-3d488b3259c2)# enLearn
+![image](https://github.com/hotcat190/enLearn/assets/124645604/9fcae4a1-5885-4857-bc05-3d488b3259c2)
+# enLearn
 
 An English-Vietnamese dictionary and an English learning app.
 
